@@ -35,8 +35,8 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             line-height: 1.6;
-            color: #f0f0f0;
-            background-color: #0a0a0a;
+            color: #FFFFFF; /* Beyaz metin */
+            background-color: #000000; /* Tam siyah arkaplan */
             overflow-x: hidden;
         }
 
@@ -50,7 +50,7 @@
         }
 
         /* ==========================================================================
-           HERO BÖLÜMÜ - PROFESYONEL LÜKS TASARIM
+           HERO BÖLÜMÜ - SİYAH BEYAZ
            ========================================================================== */
         .hero {
             min-height: 100vh;
@@ -60,14 +60,11 @@
             align-items: center;
             text-align: center;
             padding: 40px 20px;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
-                linear-gradient(180deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,1) 100%);
+            background: #000000; /* Tam siyah */
         }
 
         /* ==========================================================================
-           LOGO STİLLERİ - LÜKS TASARIM
+           LOGO STİLLERİ - SİYAH BEYAZ
            ========================================================================== */
         .logo-container {
             margin-bottom: 30px;
@@ -82,7 +79,7 @@
             max-width: min(450px, 85vw);
             height: auto;
             object-fit: contain;
-            filter: drop-shadow(0 6px 20px rgba(212, 175, 55, 0.15));
+            filter: drop-shadow(0 6px 20px rgba(255, 255, 255, 0.1)); /* Beyaz gölge */
             max-height: 140px;
             margin-bottom: 10px;
             transition: all 0.4s ease;
@@ -90,21 +87,18 @@
 
         .site-logo:hover {
             transform: scale(1.03);
-            filter: drop-shadow(0 8px 25px rgba(212, 175, 55, 0.25));
+            filter: drop-shadow(0 8px 25px rgba(255, 255, 255, 0.2)); /* Daha güçlü beyaz gölge */
         }
 
         /* ==========================================================================
-           BAŞLIK BÖLÜMÜ - PROFESYONEL TİPOGRAFİ
+           BAŞLIK BÖLÜMÜ - SİYAH BEYAZ
            ========================================================================== */
         .brand-title {
             font-size: clamp(3rem, 6vw, 4rem);
             font-weight: 800;
             line-height: 1;
             margin: 15px 0 5px;
-            background: linear-gradient(135deg, #ffffff 0%, #d4af37 60%, #b8941f 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #FFFFFF; /* Beyaz */
             letter-spacing: 1px;
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
@@ -112,7 +106,7 @@
         .brand-subtitle {
             font-size: clamp(1.8rem, 3vw, 2.2rem);
             font-weight: 300;
-            color: #d4af37;
+            color: #CCCCCC; /* Açık gri */
             margin: 0 0 25px;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -120,7 +114,7 @@
         }
 
         /* ==========================================================================
-           PREMIUM ETİKETLER - LÜKS GÖRÜNÜM
+           ETİKETLER - SİYAH BEYAZ
            ========================================================================== */
         .premium-tags {
             display: flex;
@@ -134,45 +128,44 @@
         }
 
         .premium-tag {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            color: #d4af37;
+            background: rgba(255, 255, 255, 0.05); /* Çok açık transparan beyaz */
+            border: 1px solid #666666; /* Orta gri border */
+            color: #CCCCCC; /* Açık gri */
             font-weight: 600;
             padding: 12px 28px;
             border-radius: 8px;
             font-size: 1.1rem;
             letter-spacing: 0.5px;
-            backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
 
         .premium-tag:hover {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(212, 175, 55, 0.15) 100%);
+            background: rgba(255, 255, 255, 0.1); /* Daha açık transparan beyaz */
+            border-color: #FFFFFF; /* Beyaz border */
+            color: #FFFFFF; /* Beyaz */
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.1);
         }
 
         /* ==========================================================================
-           AÇIKLAMA METNİ - PROFESYONEL STİL
+           AÇIKLAMA METNİ - SİYAH BEYAZ
            ========================================================================== */
         .hero-description {
             font-size: 1.15rem;
             max-width: 700px;
             margin: 0 auto 50px;
-            color: #ccc;
+            color: #AAAAAA; /* Orta gri */
             line-height: 1.8;
             font-weight: 300;
             padding: 0 20px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .highlight {
-            color: #d4af37;
+            color: #FFFFFF; /* Beyaz */
             font-weight: 500;
         }
 
         /* ==========================================================================
-           MOBİL HİZALAMA CONTAINER'ı - PROFESYONEL ÇÖZÜM
+           MOBİL HİZALAMA CONTAINER'ı
            ========================================================================== */
         .mobile-aligned-container {
             width: 100%;
@@ -184,7 +177,7 @@
         }
 
         /* ==========================================================================
-           BUTONLAR - LÜKS TASARIM
+           BUTONLAR - SİYAH BEYAZ
            ========================================================================== */
         .cta-buttons {
             display: flex;
@@ -205,7 +198,7 @@
             font-size: 1.1rem;
             text-decoration: none;
             transition: all 0.4s ease;
-            border: none;
+            border: 2px solid #FFFFFF; /* Beyaz border */
             min-width: 180px;
             letter-spacing: 0.5px;
             position: relative;
@@ -216,36 +209,19 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
-            color: #0a0a0a;
+            background: transparent; /* Şeffaf */
+            color: #FFFFFF; /* Beyaz */
             font-weight: 700;
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
         }
 
         .btn-primary:hover {
-            background: linear-gradient(135deg, #e6c158 0%, #c9a42a 100%);
+            background: #FFFFFF; /* Beyaz arkaplan */
+            color: #000000; /* Siyah metin */
             transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.4);
-        }
-
-        .btn-primary::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 40px;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: rotate(30deg);
-            transition: all 0.6s ease;
-        }
-
-        .btn-primary:hover::after {
-            left: 120%;
         }
 
         /* ==========================================================================
-           İLETİŞİM BİLGİLERİ - LÜKS STİL
+           İLETİŞİM BİLGİLERİ - SİYAH BEYAZ
            ========================================================================== */
         .contact-info {
             margin-top: 10px;
@@ -263,9 +239,9 @@
         }
 
         .contact-link.unified-style {
-            background: rgba(212, 175, 55, 0.08);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            color: #d4af37;
+            background: rgba(255, 255, 255, 0.05); /* Çok açık transparan beyaz */
+            border: 1px solid #666666; /* Orta gri border */
+            color: #CCCCCC; /* Açık gri */
             font-weight: 500;
             padding: 14px 24px;
             border-radius: 8px;
@@ -275,42 +251,37 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            backdrop-filter: blur(10px);
             width: 100%;
             box-sizing: border-box;
             text-align: center;
         }
 
         .contact-link.unified-style:hover {
-            background: rgba(212, 175, 55, 0.15);
-            border-color: #d4af37;
+            background: rgba(255, 255, 255, 0.1); /* Daha açık transparan beyaz */
+            border-color: #FFFFFF; /* Beyaz border */
+            color: #FFFFFF; /* Beyaz */
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.1);
         }
 
         /* ==========================================================================
-           STÜDYO ÖZELLİKLERİ - PROFESYONEL
+           STÜDYO ÖZELLİKLERİ - SİYAH BEYAZ
            ========================================================================== */
         .studio-info {
             padding: 60px 20px;
-            background: #111;
+            background: #111111; /* Çok koyu gri */
             text-align: center;
-            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            border-top: 1px solid #333333; /* Koyu gri border */
         }
 
         .section-title {
             font-size: 2.5rem;
-            color: #f0f0f0;
+            color: #FFFFFF; /* Beyaz */
             margin-bottom: 25px;
             font-weight: 700;
-            background: linear-gradient(135deg, #ffffff 0%, #d4af37 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .section-subtitle {
-            color: #aaa;
+            color: #AAAAAA; /* Orta gri */
             max-width: 700px;
             margin: 0 auto 40px;
             font-size: 1.2rem;
@@ -326,85 +297,64 @@
         }
 
         .info-card {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            background: #000000; /* Siyah */
             padding: 35px 25px;
             border-radius: 12px;
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            border: 1px solid #333333; /* Koyu gri border */
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .info-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #d4af37, transparent);
-            transform: translateX(-100%);
-            transition: transform 0.6s ease;
-        }
-
-        .info-card:hover::before {
-            transform: translateX(100%);
-        }
-
         .info-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(212, 175, 55, 0.3);
-            background: linear-gradient(145deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: #FFFFFF; /* Beyaz border */
         }
 
         .info-card h3 {
-            color: #d4af37;
+            color: #FFFFFF; /* Beyaz */
             margin-bottom: 20px;
             font-size: 1.4rem;
             font-weight: 600;
         }
 
         .info-card p {
-            color: #bbb;
+            color: #AAAAAA; /* Orta gri */
             line-height: 1.7;
             font-size: 1.05rem;
         }
 
         /* ==========================================================================
-           FOOTER - LÜKS TASARIM
+           FOOTER - SİYAH BEYAZ
            ========================================================================== */
         .footer {
             padding: 50px 20px 30px;
-            background: #0a0a0a;
+            background: #000000; /* Siyah */
             text-align: center;
-            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            border-top: 1px solid #333333; /* Koyu gri border */
         }
 
         .footer-title {
             font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 15px;
-            background: linear-gradient(135deg, #ffffff 0%, #d4af37 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #FFFFFF; /* Beyaz */
             letter-spacing: 1px;
         }
 
         .footer-tagline {
-            color: #888;
+            color: #888888; /* Orta gri */
             font-size: 1.2rem;
             margin-bottom: 30px;
             letter-spacing: 0.5px;
         }
 
         .footer-copyright {
-            color: #666;
+            color: #666666; /* Koyu gri */
             font-size: 0.9rem;
             margin-top: 30px;
             padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid #333333; /* Koyu gri border */
             letter-spacing: 0.5px;
         }
 
@@ -552,7 +502,7 @@
         }
 
         /* ==========================================================================
-           ANİMASYONLAR - PROFESYONEL
+           ANİMASYONLAR
            ========================================================================== */
         @keyframes fadeInUp {
             from {
@@ -565,15 +515,6 @@
             }
         }
 
-        @keyframes glowPulse {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
-            }
-            50% {
-                box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
-            }
-        }
-
         .fade-in {
             opacity: 0;
             animation: fadeInUp 0.8s ease forwards;
@@ -583,19 +524,15 @@
         .delay-2 { animation-delay: 0.4s; }
         .delay-3 { animation-delay: 0.6s; }
         .delay-4 { animation-delay: 0.8s; }
-
-        .glow {
-            animation: glowPulse 3s infinite ease-in-out;
-        }
     </style>
 </head>
 <body>
-    <!-- HERO BÖLÜMÜ - PROFESYONEL LÜKS TASARIM -->
+    <!-- HERO BÖLÜMÜ - SİYAH BEYAZ TONLARI -->
     <main class="hero">
         <div class="container">
-            <!-- LÜKS LOGO VE MARKA KİMLİĞİ -->
+            <!-- LOGO VE MARKA KİMLİĞİ -->
             <div class="logo-container fade-in">
-                <!-- Premium Logo -->
+                <!-- Logo -->
                 <img src="./Designer.png" 
                      alt="Lama Tattoo Studio - İzmit'in Premium Dövme Stüdyosu"
                      class="site-logo"
@@ -615,14 +552,14 @@
                 </p>
             </div>
             
-            <!-- PREMIUM ETİKETLER -->
+            <!-- ETİKETLER -->
             <div class="premium-tags fade-in delay-2">
-                <span class="premium-tag glow">⭐ Premium Kalite</span>
-                <span class="premium-tag glow">🎨 Özel Tasarım</span>
-                <span class="premium-tag glow">📍 Yakında İzmit'te</span>
+                <span class="premium-tag">Premium Kalite</span>
+                <span class="premium-tag">Özel Tasarım</span>
+                <span class="premium-tag">Yakında İzmit'te</span>
             </div>
             
-            <!-- PROFESYONEL AÇIKLAMA -->
+            <!-- AÇIKLAMA -->
             <div class="hero-description fade-in delay-2">
                 <span class="highlight">Dövme fikirlerinizi, özenle işlenmiş kalıcı sanat eserlerine dönüştürüyoruz.</span><br><br>
                 Minimalist, fine line, blackwork ve realism stillerinde uzmanlaşmış ekibimizle 
@@ -631,44 +568,44 @@
 
             <!-- MOBİLDE MÜKEMMEL HİZALANMIŞ AKTİON ALANI -->
             <div class="mobile-aligned-container fade-in delay-3">
-                <!-- PREMIUM BUTONLAR -->
+                <!-- BUTONLAR -->
                 <div class="cta-buttons">
                     <a href="https://wa.me/905313711023" 
                        target="_blank" 
                        rel="noopener nofollow" 
                        class="btn btn-primary"
                        aria-label="WhatsApp üzerinden dövme randevusu al">
-                        💬 WhatsApp'tan Randevu Al
+                        WhatsApp'tan Randevu Al
                     </a>
                     <a href="https://instagram.com/lamatattooizmit" 
                        target="_blank" 
                        rel="noopener nofollow" 
                        class="btn btn-primary"
                        aria-label="Instagram sayfamızı ziyaret et">
-                        📸 Instagram'da İncele
+                        Instagram'da İncele
                     </a>
                 </div>
 
-                <!-- LÜKS İLETİŞİM BİLGİLERİ -->
+                <!-- İLETİŞİM BİLGİLERİ -->
                 <div class="contact-info">
                     <div class="contact-links">
                         <!-- E-POSTA -->
                         <a href="mailto:info@lamatattoo.studio" 
                            class="contact-link unified-style"
                            aria-label="E-posta gönder">
-                            ✉️ info@lamatattoo.studio
+                            info@lamatattoo.studio
                         </a>
                         
                         <!-- TELEFON -->
                         <a href="tel:+905313711023" 
                            class="contact-link unified-style"
                            aria-label="Telefon ara">
-                            📱 +90 (531) 371 10 23
+                            +90 (531) 371 10 23
                         </a>
                         
                         <!-- KONUM -->
                         <span class="contact-link unified-style">
-                            📍 İzmit, Kocaeli
+                            İzmit, Kocaeli
                         </span>
                     </div>
                 </div>
@@ -687,22 +624,22 @@
             
             <div class="info-grid">
                 <div class="info-card">
-                    <h3>🏥 Hijyen & Güvenlik</h3>
+                    <h3>Hijyen & Güvenlik</h3>
                     <p>Steril ortam, tek kullanımlık malzemeler ve en yüksek hijyen standartları ile güvenli bir deneyim sunuyoruz.</p>
                 </div>
                 <div class="info-card">
-                    <h3>🎨 Özel Tasarım</h3>
+                    <h3>Özel Tasarım</h3>
                     <p>Her müşteriye özel, kişiye özgü tasarımlar ve sanatsal yaklaşım ile benzersiz dövmeler yaratıyoruz.</p>
                 </div>
                 <div class="info-card">
-                    <h3>👨‍🎨 Profesyonel Ekip</h3>
+                    <h3>Profesyonel Ekip</h3>
                     <p>Deneyimli sanatçılar, modern teknikler ve sürekli eğitim ile en kaliteli hizmeti sağlıyoruz.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PREMIUM FOOTER -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-title">LAMA TATTOO</div>
@@ -747,17 +684,6 @@
                     brandTitle.style.marginTop = '40px';
                 };
             }
-            
-            // Premium etiketlere hover efekti
-            const premiumTags = document.querySelectorAll('.premium-tag');
-            premiumTags.forEach(tag => {
-                tag.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-4px)';
-                });
-                tag.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
         });
     </script>
 </body>
