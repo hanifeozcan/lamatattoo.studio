@@ -114,36 +114,41 @@
         }
 
         /* ==========================================================================
-           ETİKETLER - SİYAH BEYAZ
+           ETİKETLER - SADECE METİN (ÇERÇEVESİZ)
            ========================================================================== */
         .premium-tags {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 15px;
+            gap: 25px; /* Daha fazla boşluk */
             margin-bottom: 35px;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .premium-tag {
-            background: rgba(255, 255, 255, 0.05); /* Çok açık transparan beyaz */
-            border: 1px solid #666666; /* Orta gri border */
             color: #CCCCCC; /* Açık gri */
-            font-weight: 600;
-            padding: 12px 28px;
-            border-radius: 8px;
-            font-size: 1.1rem;
+            font-weight: 500;
+            font-size: 1.3rem; /* 1-2 punto daha büyük (önceki: 1.1rem) */
             letter-spacing: 0.5px;
             transition: all 0.3s ease;
+            padding: 0; /* Padding kaldırıldı */
+            background: none; /* Arkaplan kaldırıldı */
+            border: none; /* Border kaldırıldı */
+            border-radius: 0; /* Border radius kaldırıldı */
         }
 
         .premium-tag:hover {
-            background: rgba(255, 255, 255, 0.1); /* Daha açık transparan beyaz */
-            border-color: #FFFFFF; /* Beyaz border */
             color: #FFFFFF; /* Beyaz */
             transform: translateY(-3px);
+        }
+
+        /* Etiketler arasına nokta eklemek için (opsiyonel) */
+        .premium-tag:not(:last-child)::after {
+            content: '•';
+            margin-left: 25px;
+            color: #666666;
         }
 
         /* ==========================================================================
@@ -382,15 +387,20 @@
             .premium-tags {
                 flex-direction: column;
                 align-items: center;
-                gap: 12px;
+                gap: 15px; /* Mobilde daha az boşluk */
                 max-width: 320px;
                 margin: 0 auto 30px;
             }
             
             .premium-tag {
+                font-size: 1.2rem; /* Mobilde biraz daha küçük */
                 width: 100%;
                 text-align: center;
-                padding: 14px 20px;
+            }
+            
+            /* Mobilde noktaları kaldır */
+            .premium-tag::after {
+                display: none;
             }
             
             .hero-description {
@@ -467,21 +477,23 @@
                 font-size: 1.3rem;
             }
             
+            .premium-tags {
+                gap: 12px;
+            }
+            
+            .premium-tag {
+                font-size: 1.1rem;
+            }
+            
             .mobile-aligned-container {
                 max-width: 100%;
                 padding: 0 15px;
             }
             
-            .premium-tags,
             .cta-buttons,
             .contact-info,
             .info-grid {
                 max-width: 100%;
-            }
-            
-            .premium-tag {
-                padding: 12px 18px;
-                font-size: 1rem;
             }
             
             .hero-description {
@@ -552,7 +564,7 @@
                 </p>
             </div>
             
-            <!-- ETİKETLER -->
+            <!-- ETİKETLER - ÇERÇEVESİZ VE DAHA BÜYÜK -->
             <div class="premium-tags fade-in delay-2">
                 <span class="premium-tag">Premium Kalite</span>
                 <span class="premium-tag">Özel Tasarım</span>
