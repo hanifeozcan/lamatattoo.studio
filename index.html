@@ -50,7 +50,7 @@
         }
 
         /* ==========================================================================
-           HERO BÖLÜMÜ
+           HERO BÖLÜMÜ - PROFESYONEL LÜKS TASARIM
            ========================================================================== */
         .hero {
             min-height: 100vh;
@@ -61,15 +61,16 @@
             text-align: center;
             padding: 40px 20px;
             background: 
-                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.03) 0%, transparent 40%);
+                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                linear-gradient(180deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,1) 100%);
         }
 
         /* ==========================================================================
-           LOGO STİLLERİ - DÜNYA STANDARTLARI
+           LOGO STİLLERİ - LÜKS TASARIM
            ========================================================================== */
         .logo-container {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -78,114 +79,157 @@
         }
 
         .site-logo {
-            /* Responsive logo boyutları */
-            max-width: min(400px, 80vw); /* Maksimum 400px, ekranın %80'i */
-            height: auto; /* Oranları koru */
-            
-            /* Modern görünüm */
-            object-fit: contain; /* Resmi bozmadan sığdır */
-            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
-            
-            /* Performans optimizasyonu */
-            loading: lazy; /* Modern tarayıcılarda lazy loading */
-            
-            /* Erişilebilirlik için yükseklik belirleme */
-            max-height: 120px; /* Logo yüksekliği kontrolü */
+            max-width: min(450px, 85vw);
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 6px 20px rgba(212, 175, 55, 0.15));
+            max-height: 140px;
+            margin-bottom: 10px;
+            transition: all 0.4s ease;
         }
 
-        /* Logo için hover efekti (opsiyonel) */
         .site-logo:hover {
-            transform: scale(1.02);
-            transition: transform 0.3s ease;
-        }
-
-        /* Logo için alt metin (ekran okuyucular için) */
-        .logo-text {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
+            transform: scale(1.03);
+            filter: drop-shadow(0 8px 25px rgba(212, 175, 55, 0.25));
         }
 
         /* ==========================================================================
-           METİN BAŞLIK STİLLERİ (Logo altında)
+           BAŞLIK BÖLÜMÜ - PROFESYONEL TİPOGRAFİ
            ========================================================================== */
-        .hero-title {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #ffffff 0%, #d4af37 50%, #b8941f 100%);
+        .brand-title {
+            font-size: clamp(3rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1;
+            margin: 15px 0 5px;
+            background: linear-gradient(135deg, #ffffff 0%, #d4af37 60%, #b8941f 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: -0.5px;
-            display: block !important; /* ÖNEMLİ: Görünür olması için */
+            letter-spacing: 1px;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
-        .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
+        .brand-subtitle {
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            font-weight: 300;
             color: #d4af37;
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 40px;
-            color: #aaa;
-            line-height: 1.7;
+            margin: 0 0 25px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         /* ==========================================================================
-           BUTONLAR
+           PREMIUM ETİKETLER - LÜKS GÖRÜNÜM
+           ========================================================================== */
+        .premium-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+
+        .premium-tag {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #d4af37;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .premium-tag:hover {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(212, 175, 55, 0.15) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.1);
+        }
+
+        /* ==========================================================================
+           AÇIKLAMA METNİ - PROFESYONEL STİL
+           ========================================================================== */
+        .hero-description {
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            color: #ccc;
+            line-height: 1.8;
+            font-weight: 300;
+            padding: 0 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .highlight {
+            color: #d4af37;
+            font-weight: 500;
+        }
+
+        /* ==========================================================================
+           BUTONLAR - LÜKS TASARIM
            ========================================================================== */
         .cta-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 20px;
             justify-content: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 14px 32px;
-            border-radius: 50px;
+            padding: 16px 36px;
+            border-radius: 8px;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 1.1rem;
             text-decoration: none;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            min-width: 160px;
+            transition: all 0.4s ease;
+            border: none;
+            min-width: 180px;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-primary {
-            background: #d4af37;
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
             color: #0a0a0a;
             font-weight: 700;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
         }
 
         .btn-primary:hover {
-            background: #e6c158;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+            background: linear-gradient(135deg, #e6c158 0%, #c9a42a 100%);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 40px;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(30deg);
+            transition: all 0.6s ease;
+        }
+
+        .btn-primary:hover::after {
+            left: 120%;
         }
 
         /* ==========================================================================
-           İLETİŞİM BİLGİLERİ
+           İLETİŞİM BİLGİLERİ - LÜKS STİL
            ========================================================================== */
         .contact-info {
-            margin-top: 20px;
+            margin-top: 30px;
             margin-bottom: 40px;
         }
 
@@ -194,150 +238,159 @@
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
 
         .contact-link.unified-style {
-            background: rgba(212, 175, 55, 0.1);
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             color: #d4af37;
-            font-weight: 600;
-            padding: 10px 20px;
-            border-radius: 25px;
+            font-weight: 500;
+            padding: 12px 24px;
+            border-radius: 8px;
             text-decoration: none;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            backdrop-filter: blur(10px);
         }
 
         .contact-link.unified-style:hover {
-            background: rgba(212, 175, 55, 0.2);
+            background: rgba(212, 175, 55, 0.15);
             border-color: #d4af37;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.1);
         }
 
         .divider {
-            color: #666;
+            color: rgba(212, 175, 55, 0.3);
             user-select: none;
+            font-size: 1.2rem;
         }
 
         /* ==========================================================================
-           STÜDYO ÖZELLİKLERİ
+           STÜDYO ÖZELLİKLERİ - PROFESYONEL
            ========================================================================== */
         .studio-info {
-            padding: 40px 20px;
-            background: #1a1a1a;
+            padding: 60px 20px;
+            background: #111;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
         }
 
         .section-title {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: #f0f0f0;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             font-weight: 700;
-        }
-
-        .section-subtitle {
-            color: #888;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            font-size: 1.1rem;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: 30px auto 0;
-        }
-
-        .info-card {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .info-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(212, 175, 55, 0.3);
-            background: rgba(212, 175, 55, 0.05);
-        }
-
-        .info-card h3 {
-            color: #d4af37;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .info-card p {
-            color: #aaa;
-            line-height: 1.6;
-        }
-
-        /* ==========================================================================
-           FOOTER
-           ========================================================================== */
-        .footer {
-            padding: 40px 20px 20px;
-            background: #0a0a0a;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .footer-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 10px;
             background: linear-gradient(135deg, #ffffff 0%, #d4af37 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
+        .section-subtitle {
+            color: #aaa;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 40px auto 0;
+        }
+
+        .info-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            padding: 35px 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .info-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.3);
+            background: linear-gradient(145deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-card h3 {
+            color: #d4af37;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .info-card p {
+            color: #bbb;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* ==========================================================================
+           FOOTER - LÜKS TASARIM
+           ========================================================================== */
+        .footer {
+            padding: 50px 20px 30px;
+            background: #0a0a0a;
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .footer-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ffffff 0%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+        }
+
         .footer-tagline {
             color: #888;
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-        }
-
-        .footer-contact {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .footer-link {
-            color: #aaa;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            background: rgba(255, 255, 255, 0.03);
-            transition: all 0.3s ease;
-        }
-
-        .footer-link:hover {
-            color: #d4af37;
-            background: rgba(212, 175, 55, 0.1);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
         }
 
         .footer-copyright {
             color: #666;
             font-size: 0.9rem;
-            margin-top: 20px;
-            padding-top: 20px;
+            margin-top: 30px;
+            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
+            letter-spacing: 0.5px;
         }
 
         /* ==========================================================================
-           RESPONSIVE TASARIM - LOGO ÖZEL
+           RESPONSIVE TASARIM
            ========================================================================== */
         @media (max-width: 768px) {
             .hero {
@@ -345,19 +398,33 @@
             }
             
             .site-logo {
-                max-width: min(320px, 85vw);
-                max-height: 100px;
+                max-width: min(380px, 90vw);
+                max-height: 120px;
             }
             
-            .hero-title {
-                font-size: clamp(1.8rem, 4vw, 2.5rem);
-                margin-top: 15px;
+            .brand-title {
+                font-size: clamp(2.5rem, 5vw, 3.5rem);
+            }
+            
+            .brand-subtitle {
+                font-size: clamp(1.5rem, 2.5vw, 2rem);
+            }
+            
+            .premium-tags {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .premium-tag {
+                width: 100%;
+                max-width: 300px;
             }
             
             .btn {
-                padding: 12px 24px;
-                min-width: 140px;
-                font-size: 0.95rem;
+                padding: 14px 28px;
+                min-width: 160px;
+                font-size: 1rem;
             }
             
             .cta-buttons {
@@ -365,11 +432,12 @@
                 align-items: center;
                 width: 100%;
                 max-width: 300px;
+                gap: 15px;
             }
             
             .contact-links {
                 flex-direction: column;
-                gap: 10px;
+                gap: 12px;
             }
             
             .divider {
@@ -378,61 +446,61 @@
             
             .contact-link.unified-style {
                 width: 100%;
+                max-width: 300px;
                 justify-content: center;
             }
             
             .info-grid {
                 grid-template-columns: 1fr;
-                gap: 15px;
+                gap: 20px;
             }
             
             .info-card {
-                padding: 20px;
+                padding: 25px 20px;
             }
             
-            .footer-contact {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
+            .section-title {
+                font-size: 2rem;
             }
         }
 
         @media (max-width: 480px) {
             .site-logo {
-                max-width: min(280px, 90vw);
-                max-height: 80px;
+                max-width: min(320px, 95vw);
+                max-height: 100px;
             }
             
-            .hero-title {
-                font-size: 1.8rem;
-                margin-top: 10px;
+            .brand-title {
+                font-size: 2.2rem;
+            }
+            
+            .brand-subtitle {
+                font-size: 1.3rem;
             }
             
             .btn {
                 width: 100%;
+                padding: 15px 24px;
             }
             
-            .section-title {
-                font-size: 1.7rem;
-            }
-            
-            .info-card {
-                padding: 18px;
+            .hero-description {
+                font-size: 1.05rem;
+                padding: 0 10px;
             }
             
             .contact-link.unified-style {
-                padding: 8px 16px;
+                padding: 10px 20px;
                 font-size: 0.95rem;
             }
         }
 
         /* ==========================================================================
-           ANİMASYONLAR
+           ANİMASYONLAR - PROFESYONEL
            ========================================================================== */
-        @keyframes fadeIn {
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -440,75 +508,96 @@
             }
         }
 
+        @keyframes glowPulse {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+            }
+        }
+
         .fade-in {
             opacity: 0;
-            animation: fadeIn 0.8s ease forwards;
+            animation: fadeInUp 0.8s ease forwards;
         }
 
         .delay-1 { animation-delay: 0.2s; }
         .delay-2 { animation-delay: 0.4s; }
         .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+
+        .glow {
+            animation: glowPulse 3s infinite ease-in-out;
+        }
     </style>
 </head>
 <body>
-    <!-- HERO BÖLÜMÜ -->
+    <!-- HERO BÖLÜMÜ - PROFESYONEL LÜKS TASARIM -->
     <main class="hero">
         <div class="container">
-            <!-- PROFESYONEL LOGO ENTEGRASYONU + METİN BAŞLIĞI -->
+            <!-- LÜKS LOGO VE MARKA KİMLİĞİ -->
             <div class="logo-container fade-in">
-                <!-- Logo -->
+                <!-- Premium Logo -->
                 <img src="./Designer.png" 
-                     alt="Lama Tattoo Studio - Premium Dövme Stüdyosu İzmit"
+                     alt="Lama Tattoo Studio - İzmit'in Premium Dövme Stüdyosu"
                      class="site-logo"
-                     width="400"
-                     height="120"
-                     loading="lazy"
+                     width="450"
+                     height="140"
+                     loading="eager"
                      decoding="async">
                 
-                <!-- Logo altında metin başlığı -->
-                <h1 class="hero-title fade-in delay-1">
+                <!-- Marka Başlığı -->
+                <h1 class="brand-title fade-in delay-1">
                     LAMA TATTOO STUDIO
                 </h1>
                 
-                <!-- Ekran okuyucular için gizli metin -->
-                <span class="logo-text">Lama Tattoo Studio</span>
+                <!-- Marka Alt Başlığı -->
+                <p class="brand-subtitle fade-in delay-1">
+                    Premium Dövme Sanatı
+                </p>
             </div>
             
-            <p class="hero-subtitle fade-in delay-1">• Premium Dövme Sanatı •</p>
-            <p class="hero-subtitle fade-in delay-1">• Yakında İzmit'te •</p>
+            <!-- PREMIUM ETİKETLER -->
+            <div class="premium-tags fade-in delay-2">
+                <span class="premium-tag glow">⭐ Premium Kalite</span>
+                <span class="premium-tag glow">🎨 Özel Tasarım</span>
+                <span class="premium-tag glow">📍 Yakında İzmit'te</span>
+            </div>
             
-            <p class="hero-description fade-in delay-1">
-                Dövme fikirlerinizi, özenle işlenmiş kalıcı sanat eserlerine dönüştürüyoruz. 
+            <!-- PROFESYONEL AÇIKLAMA -->
+            <div class="hero-description fade-in delay-2">
+                <span class="highlight">Dövme fikirlerinizi, özenle işlenmiş kalıcı sanat eserlerine dönüştürüyoruz.</span><br><br>
                 Minimalist, fine line, blackwork ve realism stillerinde uzmanlaşmış ekibimizle 
-                size özel tasarımlar sunuyoruz.
-            </p>
+                size özel tasarımlar sunuyoruz. Her dövme, kişiye özgü bir hikaye ve sanat eseridir.
+            </div>
 
-            <!-- ANA BUTONLAR -->
-            <div class="cta-buttons fade-in delay-2">
+            <!-- PREMIUM BUTONLAR -->
+            <div class="cta-buttons fade-in delay-3">
                 <a href="https://wa.me/905313711023" 
                    target="_blank" 
                    rel="noopener nofollow" 
                    class="btn btn-primary"
                    aria-label="WhatsApp üzerinden dövme randevusu al">
-                    WhatsApp'tan Randevu Al
+                    💬 WhatsApp'tan Randevu Al
                 </a>
                 <a href="https://instagram.com/lamatattooizmit" 
                    target="_blank" 
                    rel="noopener nofollow" 
                    class="btn btn-primary"
                    aria-label="Instagram sayfamızı ziyaret et">
-                    Instagram'da İncele
+                    📸 Instagram'da İncele
                 </a>
             </div>
 
-            <!-- İLETİŞİM BİLGİLERİ -->
-            <div class="contact-info fade-in delay-2">
+            <!-- LÜKS İLETİŞİM BİLGİLERİ -->
+            <div class="contact-info fade-in delay-3">
                 <div class="contact-links">
                     <!-- E-POSTA -->
                     <a href="mailto:info@lamatattoo.studio" 
                        class="contact-link unified-style"
                        aria-label="E-posta gönder">
-                        📭 info@lamatattoo.studio
+                        ✉️ info@lamatattoo.studio
                     </a>
                     <span class="divider">•</span>
                     
@@ -516,7 +605,7 @@
                     <a href="tel:+905313711023" 
                        class="contact-link unified-style"
                        aria-label="Telefon ara">
-                        📞 +90 (531) 371 10 23
+                        📱 +90 (531) 371 10 23
                     </a>
                     <span class="divider">•</span>
                     
@@ -530,7 +619,7 @@
     </main>
 
     <!-- "NEDEN LAMA TATTOO STUDIO?" BÖLÜMÜ -->
-    <section class="studio-info fade-in delay-3">
+    <section class="studio-info fade-in delay-4">
         <div class="container">
             <h2 class="section-title">Neden Lama Tattoo Studio?</h2>
             <p class="section-subtitle">
@@ -540,46 +629,27 @@
             
             <div class="info-grid">
                 <div class="info-card">
-                    <h3>Hijyen & Güvenlik</h3>
-                    <p>Steril ortam, tek kullanımlık malzemeler ve en yüksek hijyen standartları.</p>
+                    <h3>🏥 Hijyen & Güvenlik</h3>
+                    <p>Steril ortam, tek kullanımlık malzemeler ve en yüksek hijyen standartları ile güvenli bir deneyim sunuyoruz.</p>
                 </div>
                 <div class="info-card">
-                    <h3>Özel Tasarım</h3>
-                    <p>Her müşteriye özel, kişiye özgü tasarımlar ve sanatsal yaklaşım.</p>
+                    <h3>🎨 Özel Tasarım</h3>
+                    <p>Her müşteriye özel, kişiye özgü tasarımlar ve sanatsal yaklaşım ile benzersiz dövmeler yaratıyoruz.</p>
                 </div>
                 <div class="info-card">
-                    <h3>Profesyonel Ekip</h3>
-                    <p>Deneyimli sanatçılar, modern teknikler ve sürekli eğitim.</p>
+                    <h3>👨‍🎨 Profesyonel Ekip</h3>
+                    <p>Deneyimli sanatçılar, modern teknikler ve sürekli eğitim ile en kaliteli hizmeti sağlıyoruz.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- PREMIUM FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-title">LAMA TATTOO</div>
             <p class="footer-tagline">İzmit'in Premium Dövme Stüdyosu</p>
             
-           <!-- <div class="footer-contact">
-                <a href="https://instagram.com/lamatattooizmit" 
-                   target="_blank" 
-                   rel="noopener nofollow"
-                   class="footer-link">
-                    Instagram
-                </a>
-                <a href="https://wa.me/905313711023" 
-                   target="_blank" 
-                   rel="noopener nofollow"
-                   class="footer-link">
-                    WhatsApp
-                </a>
-                <a href="mailto:info@lamatattoo.studio" 
-                   class="footer-link">
-                    E-posta
-                </a>
-            </div>
-            -->
             <p class="footer-copyright">
                 &copy; <span id="current-year">2024</span> Lama Tattoo Studio. Tüm hakları saklıdır.<br>
                 Online randevu sistemi yakında aktif olacaktır.
@@ -612,17 +682,24 @@
             // Logo için modern yükleme optimizasyonu
             const logo = document.querySelector('.site-logo');
             if (logo) {
-                // Eğer logo yüklenemezse fallback
                 logo.onerror = function() {
-                    console.log('Logo yüklenemedi, fallback metin gösteriliyor');
-                    const logoContainer = document.querySelector('.logo-container');
-                    const fallback = document.createElement('h1');
-                    fallback.className = 'hero-title fade-in';
-                    fallback.textContent = 'LAMA TATTOO STUDIO';
-                    logoContainer.innerHTML = '';
-                    logoContainer.appendChild(fallback);
+                    console.log('Logo yüklenemedi, fallback başlık gösteriliyor');
+                    const brandTitle = document.querySelector('.brand-title');
+                    brandTitle.style.fontSize = 'clamp(3.5rem, 7vw, 5rem)';
+                    brandTitle.style.marginTop = '40px';
                 };
             }
+            
+            // Premium etiketlere hover efekti
+            const premiumTags = document.querySelectorAll('.premium-tag');
+            premiumTags.forEach(tag => {
+                tag.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-4px)';
+                });
+                tag.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
         });
     </script>
 </body>
