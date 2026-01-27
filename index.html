@@ -13,6 +13,7 @@
     <meta property="og:description" content="İzmit'in yeni premium dövme stüdyosu. Fine line, blackwork, realism ve minimalist dövme stilleri.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lamatattoo.studio">
+    <meta property="og:image" content="https://lamatattoo.studio/designer.png">
     
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦙</text></svg>">
@@ -64,17 +65,50 @@
                 radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.03) 0%, transparent 40%);
         }
 
-        /* Logo yerine büyük başlık - ORJİNAL */
-        .hero-title {
-            font-size: clamp(3rem, 8vw, 4.5rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, #ffffff 0%, #d4af37 50%, #b8941f 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
+        /* ==========================================================================
+           LOGO STİLLERİ - DÜNYA STANDARTLARI
+           ========================================================================== */
+        .logo-container {
+            margin-bottom: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .site-logo {
+            /* Responsive logo boyutları */
+            max-width: min(400px, 80vw); /* Maksimum 400px, ekranın %80'i */
+            height: auto; /* Oranları koru */
+            
+            /* Modern görünüm */
+            object-fit: contain; /* Resmi bozmadan sığdır */
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+            
+            /* Performans optimizasyonu */
+            loading: lazy; /* Modern tarayıcılarda lazy loading */
+            
+            /* Erişilebilirlik için yükseklik belirleme */
+            max-height: 120px; /* Logo yüksekliği kontrolü */
+        }
+
+        /* Logo için hover efekti (opsiyonel) */
+        .site-logo:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+
+        /* Logo için alt metin (ekran okuyucular için) */
+        .logo-text {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
         .hero-subtitle {
@@ -93,7 +127,7 @@
         }
 
         /* ==========================================================================
-           BUTONLAR - ORJİNAL TASARIM
+           BUTONLAR
            ========================================================================== */
         .cta-buttons {
             display: flex;
@@ -129,20 +163,8 @@
             box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: #f0f0f0;
-            border-color: #444;
-        }
-
-        .btn-secondary:hover {
-            border-color: #d4af37;
-            color: #d4af37;
-            transform: translateY(-3px);
-        }
-
         /* ==========================================================================
-           İLETİŞİM BİLGİLERİ - ORJİNAL TASARIMA DÖNÜŞ
+           İLETİŞİM BİLGİLERİ
            ========================================================================== */
         .contact-info {
             margin-top: 20px;
@@ -157,36 +179,25 @@
             gap: 15px;
         }
 
-        .contact-link {
-            color: #888;
-            text-decoration: none;
-            font-size: 1rem;
-            padding: 8px 16px;
-            border-radius: 25px;
-            background: rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .contact-link:hover {
-            color: #d4af37;
-            background: rgba(212, 175, 55, 0.1);
-            transform: translateY(-2px);
-        }
-
-        /* E-posta linki için özel stil */
-        .contact-link.email {
+        .contact-link.unified-style {
             background: rgba(212, 175, 55, 0.1);
             border: 1px solid rgba(212, 175, 55, 0.3);
             color: #d4af37;
             font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .contact-link.email:hover {
+        .contact-link.unified-style:hover {
             background: rgba(212, 175, 55, 0.2);
             border-color: #d4af37;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
         }
 
         .divider {
@@ -308,19 +319,16 @@
         }
 
         /* ==========================================================================
-           RESPONSIVE TASARIM
+           RESPONSIVE TASARIM - LOGO ÖZEL
            ========================================================================== */
         @media (max-width: 768px) {
             .hero {
                 padding: 30px 15px;
             }
             
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
+            .site-logo {
+                max-width: min(320px, 85vw);
+                max-height: 100px;
             }
             
             .btn {
@@ -345,6 +353,11 @@
                 display: none;
             }
             
+            .contact-link.unified-style {
+                width: 100%;
+                justify-content: center;
+            }
+            
             .info-grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
@@ -362,8 +375,9 @@
         }
 
         @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2rem;
+            .site-logo {
+                max-width: min(280px, 90vw);
+                max-height: 80px;
             }
             
             .btn {
@@ -376,6 +390,11 @@
             
             .info-card {
                 padding: 18px;
+            }
+            
+            .contact-link.unified-style {
+                padding: 8px 16px;
+                font-size: 0.95rem;
             }
         }
 
@@ -407,8 +426,21 @@
     <!-- HERO BÖLÜMÜ -->
     <main class="hero">
         <div class="container">
-            <!-- Logo yerine büyük başlık -->
-            <h1 class="hero-title fade-in">LAMA TATTOO STUDIO</h1>
+            <!-- PROFESYONEL LOGO ENTEGRASYONU -->
+            <div class="logo-container fade-in">
+                <!-- SEO ve erişilebilirlik için doğru img etiketi -->
+                <img src="./designer.png" 
+                     alt="Lama Tattoo Studio - Premium Dövme Stüdyosu İzmit"
+                     class="site-logo"
+                     width="400"    /* Resmin gerçek genişliği */
+                     height="120"   /* Resmin gerçek yüksekliği */
+                     loading="lazy"
+                     decoding="async">
+                
+                <!-- Ekran okuyucular için gizli metin -->
+                <span class="logo-text">Lama Tattoo Studio</span>
+            </div>
+            
             <p class="hero-subtitle fade-in delay-1">Premium Dövme Sanatı • Yakında İzmit'te</p>
             
             <p class="hero-description fade-in delay-1">
@@ -429,7 +461,7 @@
                 <a href="https://instagram.com/lamatattooizmit" 
                    target="_blank" 
                    rel="noopener nofollow" 
-                   class="btn btn-secondary"
+                   class="btn btn-primary"
                    aria-label="Instagram sayfamızı ziyaret et">
                     Instagram'da İncele
                 </a>
@@ -438,20 +470,24 @@
             <!-- İLETİŞİM BİLGİLERİ -->
             <div class="contact-info fade-in delay-2">
                 <div class="contact-links">
-                    <!-- E-POSTA İKONU DEĞİŞTİRİLDİ: 📧 yerine 📭 (Seçenek 6) -->
+                    <!-- E-POSTA -->
                     <a href="mailto:info@lamatattoo.studio" 
-                       class="contact-link email"
+                       class="contact-link unified-style"
                        aria-label="E-posta gönder">
                         📭 info@lamatattoo.studio
                     </a>
                     <span class="divider">•</span>
+                    
+                    <!-- TELEFON -->
                     <a href="tel:+905313711023" 
-                       class="contact-link"
+                       class="contact-link unified-style"
                        aria-label="Telefon ara">
                         📞 +90 (531) 371 10 23
                     </a>
                     <span class="divider">•</span>
-                    <span class="contact-link">
+                    
+                    <!-- KONUM -->
+                    <span class="contact-link unified-style">
                         📍 İzmit, Kocaeli
                     </span>
                 </div>
@@ -538,6 +574,19 @@
                     link.setAttribute('rel', 'noopener noreferrer');
                 }
             });
+            
+            // Logo için modern yükleme optimizasyonu
+            const logo = document.querySelector('.site-logo');
+            if (logo) {
+                // Eğer logo yüklenemezse fallback
+                logo.onerror = function() {
+                    console.log('Logo yüklenemedi, fallback metin gösteriliyor');
+                    const fallback = document.createElement('h1');
+                    fallback.className = 'hero-title fade-in';
+                    fallback.textContent = 'LAMA TATTOO STUDIO';
+                    document.querySelector('.logo-container').appendChild(fallback);
+                };
+            }
         });
     </script>
 </body>
