@@ -128,6 +128,9 @@
             justify-content: center;
             gap: 15px;
             margin-bottom: 35px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .premium-tag {
@@ -169,6 +172,18 @@
         }
 
         /* ==========================================================================
+           MOBİL HİZALAMA CONTAINER'ı - PROFESYONEL ÇÖZÜM
+           ========================================================================== */
+        .mobile-aligned-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ==========================================================================
            BUTONLAR - LÜKS TASARIM
            ========================================================================== */
         .cta-buttons {
@@ -176,7 +191,8 @@
             flex-wrap: wrap;
             gap: 20px;
             justify-content: center;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
+            width: 100%;
         }
 
         .btn {
@@ -194,6 +210,9 @@
             letter-spacing: 0.5px;
             position: relative;
             overflow: hidden;
+            width: 100%;
+            max-width: 280px;
+            box-sizing: border-box;
         }
 
         .btn-primary {
@@ -229,16 +248,18 @@
            İLETİŞİM BİLGİLERİ - LÜKS STİL
            ========================================================================== */
         .contact-info {
-            margin-top: 30px;
-            margin-bottom: 40px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 100%;
         }
 
         .contact-links {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
         }
 
         .contact-link.unified-style {
@@ -246,14 +267,18 @@
             border: 1px solid rgba(212, 175, 55, 0.2);
             color: #d4af37;
             font-weight: 500;
-            padding: 12px 24px;
+            padding: 14px 24px;
             border-radius: 8px;
             text-decoration: none;
             transition: all 0.3s ease;
-            display: inline-flex;
+            display: flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
             backdrop-filter: blur(10px);
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
         }
 
         .contact-link.unified-style:hover {
@@ -261,12 +286,6 @@
             border-color: #d4af37;
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(212, 175, 55, 0.1);
-        }
-
-        .divider {
-            color: rgba(212, 175, 55, 0.3);
-            user-select: none;
-            font-size: 1.2rem;
         }
 
         /* ==========================================================================
@@ -390,7 +409,7 @@
         }
 
         /* ==========================================================================
-           RESPONSIVE TASARIM
+           RESPONSIVE TASARIM - PROFESYONEL HİZALAMA
            ========================================================================== */
         @media (max-width: 768px) {
             .hero {
@@ -413,46 +432,65 @@
             .premium-tags {
                 flex-direction: column;
                 align-items: center;
-                gap: 10px;
+                gap: 12px;
+                max-width: 320px;
+                margin: 0 auto 30px;
             }
             
             .premium-tag {
                 width: 100%;
-                max-width: 300px;
+                text-align: center;
+                padding: 14px 20px;
+            }
+            
+            .hero-description {
+                padding: 0 15px;
+                max-width: 100%;
+                margin-bottom: 40px;
+            }
+            
+            /* MOBİL HİZALAMA CONTAINER'I */
+            .mobile-aligned-container {
+                max-width: 320px;
+                padding: 0 10px;
+            }
+            
+            /* BUTONLAR - MOBILE ÖZEL */
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+                margin-bottom: 30px;
+                width: 100%;
             }
             
             .btn {
-                padding: 14px 28px;
-                min-width: 160px;
-                font-size: 1rem;
+                min-width: 100%;
+                max-width: 100%;
+                padding: 16px 24px;
             }
             
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
+            /* İLETİŞİM BİLGİLERİ - MOBILE ÖZEL */
+            .contact-info {
                 width: 100%;
-                max-width: 300px;
-                gap: 15px;
+                margin: 0;
             }
             
             .contact-links {
-                flex-direction: column;
+                max-width: 100%;
                 gap: 12px;
             }
             
-            .divider {
-                display: none;
-            }
-            
             .contact-link.unified-style {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
+                padding: 14px 20px;
+                font-size: 1rem;
             }
             
+            /* DİĞER BÖLÜMLER */
             .info-grid {
                 grid-template-columns: 1fr;
+                max-width: 320px;
                 gap: 20px;
+                margin: 30px auto 0;
             }
             
             .info-card {
@@ -472,24 +510,43 @@
             
             .brand-title {
                 font-size: 2.2rem;
+                margin: 10px 0 5px;
             }
             
             .brand-subtitle {
                 font-size: 1.3rem;
             }
             
-            .btn {
-                width: 100%;
-                padding: 15px 24px;
+            .mobile-aligned-container {
+                max-width: 100%;
+                padding: 0 15px;
+            }
+            
+            .premium-tags,
+            .cta-buttons,
+            .contact-info,
+            .info-grid {
+                max-width: 100%;
+            }
+            
+            .premium-tag {
+                padding: 12px 18px;
+                font-size: 1rem;
             }
             
             .hero-description {
                 font-size: 1.05rem;
                 padding: 0 10px;
+                margin-bottom: 35px;
+            }
+            
+            .btn {
+                padding: 14px 20px;
+                font-size: 1rem;
             }
             
             .contact-link.unified-style {
-                padding: 10px 20px;
+                padding: 12px 18px;
                 font-size: 0.95rem;
             }
         }
@@ -572,47 +629,48 @@
                 size özel tasarımlar sunuyoruz. Her dövme, kişiye özgü bir hikaye ve sanat eseridir.
             </div>
 
-            <!-- PREMIUM BUTONLAR -->
-            <div class="cta-buttons fade-in delay-3">
-                <a href="https://wa.me/905313711023" 
-                   target="_blank" 
-                   rel="noopener nofollow" 
-                   class="btn btn-primary"
-                   aria-label="WhatsApp üzerinden dövme randevusu al">
-                    💬 WhatsApp'tan Randevu Al
-                </a>
-                <a href="https://instagram.com/lamatattooizmit" 
-                   target="_blank" 
-                   rel="noopener nofollow" 
-                   class="btn btn-primary"
-                   aria-label="Instagram sayfamızı ziyaret et">
-                    📸 Instagram'da İncele
-                </a>
-            </div>
+            <!-- MOBİLDE MÜKEMMEL HİZALANMIŞ AKTİON ALANI -->
+            <div class="mobile-aligned-container fade-in delay-3">
+                <!-- PREMIUM BUTONLAR -->
+                <div class="cta-buttons">
+                    <a href="https://wa.me/905313711023" 
+                       target="_blank" 
+                       rel="noopener nofollow" 
+                       class="btn btn-primary"
+                       aria-label="WhatsApp üzerinden dövme randevusu al">
+                        💬 WhatsApp'tan Randevu Al
+                    </a>
+                    <a href="https://instagram.com/lamatattooizmit" 
+                       target="_blank" 
+                       rel="noopener nofollow" 
+                       class="btn btn-primary"
+                       aria-label="Instagram sayfamızı ziyaret et">
+                        📸 Instagram'da İncele
+                    </a>
+                </div>
 
-            <!-- LÜKS İLETİŞİM BİLGİLERİ -->
-            <div class="contact-info fade-in delay-3">
-                <div class="contact-links">
-                    <!-- E-POSTA -->
-                    <a href="mailto:info@lamatattoo.studio" 
-                       class="contact-link unified-style"
-                       aria-label="E-posta gönder">
-                        ✉️ info@lamatattoo.studio
-                    </a>
-                    <span class="divider">•</span>
-                    
-                    <!-- TELEFON -->
-                    <a href="tel:+905313711023" 
-                       class="contact-link unified-style"
-                       aria-label="Telefon ara">
-                        📱 +90 (531) 371 10 23
-                    </a>
-                    <span class="divider">•</span>
-                    
-                    <!-- KONUM -->
-                    <span class="contact-link unified-style">
-                        📍 İzmit, Kocaeli
-                    </span>
+                <!-- LÜKS İLETİŞİM BİLGİLERİ -->
+                <div class="contact-info">
+                    <div class="contact-links">
+                        <!-- E-POSTA -->
+                        <a href="mailto:info@lamatattoo.studio" 
+                           class="contact-link unified-style"
+                           aria-label="E-posta gönder">
+                            ✉️ info@lamatattoo.studio
+                        </a>
+                        
+                        <!-- TELEFON -->
+                        <a href="tel:+905313711023" 
+                           class="contact-link unified-style"
+                           aria-label="Telefon ara">
+                            📱 +90 (531) 371 10 23
+                        </a>
+                        
+                        <!-- KONUM -->
+                        <span class="contact-link unified-style">
+                            📍 İzmit, Kocaeli
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
