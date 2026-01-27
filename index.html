@@ -1,29 +1,97 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+    <!-- Temel Meta Etiketleri -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lama Tattoo Studio - Yakında İzmit'te Açılıyor</title>
-    <meta name="description" content="Lama Tattoo Studio, İzmit'te premium dövme sanatı için yakında açılıyor. Minimalist, fine line, blackwork ve realism stillerinde özel tasarımlar.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="Lama Tattoo Studio - Yakında İzmit'te">
-    <meta property="og:description" content="Premium dövme sanatı. Yakında İzmit'te açılıyoruz. Randevu ve bilgi için iletişime geçin.">
+    <!-- Başlık ve Açıklama -->
+    <title>Lama Tattoo Studio İzmit | Premium Dövme Stüdyosu | Yakında Açılıyor</title>
+    <meta name="description" content="Lama Tattoo Studio İzmit'te açılıyor! Minimalist dövme, fine line, blackwork, geometric ve realism stillerinde kaliteli dövme hizmeti. İzmit dövme, Kocaeli tattoo sanatı.">
+    <meta name="keywords" content="izmit dövme, kocaeli tattoo, minimalist dövme, fine line tattoo, blackwork tattoo, realism dövme, geometric tattoo, izmit tattoo stüdyosu, kaliteli dövme">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Lama Tattoo Studio İzmit | Premium Dövme Stüdyosu">
+    <meta property="og:description" content="İzmit'in yeni premium dövme stüdyosu. Fine line, blackwork, realism ve minimalist dövme stilleri. Randevu için iletişime geçin.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lamatattoo.studio">
     <meta property="og:image" content="https://lamatattoo.studio/assets/img/social-preview.jpg">
-    <meta property="og:image:alt" content="Lama Tattoo Studio Logosu">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Lama Tattoo Studio - İzmit Premium Dövme Stüdyosu">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:site_name" content="Lama Tattoo Studio">
+    
+    <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lama Tattoo Studio İzmit | Yakında Açılıyor">
+    <meta name="twitter:description" content="İzmit'te premium dövme sanatı. Minimalist, fine line, blackwork ve realism dövme stilleri.">
+    <meta name="twitter:image" content="https://lamatattoo.studio/assets/img/twitter-preview.jpg">
     
-    <!-- Favicon (Inline SVG) -->
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lamatattoo.studio">
+    
+    <!-- Schema.org JSON-LD Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TattooParlor",
+        "name": "Lama Tattoo Studio",
+        "description": "İzmit'te premium dövme sanatı stüdyosu. Fine line, minimalist, blackwork ve realism dövme stillerinde uzmanlaşmıştır.",
+        "url": "https://lamatattoo.studio",
+        "image": "https://lamatattoo.studio/assets/img/schema-image.jpg",
+        "telephone": "+905313711023",
+        "email": "info@lamatattoo.studio",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "İzmit",
+            "addressRegion": "Kocaeli",
+            "addressCountry": "TR"
+        },
+        "openingHours": "Mo-Fr 10:00-20:00, Sa 10:00-18:00",
+        "priceRange": "$$",
+        "currenciesAccepted": "TRY",
+        "paymentAccepted": "Cash, Credit Card",
+        "sameAs": [
+            "https://instagram.com/lamatattooizmit"
+        ]
+    }
+    </script>
+    
+    <!-- İşletme İletişim Bilgileri -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Lama Tattoo Studio",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "İzmit",
+            "addressRegion": "Kocaeli",
+            "addressCountry": "Turkey"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "40.7669",
+            "longitude": "29.9169"
+        },
+        "openingHours": "Mo-Fr 10:00-20:00",
+        "telephone": "+905313711023"
+    }
+    </script>
+    
+    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦙</text></svg>">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     
-    <!-- Google Font -->
+    <!-- Preload ve Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap"></noscript>
     
-    <!-- Inline CSS -->
+    <!-- CSS -->
     <style>
         /* ==========================================================================
            CSS Reset & Base Styles
@@ -61,7 +129,7 @@
         }
 
         /* ==========================================================================
-           CSS Custom Properties (Variables)
+           CSS Custom Properties
            ========================================================================== */
         :root {
             --color-bg: #0a0a0a;
@@ -84,16 +152,23 @@
             padding: 0 1.5rem;
         }
 
-        /* Fade In Up Animation */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
         .fade-in-up {
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s var(--transition-base) forwards;
         }
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        .delay-4 { animation-delay: 0.8s; }
 
         @keyframes fadeInUp {
             to {
@@ -101,6 +176,11 @@
                 transform: translateY(0);
             }
         }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
 
         /* ==========================================================================
            Hero Section
@@ -114,7 +194,6 @@
             text-align: center;
             position: relative;
             padding: 4rem 1.5rem;
-            /* Subtle ink-blot background effect */
             background-image:
                 radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.03) 0%, transparent 40%),
                 radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.02) 0%, transparent 40%);
@@ -128,6 +207,7 @@
             filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
             transition: filter var(--transition-base);
         }
+
         .lama-logo:hover {
             filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.5));
         }
@@ -145,6 +225,7 @@
             color: var(--color-text-muted);
             margin-bottom: 1.5rem;
         }
+
         .hero .subtitle strong {
             color: var(--color-accent);
             font-weight: 700;
@@ -158,7 +239,7 @@
         }
 
         /* ==========================================================================
-           Buttons & CTAs
+           Buttons
            ========================================================================== */
         .cta-group {
             display: flex;
@@ -188,6 +269,7 @@
             background-color: var(--color-accent);
             color: var(--color-bg);
         }
+
         .btn-primary:hover,
         .btn-primary:focus-visible {
             background-color: var(--color-accent-hover);
@@ -200,6 +282,7 @@
             color: var(--color-text);
             border-color: var(--color-text);
         }
+
         .btn-secondary:hover,
         .btn-secondary:focus-visible {
             background-color: rgba(255, 255, 255, 0.05);
@@ -224,6 +307,7 @@
             transition: color var(--transition-base);
             border-bottom: 1px dotted transparent;
         }
+
         .link:hover,
         .link:focus-visible {
             color: var(--color-accent);
@@ -236,46 +320,7 @@
         }
 
         /* ==========================================================================
-           Scroll Indicator
-           ========================================================================== */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .mouse {
-            width: 30px;
-            height: 50px;
-            border: 2px solid var(--color-text-muted);
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            padding-top: 10px;
-        }
-
-        .wheel {
-            width: 4px;
-            height: 10px;
-            background-color: var(--color-accent);
-            border-radius: 2px;
-            animation: scrollWheel 2s infinite;
-        }
-
-        @keyframes scrollWheel {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(15px); opacity: 0; }
-        }
-
-        @media (max-height: 700px) {
-            .scroll-indicator {
-                display: none;
-            }
-        }
-
-        /* ==========================================================================
-           Styles Section
+           Styles Section - Geliştirilmiş
            ========================================================================== */
         .styles {
             padding: 6rem 1.5rem;
@@ -340,7 +385,7 @@
         }
 
         /* ==========================================================================
-           Location Section
+           Location Section - Geliştirilmiş
            ========================================================================== */
         .location {
             padding: 6rem 1.5rem;
@@ -366,7 +411,7 @@
         }
 
         /* ==========================================================================
-           Footer
+           Footer - Geliştirilmiş
            ========================================================================== */
         .footer {
             padding: 4rem 1.5rem 2rem;
@@ -382,22 +427,8 @@
             margin-bottom: 3rem;
         }
 
-        @media (min-width: 768px) {
-            .footer-content {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: flex-start;
-            }
-        }
-
         .footer-brand {
             text-align: center;
-        }
-
-        @media (min-width: 768px) {
-            .footer-brand {
-                text-align: left;
-            }
         }
 
         .footer-logo {
@@ -410,25 +441,6 @@
         .footer-tagline {
             color: var(--color-text-muted);
             font-size: 0.95rem;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .social-link {
-            color: var(--color-text-muted);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: color var(--transition-base);
-            padding: 0.5rem;
-        }
-
-        .social-link:hover,
-        .social-link:focus-visible {
-            color: var(--color-accent);
         }
 
         .footer-bottom {
@@ -450,18 +462,20 @@
         }
 
         /* ==========================================================================
-           Accessibility & Focus States
+           Responsive
            ========================================================================== */
-        .btn:focus-visible,
-        .link:focus-visible,
-        .social-link:focus-visible {
-            outline: 2px solid var(--color-accent);
-            outline-offset: 3px;
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            
+            .footer-brand {
+                text-align: left;
+            }
         }
 
-        /* ==========================================================================
-           Responsive Adjustments
-           ========================================================================== */
         @media (max-width: 768px) {
             .hero {
                 padding: 3rem 1rem;
@@ -495,118 +509,141 @@
                 padding: 2rem;
             }
         }
+
+        /* ==========================================================================
+           Accessibility
+           ========================================================================== */
+        .btn:focus-visible,
+        .link:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 3px;
+        }
+
+        /* ==========================================================================
+           Print Styles
+           ========================================================================== */
+        @media print {
+            .hero,
+            .styles,
+            .location,
+            .footer {
+                padding: 2rem 1rem;
+            }
+            
+            .btn,
+            .scroll-indicator {
+                display: none;
+            }
+            
+            body {
+                color: #000;
+                background: #fff;
+            }
+        }
     </style>
+    
+    <!-- Font Fallback CSS -->
+    <noscript>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            }
+        </style>
+    </noscript>
 </head>
-<body>
-    <!-- Hero / Main Section -->
-    <main class="hero">
+<body itemscope itemtype="https://schema.org/TattooParlor">
+    <!-- Skip to Main Content Link for Accessibility -->
+    <a href="#main-content" class="visually-hidden" aria-label="Ana içeriğe atla">Ana içeriğe atla</a>
+    
+    <!-- Hero Section -->
+    <main id="main-content" class="hero" role="main">
         <div class="container">
-            <!-- Logo Area -->
+            <!-- Logo with ARIA label -->
             <div class="logo-container" aria-hidden="true">
-                <svg class="lama-logo" width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Head Circle -->
+                <svg class="lama-logo" width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <circle cx="60" cy="60" r="55" stroke="var(--color-accent)" stroke-width="2" stroke-opacity="0.8"/>
-                    <!-- Left Ear -->
                     <path d="M40 30 L30 15 L40 25" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round"/>
-                    <!-- Right Ear -->
                     <path d="M80 30 L90 15 L80 25" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round"/>
-                    <!-- Face -->
                     <circle cx="60" cy="65" r="35" stroke="var(--color-text)" stroke-width="1.5" stroke-opacity="0.7"/>
-                    <!-- Left Eye -->
                     <circle cx="48" cy="60" r="4" fill="var(--color-text)"/>
-                    <!-- Right Eye -->
                     <circle cx="72" cy="60" r="4" fill="var(--color-text)"/>
-                    <!-- Glasses Frame -->
                     <path d="M48 60 L35 60 M72 60 L85 60" stroke="var(--color-accent)" stroke-width="2"/>
                     <ellipse cx="48" cy="60" rx="10" ry="8" stroke="var(--color-accent)" stroke-width="1.5" fill="none"/>
                     <ellipse cx="72" cy="60" rx="10" ry="8" stroke="var(--color-accent)" stroke-width="1.5" fill="none"/>
-                    <!-- Bridge of Glasses -->
                     <line x1="58" y1="60" x2="62" y2="60" stroke="var(--color-accent)" stroke-width="1.5"/>
-                    <!-- Smile -->
                     <path d="M50 75 Q60 85 70 75" stroke="var(--color-text)" stroke-width="2" stroke-linecap="round" fill="none" stroke-opacity="0.7"/>
                 </svg>
             </div>
 
-            <h1 class="fade-in-up">Lama Tattoo Studio</h1>
+            <h1 class="fade-in-up" itemprop="name">Lama Tattoo Studio</h1>
             <p class="subtitle fade-in-up delay-1">Premium dövme sanatı. <strong>Yakında İzmit'te</strong> açılıyoruz.</p>
-            <p class="description fade-in-up delay-2">Dövme fikirlerinizi, özenle işlenmiş kalıcı sanat eserlerine dönüştürüyoruz. Randevu ve ön görüşme için şimdiden iletişime geçebilirsiniz.</p>
+            <p class="description fade-in-up delay-2" itemprop="description">Dövme fikirlerinizi, özenle işlenmiş kalıcı sanat eserlerine dönüştürüyoruz. Randevu ve ön görüşme için şimdiden iletişime geçebilirsiniz.</p>
 
             <!-- Primary CTAs -->
             <div class="cta-group fade-in-up delay-3">
-                <a href="https://wa.me/905313711023" target="_blank" rel="noopener" class="btn btn-primary" aria-label="WhatsApp üzerinden mesaj gönder">
-                    <span>WhatsApp</span>
+                <a href="https://wa.me/905313711023" target="_blank" rel="noopener nofollow" class="btn btn-primary" aria-label="WhatsApp üzerinden dövme randevusu için mesaj gönder">
+                    <span>WhatsApp'tan Randevu Al</span>
                 </a>
-                <a href="https://instagram.com/lamatattooizmit" target="_blank" rel="noopener" class="btn btn-secondary" aria-label="Instagram sayfamızı ziyaret et">
-                    <span>Instagram</span>
+                <a href="https://instagram.com/lamatattooizmit" target="_blank" rel="noopener nofollow" class="btn btn-secondary" aria-label="Lama Tattoo Studio Instagram sayfasını ziyaret et">
+                    <span>Instagram'da İncele</span>
                 </a>
             </div>
 
             <!-- Secondary CTAs -->
             <div class="cta-secondary fade-in-up delay-4">
-                <a href="mailto:info@lamatattoo.studio" class="link" aria-label="E-posta gönder">info@lamatattoo.studio</a>
+                <a href="mailto:info@lamatattoo.studio" class="link" aria-label="Lama Tattoo Studio'a e-posta gönder" itemprop="email">info@lamatattoo.studio</a>
                 <span class="divider">•</span>
-                <a href="tel:+905313711023" class="link" aria-label="Telefon ara">+90 (531) 371 10 23</a>
-            </div>
-        </div>
-
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator" aria-hidden="true">
-            <div class="mouse">
-                <div class="wheel"></div>
+                <a href="tel:+905313711023" class="link" aria-label="Lama Tattoo Studio'yu ara" itemprop="telephone">+90 (531) 371 10 23</a>
             </div>
         </div>
     </main>
 
-    <!-- Studio Focus / Styles Section -->
-    <section class="styles">
+    <!-- Styles Section with Semantic HTML -->
+    <section class="styles" aria-labelledby="styles-heading">
         <div class="container">
-            <h2 class="section-title">Odaklandığımız Stiller</h2>
+            <h2 id="styles-heading" class="section-title">Odaklandığımız Dövme Stilleri</h2>
             <p class="section-subtitle">Her biri kendi hikayesini anlatan, özenle uygulanmış dövme sanatı.</p>
 
-            <div class="styles-grid">
-                <article class="style-card">
+            <div class="styles-grid" role="list">
+                <article class="style-card" role="listitem" itemscope itemtype="https://schema.org/Service">
                     <div class="card-icon">✸</div>
-                    <h3>Fine Line & Minimal</h3>
-                    <p>İnce, zarif çizgiler ve minimalist tasarımlarla kişisel ifade. Sadeliğin gücünü yansıtan işler.</p>
+                    <h3 itemprop="name">Fine Line & Minimal Dövme</h3>
+                    <p itemprop="description">İnce, zarif çizgiler ve minimalist tasarımlarla kişisel ifade. Sadeliğin gücünü yansıtan işler.</p>
                 </article>
-                <article class="style-card">
+                <article class="style-card" role="listitem" itemscope itemtype="https://schema.org/Service">
                     <div class="card-icon">■</div>
-                    <h3>Blackwork & Geometric</h3>
-                    <p>Güçlü siyah dolgular, keskin geometrik formlar ve soyut desenler. Kontrast ve kompozisyonun dansı.</p>
+                    <h3 itemprop="name">Blackwork & Geometric Tattoo</h3>
+                    <p itemprop="description">Güçlü siyah dolgular, keskin geometrik formlar ve soyut desenler. Kontrast ve kompozisyonun dansı.</p>
                 </article>
-                <article class="style-card">
+                <article class="style-card" role="listitem" itemscope itemtype="https://schema.org/Service">
                     <div class="card-icon">◉</div>
-                    <h3>Realism & Illustration</h3>
-                    <p>Fotoğraf gerçekliğinde portreler, doğa sahneleri ve detaylı illüstrasyonlar. Gerçeği deri üzerine nakşetmek.</p>
+                    <h3 itemprop="name">Realism & Illustration Dövme</h3>
+                    <p itemprop="description">Fotoğraf gerçekliğinde portreler, doğa sahneleri ve detaylı illüstrasyonlar. Gerçeği deri üzerine nakşetmek.</p>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- Location & Info -->
-    <section class="location">
+    <!-- Location Section -->
+    <section class="location" aria-labelledby="location-heading" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
         <div class="container">
-            <h2 class="section-title">Bizi Ziyaret Edin</h2>
-            <p class="section-subtitle">Stüdyomuz açıldığında, aşağıdaki adreste sizleri ağırlamaktan mutluluk duyacağız.</p>
+            <h2 id="location-heading" class="section-title">İzmit'teki Dövme Stüdyomuz</h2>
+            <p class="section-subtitle">Stüdyomuz açıldığında, aşağıdaki konumda sizleri ağırlamaktan mutluluk duyacağız.</p>
             <div class="address">
-                <p class="location-text">📍 <strong>İzmit, Kocaeli</strong></p>
-                <p class="note">Detaylı adres ve çalışma saatleri açılışımızdan önce paylaşılacaktır.</p>
+                <p class="location-text">📍 <strong itemprop="addressLocality">İzmit</strong>, <span itemprop="addressRegion">Kocaeli</span></p>
+                <p class="note" itemprop="description">Detaylı adres ve çalışma saatleri açılışımızdan önce paylaşılacaktır.</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <p class="footer-logo">Lama Tattoo Studio</p>
-                    <p class="footer-tagline">Sanat, özen ve kalıcılık.</p>
+                    <p class="footer-logo" itemprop="name">Lama Tattoo Studio</p>
+                    <p class="footer-tagline" itemprop="slogan">Sanat, özen ve kalıcılık.</p>
                 </div>
-               <!-- <div class="footer-social">
-                    <a href="https://instagram.com/lamatattooizmit" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">IG</a>
-                </div>
-                -->
             </div>
             <div class="footer-bottom">
                 <p class="copyright">&copy; <span id="current-year">2024</span> Lama Tattoo Studio. Tüm hakları saklıdır.</p>
@@ -615,51 +652,21 @@
         </div>
     </footer>
 
-    <!-- Inline JavaScript -->
+    <!-- JavaScript -->
     <script>
-        /**
-         * Lama Tattoo Studio - Coming Soon Page
-         * All JavaScript included inline for single file deployment
-         */
         (function() {
             'use strict';
             
-            // DOM Ready
             document.addEventListener('DOMContentLoaded', function() {
-                
-                // 1. Set current year in footer
+                // Set current year
                 const yearElement = document.getElementById('current-year');
                 if (yearElement) {
                     yearElement.textContent = new Date().getFullYear();
                 }
                 
-                // 2. Smooth scroll for anchor links (if any added in future)
-                const anchorLinks = document.querySelectorAll('a[href^="#"]');
-                anchorLinks.forEach(link => {
-                    link.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const targetId = this.getAttribute('href');
-                        if (targetId === '#') return;
-                        
-                        const targetElement = document.querySelector(targetId);
-                        if (targetElement) {
-                            window.scrollTo({
-                                top: targetElement.offsetTop - 80,
-                                behavior: 'smooth'
-                            });
-                        }
-                    });
-                });
-                
-                // 3. Add loading class to body for animations
-                setTimeout(() => {
-                    document.body.classList.add('loaded');
-                }, 100);
-                
-                // 4. Performance: Lazy load any future images
+                // Lazy loading for future images
                 if ('IntersectionObserver' in window) {
                     const lazyImages = document.querySelectorAll('img[data-src]');
-                    
                     const imageObserver = new IntersectionObserver((entries) => {
                         entries.forEach(entry => {
                             if (entry.isIntersecting) {
@@ -670,33 +677,50 @@
                             }
                         });
                     });
-                    
                     lazyImages.forEach(img => imageObserver.observe(img));
                 }
                 
-                // 5. Console welcome message (optional)
-                console.log('%c🦙 Lama Tattoo Studio', 'color: #d4af37; font-size: 18px; font-weight: bold;');
-                console.log('%cYakında İzmit\'te açılıyoruz!', 'color: #888;');
+                // Google Fonts loading fallback
+                if (document.fonts && document.fonts.ready) {
+                    document.fonts.ready.then(function() {
+                        document.documentElement.classList.add('fonts-loaded');
+                    });
+                }
                 
+                // Performance monitoring
+                if ('performance' in window) {
+                    window.addEventListener('load', function() {
+                        setTimeout(function() {
+                            const perfEntries = performance.getEntriesByType('navigation');
+                            if (perfEntries.length > 0) {
+                                const navTiming = perfEntries[0];
+                                console.log('Page load time:', navTiming.loadEventEnd - navTiming.startTime, 'ms');
+                            }
+                        }, 0);
+                    });
+                }
             });
             
-            // 6. Handle reduced motion preference
+            // Reduced motion preference
             const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-            
             function handleReduceMotionChange(e) {
-                if (e.matches) {
-                    document.documentElement.style.setProperty('--transition-base', '0ms');
-                } else {
-                    document.documentElement.style.setProperty('--transition-base', '300ms ease');
-                }
+                document.documentElement.style.setProperty('--transition-base', e.matches ? '0ms' : '300ms ease');
             }
-            
-            // Initial check
             handleReduceMotionChange(reduceMotionQuery);
-            // Listen for changes
             reduceMotionQuery.addEventListener('change', handleReduceMotionChange);
             
         })();
     </script>
+    
+    <!-- Google Analytics placeholder (uncomment when needed) -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
 </body>
 </html>
