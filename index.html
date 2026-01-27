@@ -13,7 +13,7 @@
     <meta property="og:description" content="İzmit'in yeni premium dövme stüdyosu. Fine line, blackwork, realism ve minimalist dövme stilleri.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lamatattoo.studio">
-    <meta property="og:image" content="https://lamatattoo.studio/Designer.png">
+    <meta property="og:image" content="https://lamatattoo.studio/designer.png">
     
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦙</text></svg>">
@@ -69,9 +69,10 @@
            LOGO STİLLERİ - DÜNYA STANDARTLARI
            ========================================================================== */
         .logo-container {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             width: 100%;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
@@ -109,6 +110,23 @@
             clip: rect(0, 0, 0, 0);
             white-space: nowrap;
             border: 0;
+        }
+
+        /* ==========================================================================
+           METİN BAŞLIK STİLLERİ (Logo altında)
+           ========================================================================== */
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ffffff 0%, #d4af37 50%, #b8941f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            display: block !important; /* ÖNEMLİ: Görünür olması için */
         }
 
         .hero-subtitle {
@@ -331,6 +349,11 @@
                 max-height: 100px;
             }
             
+            .hero-title {
+                font-size: clamp(1.8rem, 4vw, 2.5rem);
+                margin-top: 15px;
+            }
+            
             .btn {
                 padding: 12px 24px;
                 min-width: 140px;
@@ -380,6 +403,11 @@
                 max-height: 80px;
             }
             
+            .hero-title {
+                font-size: 1.8rem;
+                margin-top: 10px;
+            }
+            
             .btn {
                 width: 100%;
             }
@@ -426,16 +454,21 @@
     <!-- HERO BÖLÜMÜ -->
     <main class="hero">
         <div class="container">
-            <!-- PROFESYONEL LOGO ENTEGRASYONU -->
+            <!-- PROFESYONEL LOGO ENTEGRASYONU + METİN BAŞLIĞI -->
             <div class="logo-container fade-in">
-                <!-- SEO ve erişilebilirlik için doğru img etiketi -->
-                <img src="./Designer.png" 
+                <!-- Logo -->
+                <img src="./designer.png" 
                      alt="Lama Tattoo Studio - Premium Dövme Stüdyosu İzmit"
                      class="site-logo"
-                     width="400"    /* Resmin gerçek genişliği */
-                     height="120"   /* Resmin gerçek yüksekliği */
+                     width="400"
+                     height="120"
                      loading="lazy"
                      decoding="async">
+                
+                <!-- Logo altında metin başlığı -->
+                <h1 class="hero-title fade-in delay-1">
+                    LAMA TATTOO STUDIO
+                </h1>
                 
                 <!-- Ekran okuyucular için gizli metin -->
                 <span class="logo-text">Lama Tattoo Studio</span>
@@ -581,10 +614,12 @@
                 // Eğer logo yüklenemezse fallback
                 logo.onerror = function() {
                     console.log('Logo yüklenemedi, fallback metin gösteriliyor');
+                    const logoContainer = document.querySelector('.logo-container');
                     const fallback = document.createElement('h1');
                     fallback.className = 'hero-title fade-in';
                     fallback.textContent = 'LAMA TATTOO STUDIO';
-                    document.querySelector('.logo-container').appendChild(fallback);
+                    logoContainer.innerHTML = '';
+                    logoContainer.appendChild(fallback);
                 };
             }
         });
