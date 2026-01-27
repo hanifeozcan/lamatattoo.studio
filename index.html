@@ -145,7 +145,7 @@
         }
 
         /* Etiketler arasına nokta eklemek için (opsiyonel) */
-        .premium-tag:not(:last-child)::after {
+        .premium-tang:not(:last-child)::after {
             content: '•';
             margin-left: 25px;
             color: #666666;
@@ -536,6 +536,310 @@
         .delay-2 { animation-delay: 0.4s; }
         .delay-3 { animation-delay: 0.6s; }
         .delay-4 { animation-delay: 0.8s; }
+
+        /* ==========================================================================
+           ERIŞİLEBİLİRLİK MENÜSÜ - Minimal & Modern
+           ========================================================================== */
+        .accessibility-widget {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 9999;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .accessibility-trigger {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2px solid #333333;
+            color: #000000;
+            font-size: 22px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
+        }
+
+        .accessibility-trigger:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            background: #f0f0f0;
+        }
+
+        .accessibility-panel {
+            position: absolute;
+            bottom: 65px;
+            right: 0;
+            width: 280px;
+            background: #111111;
+            border: 1px solid #333333;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+            display: none;
+            flex-direction: column;
+            gap: 18px;
+            backdrop-filter: blur(10px);
+        }
+
+        .accessibility-panel.active {
+            display: flex;
+            animation: panelSlide 0.3s ease;
+        }
+
+        @keyframes panelSlide {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .accessibility-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333333;
+            padding-bottom: 12px;
+            margin-bottom: 8px;
+        }
+
+        .accessibility-title {
+            font-size: 1.1rem;
+            color: #ffffff;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .accessibility-close {
+            background: none;
+            border: none;
+            color: #aaaaaa;
+            font-size: 22px;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease;
+        }
+
+        .accessibility-close:hover {
+            color: #ffffff;
+        }
+
+        .accessibility-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .section-label {
+            color: #cccccc;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .accessibility-controls {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .accessibility-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #333333;
+            color: #cccccc;
+            padding: 10px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 8px;
+            text-align: left;
+        }
+
+        .accessibility-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #666666;
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .accessibility-btn.active {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: #ffffff;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .btn-icon {
+            font-size: 1rem;
+            min-width: 20px;
+        }
+
+        .accessibility-profiles {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .profile-option {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #aaaaaa;
+            padding: 9px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.82rem;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .profile-option:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: #666666;
+            color: #ffffff;
+        }
+
+        .accessibility-reset {
+            margin-top: 8px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #444444;
+            color: #aaaaaa;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.25s ease;
+        }
+
+        .accessibility-reset:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #666666;
+            color: #ffffff;
+        }
+
+        .accessibility-hint {
+            font-size: 0.75rem;
+            color: #666666;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        /* Erişilebilirlik stilleri */
+        .high-contrast-mode {
+            --bg-color: #000000 !important;
+            --text-color: #ffffff !important;
+            --accent-color: #ffff00 !important;
+            background-color: #000000 !important;
+            color: #ffffff !important;
+        }
+
+        .high-contrast-mode .premium-tag,
+        .high-contrast-mode .hero-description,
+        .high-contrast-mode .section-subtitle,
+        .high-contrast-mode .info-card p,
+        .high-contrast-mode .footer-tagline,
+        .high-contrast-mode .footer-copyright {
+            color: #ffffff !important;
+        }
+
+        .high-contrast-mode .btn {
+            border-color: #ffff00 !important;
+            color: #ffffff !important;
+        }
+
+        .high-contrast-mode .btn-primary:hover {
+            background: #ffff00 !important;
+            color: #000000 !important;
+        }
+
+        .high-contrast-mode .contact-link.unified-style {
+            border-color: #ffff00 !important;
+            color: #ffffff !important;
+        }
+
+        .text-size-large {
+            font-size: 1.25rem !important;
+        }
+
+        .text-size-large .brand-title {
+            font-size: clamp(3.5rem, 7vw, 4.5rem) !important;
+        }
+
+        .text-size-large .brand-subtitle {
+            font-size: clamp(2rem, 3.5vw, 2.5rem) !important;
+        }
+
+        .text-size-large .premium-tag {
+            font-size: 1.4rem !important;
+        }
+
+        .text-spacing-wide {
+            letter-spacing: 0.05em !important;
+            word-spacing: 0.1em !important;
+            line-height: 1.8 !important;
+        }
+
+        .links-highlighted a {
+            outline: 2px solid #ffff00 !important;
+            background-color: rgba(255, 255, 0, 0.1) !important;
+            text-decoration: underline !important;
+        }
+
+        /* Mobilde erişilebilirlik menüsü */
+        @media (max-width: 768px) {
+            .accessibility-widget {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .accessibility-trigger {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+            }
+            
+            .accessibility-panel {
+                width: 260px;
+                right: -10px;
+                padding: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .accessibility-widget {
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .accessibility-trigger {
+                width: 44px;
+                height: 44px;
+                font-size: 18px;
+            }
+            
+            .accessibility-panel {
+                width: 240px;
+                right: -15px;
+                padding: 16px;
+            }
+            
+            .accessibility-controls {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -664,6 +968,58 @@
         </div>
     </footer>
 
+    <!-- ERIŞİLEBİLİRLİK MENÜSÜ -->
+    <div class="accessibility-widget">
+        <button class="accessibility-trigger" aria-label="Erişilebilirlik menüsünü aç" title="Erişilebilirlik menüsü (Ctrl+U)">
+            ♿
+        </button>
+        <div class="accessibility-panel">
+            <div class="accessibility-header">
+                <h3 class="accessibility-title">Accessibility Menu</h3>
+                <button class="accessibility-close" aria-label="Menüyü kapat">×</button>
+            </div>
+            
+            <div class="accessibility-section">
+                <div class="section-label">Display</div>
+                <div class="accessibility-controls">
+                    <button class="accessibility-btn" data-action="contrast">
+                        <span class="btn-icon">⚫</span>
+                        Contrast
+                    </button>
+                    <button class="accessibility-btn" data-action="textsize">
+                        <span class="btn-icon">A+</span>
+                        Bigger Text
+                    </button>
+                    <button class="accessibility-btn" data-action="spacing">
+                        <span class="btn-icon">↔</span>
+                        Spacing
+                    </button>
+                    <button class="accessibility-btn" data-action="links">
+                        <span class="btn-icon">🔗</span>
+                        Links
+                    </button>
+                </div>
+            </div>
+            
+            <div class="accessibility-section">
+                <div class="section-label">Profiles</div>
+                <div class="accessibility-profiles">
+                    <button class="profile-option" data-profile="vision">Vision Impaired</button>
+                    <button class="profile-option" data-profile="dyslexia">Dyslexia Friendly</button>
+                    <button class="profile-option" data-profile="adhd">ADHD Focus</button>
+                </div>
+            </div>
+            
+            <button class="accessibility-reset" data-action="reset">
+                Reset All Settings
+            </button>
+            
+            <div class="accessibility-hint">
+                Shortcut: Ctrl+U
+            </div>
+        </div>
+    </div>
+
     <!-- JAVASCRIPT -->
     <script>
         // Yıl otomatik güncelleme
@@ -696,6 +1052,204 @@
                     brandTitle.style.marginTop = '40px';
                 };
             }
+        });
+
+        // Erişilebilirlik Menüsü JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const body = document.body;
+            const trigger = document.querySelector('.accessibility-trigger');
+            const closeBtn = document.querySelector('.accessibility-close');
+            const panel = document.querySelector('.accessibility-panel');
+            const buttons = document.querySelectorAll('.accessibility-btn');
+            const profiles = document.querySelectorAll('.profile-option');
+            const resetBtn = document.querySelector('.accessibility-reset');
+            
+            // Menüyü aç/kapa
+            trigger.addEventListener('click', () => {
+                panel.classList.toggle('active');
+                trigger.setAttribute('aria-expanded', panel.classList.contains('active'));
+            });
+            
+            closeBtn.addEventListener('click', () => {
+                panel.classList.remove('active');
+                trigger.setAttribute('aria-expanded', 'false');
+            });
+            
+            // Klavye kısayolu: Ctrl+U
+            document.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'u') {
+                    e.preventDefault();
+                    panel.classList.toggle('active');
+                    trigger.setAttribute('aria-expanded', panel.classList.contains('active'));
+                }
+                
+                // ESC ile kapat
+                if (e.key === 'Escape' && panel.classList.contains('active')) {
+                    panel.classList.remove('active');
+                    trigger.setAttribute('aria-expanded', 'false');
+                }
+            });
+            
+            // Dışarı tıklayınca kapat
+            document.addEventListener('click', (e) => {
+                if (!panel.contains(e.target) && !trigger.contains(e.target) && panel.classList.contains('active')) {
+                    panel.classList.remove('active');
+                    trigger.setAttribute('aria-expanded', 'false');
+                }
+            });
+            
+            // Ayarları yükle
+            function loadSettings() {
+                const settings = JSON.parse(localStorage.getItem('lamaAccessibility')) || {};
+                
+                Object.keys(settings).forEach(key => {
+                    if (settings[key]) {
+                        body.classList.add(key);
+                        
+                        const btn = document.querySelector(`[data-action="${key}"]`);
+                        if (btn) btn.classList.add('active');
+                    }
+                });
+            }
+            
+            // Ayar değiştir
+            function toggleSetting(action) {
+                const settingClass = getClassFromAction(action);
+                if (!settingClass) return;
+                
+                // Çakışan sınıfları temizle
+                if (action === 'contrast') {
+                    body.classList.remove('text-size-large', 'text-spacing-wide', 'links-highlighted');
+                    buttons.forEach(b => b.classList.remove('active'));
+                } else if (action === 'textsize') {
+                    body.classList.remove('text-spacing-wide');
+                    document.querySelector('[data-action="spacing"]').classList.remove('active');
+                }
+                
+                body.classList.toggle(settingClass);
+                
+                const btn = document.querySelector(`[data-action="${action}"]`);
+                if (btn) btn.classList.toggle('active');
+                
+                saveSettings();
+                showNotification(`${action} ${body.classList.contains(settingClass) ? 'açıldı' : 'kapatıldı'}`);
+            }
+            
+            // Profil uygula
+            function applyProfile(profile) {
+                resetSettings();
+                
+                switch(profile) {
+                    case 'vision':
+                        body.classList.add('high-contrast-mode', 'text-size-large', 'links-highlighted');
+                        document.querySelector('[data-action="contrast"]').classList.add('active');
+                        document.querySelector('[data-action="textsize"]').classList.add('active');
+                        document.querySelector('[data-action="links"]').classList.add('active');
+                        showNotification('Görme engelli profili uygulandı');
+                        break;
+                    case 'dyslexia':
+                        body.classList.add('text-spacing-wide', 'text-size-large');
+                        document.querySelector('[data-action="spacing"]').classList.add('active');
+                        document.querySelector('[data-action="textsize"]').classList.add('active');
+                        showNotification('Disleksi dostu profil uygulandı');
+                        break;
+                    case 'adhd':
+                        body.classList.add('high-contrast-mode', 'links-highlighted');
+                        document.querySelector('[data-action="contrast"]').classList.add('active');
+                        document.querySelector('[data-action="links"]').classList.add('active');
+                        showNotification('DEHB odak profili uygulandı');
+                        break;
+                }
+                
+                saveSettings();
+            }
+            
+            // Tüm ayarları sıfırla
+            function resetSettings() {
+                body.classList.remove('high-contrast-mode', 'text-size-large', 'text-spacing-wide', 'links-highlighted');
+                buttons.forEach(b => b.classList.remove('active'));
+                localStorage.removeItem('lamaAccessibility');
+                showNotification('Tüm ayarlar sıfırlandı');
+            }
+            
+            // Ayarları kaydet
+            function saveSettings() {
+                const settings = {
+                    'high-contrast-mode': body.classList.contains('high-contrast-mode'),
+                    'text-size-large': body.classList.contains('text-size-large'),
+                    'text-spacing-wide': body.classList.contains('text-spacing-wide'),
+                    'links-highlighted': body.classList.contains('links-highlighted')
+                };
+                
+                localStorage.setItem('lamaAccessibility', JSON.stringify(settings));
+            }
+            
+            // Bildirim göster
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.textContent = message;
+                notification.style.cssText = `
+                    position: fixed;
+                    bottom: 90px;
+                    right: 25px;
+                    background: #333;
+                    color: white;
+                    padding: 10px 15px;
+                    border-radius: 6px;
+                    font-size: 0.9rem;
+                    z-index: 10000;
+                    animation: fadeInOut 2s ease;
+                `;
+                
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes fadeInOut {
+                        0% { opacity: 0; transform: translateY(10px); }
+                        15% { opacity: 1; transform: translateY(0); }
+                        85% { opacity: 1; transform: translateY(0); }
+                        100% { opacity: 0; transform: translateY(-10px); }
+                    }
+                `;
+                
+                document.head.appendChild(style);
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.remove();
+                    style.remove();
+                }, 2000);
+            }
+            
+            // Aksiyon adından CSS sınıfı al
+            function getClassFromAction(action) {
+                const map = {
+                    'contrast': 'high-contrast-mode',
+                    'textsize': 'text-size-large',
+                    'spacing': 'text-spacing-wide',
+                    'links': 'links-highlighted'
+                };
+                return map[action];
+            }
+            
+            // Olay dinleyicileri
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const action = btn.getAttribute('data-action');
+                    toggleSetting(action);
+                });
+            });
+            
+            profiles.forEach(profile => {
+                profile.addEventListener('click', () => {
+                    const profileType = profile.getAttribute('data-profile');
+                    applyProfile(profileType);
+                });
+            });
+            
+            resetBtn.addEventListener('click', resetSettings);
+            
+            // Ayarları yükle
+            loadSettings();
         });
     </script>
 </body>
