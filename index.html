@@ -1,104 +1,35 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <!-- Temel Meta Etiketleri -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <!-- Başlık ve Açıklama -->
     <title>Lama Tattoo Studio İzmit | Premium Dövme Stüdyosu | Yakında Açılıyor</title>
-    <meta name="description" content="Lama Tattoo Studio İzmit'te açılıyor! Minimalist dövme, fine line, blackwork, geometric ve realism stillerinde kaliteli dövme hizmeti. İzmit dövme, Kocaeli tattoo sanatı.">
-    <meta name="keywords" content="izmit dövme, kocaeli tattoo, minimalist dövme, fine line tattoo, blackwork tattoo, realism dövme, geometric tattoo, izmit tattoo stüdyosu, kaliteli dövme">
+    <meta name="description" content="Lama Tattoo Studio İzmit'te açılıyor! Minimalist dövme, fine line, blackwork, geometric ve realism stillerinde kaliteli dövme hizmeti.">
     
-    <!-- Open Graph / Social Media -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Lama Tattoo Studio İzmit | Premium Dövme Stüdyosu">
-    <meta property="og:description" content="İzmit'in yeni premium dövme stüdyosu. Fine line, blackwork, realism ve minimalist dövme stilleri. Randevu için iletişime geçin.">
+    <meta property="og:description" content="İzmit'in yeni premium dövme stüdyosu. Fine line, blackwork, realism ve minimalist dövme stilleri.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lamatattoo.studio">
-    <meta property="og:image" content="https://lamatattoo.studio/assets/img/social-preview.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Lama Tattoo Studio - İzmit Premium Dövme Stüdyosu">
-    <meta property="og:locale" content="tr_TR">
-    <meta property="og:site_name" content="Lama Tattoo Studio">
+    <meta property="og:image" content="https://lamatattoo.studio/image.png">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
     
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Lama Tattoo Studio İzmit | Yakında Açılıyor">
-    <meta name="twitter:description" content="İzmit'te premium dövme sanatı. Minimalist, fine line, blackwork ve realism dövme stilleri.">
-    <meta name="twitter:image" content="https://lamatattoo.studio/assets/img/twitter-preview.jpg">
+    <!-- Favicon (mevcut PNG dosyası) -->
+    <link rel="icon" type="image/png" href="image.png">
+    <link rel="apple-touch-icon" href="image.png">
     
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://lamatattoo.studio">
-    
-    <!-- Schema.org JSON-LD Markup -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "TattooParlor",
-        "name": "Lama Tattoo Studio",
-        "description": "İzmit'te premium dövme sanatı stüdyosu. Fine line, minimalist, blackwork ve realism dövme stillerinde uzmanlaşmıştır.",
-        "url": "https://lamatattoo.studio",
-        "image": "https://lamatattoo.studio/assets/img/schema-image.jpg",
-        "telephone": "+905313711023",
-        "email": "info@lamatattoo.studio",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "İzmit",
-            "addressRegion": "Kocaeli",
-            "addressCountry": "TR"
-        },
-        "openingHours": "Mo-Fr 10:00-20:00, Sa 10:00-18:00",
-        "priceRange": "$$",
-        "currenciesAccepted": "TRY",
-        "paymentAccepted": "Cash, Credit Card",
-        "sameAs": [
-            "https://instagram.com/lamatattooizmit"
-        ]
-    }
-    </script>
-    
-    <!-- İşletme İletişim Bilgileri -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Lama Tattoo Studio",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "İzmit",
-            "addressRegion": "Kocaeli",
-            "addressCountry": "Turkey"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "40.7669",
-            "longitude": "29.9169"
-        },
-        "openingHours": "Mo-Fr 10:00-20:00",
-        "telephone": "+905313711023"
-    }
-    </script>
-    
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦙</text></svg>">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    
-    <!-- Preload ve Preconnect -->
+    <!-- Preconnect ve Fontlar -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap"></noscript>
     
-    <!-- CSS -->
     <style>
         /* ==========================================================================
-           CSS Reset & Base Styles
+           TEMEL STİLLER
            ========================================================================== */
-        *,
-        *::before,
-        *::after {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -108,82 +39,47 @@
             scroll-behavior: smooth;
         }
 
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-            .fade-in-up {
-                animation: none !important;
-                opacity: 1 !important;
-                transform: none !important;
-            }
-        }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             font-weight: 300;
             line-height: 1.6;
-            color: var(--color-text);
-            background-color: var(--color-bg);
+            color: #f0f0f0;
+            background-color: #0a0a0a;
             overflow-x: hidden;
         }
 
         /* ==========================================================================
-           CSS Custom Properties
+           LOGO STİLLERİ (PNG Logo için)
            ========================================================================== */
-        :root {
-            --color-bg: #0a0a0a;
-            --color-surface: #1a1a1a;
-            --color-text: #f0f0f0;
-            --color-text-muted: #888;
-            --color-accent: #d4af37;
-            --color-accent-hover: #e6c158;
-            --container-width: min(1200px, 90vw);
-            --transition-base: 300ms ease;
+        .logo-container {
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .lama-logo {
+            width: 180px; /* PNG logo için ideal boyut */
+            height: 180px;
+            object-fit: contain;
+            filter: 
+                drop-shadow(0 0 15px rgba(212, 175, 55, 0.4))
+                drop-shadow(0 0 30px rgba(212, 175, 55, 0.2));
+            transition: all 0.3s ease;
+            border-radius: 50%; /* Dairesel görünüm için */
+            background: radial-gradient(circle at center, 
+                rgba(212, 175, 55, 0.1) 0%, 
+                transparent 70%);
+            padding: 20px;
+        }
+
+        .lama-logo:hover {
+            transform: scale(1.05);
+            filter: 
+                drop-shadow(0 0 20px rgba(212, 175, 55, 0.6))
+                drop-shadow(0 0 40px rgba(212, 175, 55, 0.3));
         }
 
         /* ==========================================================================
-           Utility Classes
-           ========================================================================== */
-        .container {
-            width: 100%;
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s var(--transition-base) forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        .delay-4 { animation-delay: 0.8s; }
-
-        /* ==========================================================================
-           Hero Section
+           HERO BÖLÜMÜ
            ========================================================================== */
         .hero {
             min-height: 100vh;
@@ -192,54 +88,46 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+            padding: 2rem 1.5rem;
             position: relative;
-            padding: 4rem 1.5rem;
-            background-image:
-                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.03) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.02) 0%, transparent 40%);
-        }
-
-        .logo-container {
-            margin-bottom: 2.5rem;
-        }
-
-        .lama-logo {
-            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
-            transition: filter var(--transition-base);
-        }
-
-        .lama-logo:hover {
-            filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.5));
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.03) 0%, transparent 40%),
+                linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 1rem;
-            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #f0f0f0 0%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero .subtitle {
-            font-size: clamp(1.1rem, 4vw, 1.5rem);
-            color: var(--color-text-muted);
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            color: #888;
             margin-bottom: 1.5rem;
         }
 
         .hero .subtitle strong {
-            color: var(--color-accent);
+            color: #d4af37;
             font-weight: 700;
         }
 
         .hero .description {
-            font-size: 1.125rem;
+            font-size: 1.1rem;
             max-width: 600px;
-            margin: 0 auto 3rem;
-            color: var(--color-text-muted);
+            margin: 0 auto 2.5rem;
+            color: #aaa;
+            line-height: 1.7;
         }
 
         /* ==========================================================================
-           Buttons
+           BUTONLAR
            ========================================================================== */
         .cta-group {
             display: flex;
@@ -253,474 +141,368 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 1rem 2.5rem;
+            padding: 1rem 2rem;
             border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
+            font-weight: 600;
+            font-size: 1rem;
             text-decoration: none;
-            transition: all var(--transition-base);
+            transition: all 0.3s ease;
             border: 2px solid transparent;
-            cursor: pointer;
-            min-width: 160px;
-            white-space: nowrap;
+            min-width: 150px;
         }
 
         .btn-primary {
-            background-color: var(--color-accent);
-            color: var(--color-bg);
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+            color: #0a0a0a;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
 
-        .btn-primary:hover,
-        .btn-primary:focus-visible {
-            background-color: var(--color-accent-hover);
+        .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
         }
 
         .btn-secondary {
-            background-color: transparent;
-            color: var(--color-text);
-            border-color: var(--color-text);
+            background: transparent;
+            color: #f0f0f0;
+            border-color: #444;
         }
 
-        .btn-secondary:hover,
-        .btn-secondary:focus-visible {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-color: var(--color-accent);
-            color: var(--color-accent);
+        .btn-secondary:hover {
+            border-color: #d4af37;
+            color: #d4af37;
             transform: translateY(-3px);
         }
 
-        .cta-secondary {
+        /* ==========================================================================
+           İLETİŞİM LİNKLERİ
+           ========================================================================== */
+        .contact-links {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
             gap: 1rem;
-            font-size: 1.1rem;
-            margin-bottom: 4rem;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
         }
 
-        .link {
-            color: var(--color-text-muted);
+        .contact-link {
+            color: #888;
             text-decoration: none;
-            transition: color var(--transition-base);
-            border-bottom: 1px dotted transparent;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .link:hover,
-        .link:focus-visible {
-            color: var(--color-accent);
-            border-bottom-color: var(--color-accent);
-        }
-
-        .divider {
-            color: var(--color-text-muted);
-            user-select: none;
+        .contact-link:hover {
+            color: #d4af37;
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-2px);
         }
 
         /* ==========================================================================
-           Styles Section - Geliştirilmiş
+           STÜDYO BİLGİLERİ
            ========================================================================== */
-        .styles {
-            padding: 6rem 1.5rem;
-            background-color: var(--color-bg);
+        .studio-info {
+            padding: 4rem 1.5rem;
+            background: #1a1a1a;
+            text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .section-title {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: var(--color-text);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--color-text-muted);
-            max-width: 600px;
-            margin: 0 auto 4rem;
-            font-size: 1.125rem;
-        }
-
-        .styles-grid {
+        .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 3rem auto 0;
         }
 
-        .style-card {
-            background-color: var(--color-surface);
-            padding: 2.5rem;
+        .info-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2rem;
             border-radius: 12px;
-            text-align: center;
-            transition: transform var(--transition-base), box-shadow var(--transition-base);
             border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
         }
 
-        .style-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.3);
+            background: rgba(212, 175, 55, 0.05);
         }
 
-        .card-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: var(--color-accent);
-            display: block;
-        }
-
-        .style-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
+        .info-card h3 {
+            color: #d4af37;
             margin-bottom: 1rem;
-            color: var(--color-text);
+            font-size: 1.3rem;
         }
 
-        .style-card p {
-            color: var(--color-text-muted);
-            line-height: 1.7;
-        }
-
-        /* ==========================================================================
-           Location Section - Geliştirilmiş
-           ========================================================================== */
-        .location {
-            padding: 6rem 1.5rem;
-            background-color: var(--color-surface);
-            text-align: center;
-        }
-
-        .location-text {
-            font-size: 1.5rem;
-            margin: 2rem 0;
-            color: var(--color-text);
-        }
-
-        .location-text strong {
-            color: var(--color-accent);
-        }
-
-        .note {
-            color: var(--color-text-muted);
-            font-style: italic;
-            max-width: 500px;
-            margin: 0 auto;
+        .info-card p {
+            color: #aaa;
+            line-height: 1.6;
         }
 
         /* ==========================================================================
-           Footer - Geliştirilmiş
+           FOOTER
            ========================================================================== */
         .footer {
-            padding: 4rem 1.5rem 2rem;
-            background-color: var(--color-bg);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-brand {
+            padding: 3rem 1.5rem;
+            background: #0a0a0a;
             text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--color-text);
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-tagline {
-            color: var(--color-text-muted);
-            font-size: 0.95rem;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .copyright {
-            color: var(--color-text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .coming-soon {
-            color: var(--color-text-muted);
-            font-size: 0.9rem;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
             opacity: 0.8;
         }
 
-        /* ==========================================================================
-           Responsive
-           ========================================================================== */
-        @media (min-width: 768px) {
-            .footer-content {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: flex-start;
-            }
-            
-            .footer-brand {
-                text-align: left;
-            }
+        .footer-text {
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
         }
 
+        /* ==========================================================================
+           RESPONSIVE
+           ========================================================================== */
         @media (max-width: 768px) {
+            .lama-logo {
+                width: 140px;
+                height: 140px;
+            }
+            
             .hero {
-                padding: 3rem 1rem;
+                padding: 1.5rem 1rem;
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             
             .btn {
-                padding: 0.9rem 2rem;
-                min-width: 140px;
-                font-size: 1rem;
+                padding: 0.8rem 1.5rem;
+                min-width: 130px;
+                font-size: 0.9rem;
             }
             
-            .cta-secondary {
+            .contact-links {
                 flex-direction: column;
                 gap: 0.8rem;
             }
             
-            .divider {
-                display: none;
-            }
-            
-            .styles-grid {
+            .info-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .lama-logo {
+                width: 120px;
+                height: 120px;
             }
             
-            .style-card {
-                padding: 2rem;
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-group {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .btn {
+                width: 100%;
             }
         }
 
         /* ==========================================================================
-           Accessibility
+           ANİMASYONLAR
            ========================================================================== */
-        .btn:focus-visible,
-        .link:focus-visible {
-            outline: 2px solid var(--color-accent);
-            outline-offset: 3px;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* ==========================================================================
-           Print Styles
-           ========================================================================== */
-        @media print {
-            .hero,
-            .styles,
-            .location,
-            .footer {
-                padding: 2rem 1rem;
-            }
-            
-            .btn,
-            .scroll-indicator {
-                display: none;
-            }
-            
-            body {
-                color: #000;
-                background: #fff;
-            }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
         }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
     </style>
-    
-    <!-- Font Fallback CSS -->
-    <noscript>
-        <style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            }
-        </style>
-    </noscript>
 </head>
-<body itemscope itemtype="https://schema.org/TattooParlor">
-    <!-- Skip to Main Content Link for Accessibility -->
-    <a href="#main-content" class="visually-hidden" aria-label="Ana içeriğe atla">Ana içeriğe atla</a>
-    
-    <!-- Hero Section -->
-    <main id="main-content" class="hero" role="main">
-        <div class="container">
-            <!-- Logo with ARIA label -->
-            <div class="logo-container" aria-hidden="true">
-                <svg class="lama-logo" width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <circle cx="60" cy="60" r="55" stroke="var(--color-accent)" stroke-width="2" stroke-opacity="0.8"/>
-                    <path d="M40 30 L30 15 L40 25" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M80 30 L90 15 L80 25" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round"/>
-                    <circle cx="60" cy="65" r="35" stroke="var(--color-text)" stroke-width="1.5" stroke-opacity="0.7"/>
-                    <circle cx="48" cy="60" r="4" fill="var(--color-text)"/>
-                    <circle cx="72" cy="60" r="4" fill="var(--color-text)"/>
-                    <path d="M48 60 L35 60 M72 60 L85 60" stroke="var(--color-accent)" stroke-width="2"/>
-                    <ellipse cx="48" cy="60" rx="10" ry="8" stroke="var(--color-accent)" stroke-width="1.5" fill="none"/>
-                    <ellipse cx="72" cy="60" rx="10" ry="8" stroke="var(--color-accent)" stroke-width="1.5" fill="none"/>
-                    <line x1="58" y1="60" x2="62" y2="60" stroke="var(--color-accent)" stroke-width="1.5"/>
-                    <path d="M50 75 Q60 85 70 75" stroke="var(--color-text)" stroke-width="2" stroke-linecap="round" fill="none" stroke-opacity="0.7"/>
-                </svg>
-            </div>
+<body>
+    <!-- HERO BÖLÜMÜ -->
+    <main class="hero">
+        <div class="logo-container fade-in">
+            <!-- PNG Logo Kullanımı -->
+            <img src="image.png" 
+                 alt="Lama Tattoo Studio İzmit Logosu - Premium Dövme Sanatı"
+                 class="lama-logo"
+                 width="180"
+                 height="180">
+        </div>
 
-            <h1 class="fade-in-up" itemprop="name">Lama Tattoo Studio</h1>
-            <p class="subtitle fade-in-up delay-1">Premium dövme sanatı. <strong>Yakında İzmit'te.</strong></p>
-            <p class="description fade-in-up delay-2" itemprop="description">Dövme fikirlerinizi, özenle işlenmiş kalıcı sanat eserlerine dönüştürüyoruz. Randevu ve ön görüşme için şimdiden iletişime geçebilirsiniz.</p>
+        <h1 class="fade-in delay-1">Lama Tattoo Studio</h1>
+        <p class="subtitle fade-in delay-1">Premium dövme sanatı. <strong>Yakında İzmit'te</strong> </p>
+        <p class="description fade-in delay-2">
+            Dövme fikirlerinizi, özenle işlenmiş kalıcı sanat eserlerine dönüştürüyoruz. 
+            Minimalist, fine line, blackwork ve realism stillerinde uzmanlaşmış ekibimizle 
+            size özel tasarımlar sunuyoruz.
+        </p>
 
-            <!-- Primary CTAs -->
-            <div class="cta-group fade-in-up delay-3">
-                <a href="https://wa.me/905313711023" target="_blank" rel="noopener nofollow" class="btn btn-primary" aria-label="WhatsApp üzerinden dövme randevusu için mesaj gönder">
-                    <span>WhatsApp'tan Randevu Al</span>
-                </a>
-                <a href="https://instagram.com/lamatattooizmit" target="_blank" rel="noopener nofollow" class="btn btn-secondary" aria-label="Lama Tattoo Studio Instagram sayfasını ziyaret et">
-                    <span>Instagram'da İncele</span>
-                </a>
-            </div>
+        <!-- ANA BUTONLAR -->
+        <div class="cta-group fade-in delay-2">
+            <a href="https://wa.me/905313711023" 
+               target="_blank" 
+               rel="noopener nofollow" 
+               class="btn btn-primary"
+               aria-label="WhatsApp üzerinden dövme randevusu al">
+                WhatsApp'tan Randevu Al
+            </a>
+            <a href="https://instagram.com/lamatattooizmit" 
+               target="_blank" 
+               rel="noopener nofollow" 
+               class="btn btn-secondary"
+               aria-label="Instagram sayfamızı ziyaret et">
+                Instagram'da İncele
+            </a>
+        </div>
 
-            <!-- Secondary CTAs -->
-            <div class="cta-secondary fade-in-up delay-4">
-                <a href="mailto:info@lamatattoo.studio" class="link" aria-label="Lama Tattoo Studio'a e-posta gönder" itemprop="email">info@lamatattoo.studio</a>
-                <span class="divider">•</span>
-                <a href="tel:+905313711023" class="link" aria-label="Lama Tattoo Studio'yu ara" itemprop="telephone">+90 (531) 371 10 23</a>
-            </div>
+        <!-- İLETİŞİM LİNKLERİ -->
+        <div class="contact-links fade-in delay-3">
+            <a href="mailto:info@lamatattoo.studio" 
+               class="contact-link"
+               aria-label="E-posta gönder">
+                📧 info@lamatattoo.studio
+            </a>
+            <a href="tel:+905313711023" 
+               class="contact-link"
+               aria-label="Telefon ara">
+                📞 +90 (531) 371 10 23
+            </a>
+            <span class="contact-link">
+                📍 İzmit, Kocaeli
+            </span>
         </div>
     </main>
 
-    <!-- Styles Section with Semantic HTML -->
-    <section class="styles" aria-labelledby="styles-heading">
-        <div class="container">
-            <h2 id="styles-heading" class="section-title">Odaklandığımız Dövme Stilleri</h2>
-            <p class="section-subtitle">Her biri kendi hikayesini anlatan, özenle uygulanmış dövme sanatı.</p>
-
-            <div class="styles-grid" role="list">
-                <article class="style-card" role="listitem" itemscope itemtype="https://schema.org/Service">
-                    <div class="card-icon">✸</div>
-                    <h3 itemprop="name">Fine Line & Minimal Dövme</h3>
-                    <p itemprop="description">İnce, zarif çizgiler ve minimalist tasarımlarla kişisel ifade. Sadeliğin gücünü yansıtan işler.</p>
-                </article>
-                <article class="style-card" role="listitem" itemscope itemtype="https://schema.org/Service">
-                    <div class="card-icon">■</div>
-                    <h3 itemprop="name">Blackwork & Geometric Tattoo</h3>
-                    <p itemprop="description">Güçlü siyah dolgular, keskin geometrik formlar ve soyut desenler. Kontrast ve kompozisyonun dansı.</p>
-                </article>
-                <article class="style-card" role="listitem" itemscope itemtype="https://schema.org/Service">
-                    <div class="card-icon">◉</div>
-                    <h3 itemprop="name">Realism & Illustration Dövme</h3>
-                    <p itemprop="description">Fotoğraf gerçekliğinde portreler, doğa sahneleri ve detaylı illüstrasyonlar. Gerçeği deri üzerine nakşetmek.</p>
-                </article>
+    <!-- STÜDYO BİLGİLERİ -->
+    <section class="studio-info">
+        <h2 style="color: #f0f0f0; font-size: 2rem; margin-bottom: 1rem;">Neden Lama Tattoo Studio?</h2>
+        <p style="color: #888; max-width: 600px; margin: 0 auto 2rem;">
+            Modern teknikler, hijyen standartları ve sanatsal yaklaşımımızla 
+            İzmit'te en kaliteli dövme deneyimini sunuyoruz.
+        </p>
+        
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Hijyen & Güvenlik</h3>
+                <p>Steril ortam, tek kullanımlık malzemeler ve en yüksek hijyen standartları.</p>
+            </div>
+            <div class="info-card">
+                <h3>Özel Tasarım</h3>
+                <p>Her müşteriye özel, kişiye özgü tasarımlar ve sanatsal yaklaşım.</p>
+            </div>
+            <div class="info-card">
+                <h3>Profesyonel Ekip</h3>
+                <p>Deneyimli sanatçılar, modern teknikler ve sürekli eğitim.</p>
             </div>
         </div>
     </section>
 
-    <!-- Location Section -->
-    <section class="location" aria-labelledby="location-heading" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-        <div class="container">
-            <h2 id="location-heading" class="section-title">İzmit'teki Dövme Stüdyomuz</h2>
-            <p class="section-subtitle">Stüdyomuz açıldığında, aşağıdaki konumda sizleri ağırlamaktan mutluluk duyacağız.</p>
-            <div class="address">
-                <p class="location-text">📍 <strong itemprop="addressLocality">İzmit</strong>, <span itemprop="addressRegion">Kocaeli</span></p>
-                <p class="note" itemprop="description">Detaylı adres ve çalışma saatleri açılışımızdan önce paylaşılacaktır.</p>
-            </div>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <img src="image.png" 
+             alt="Lama Tattoo Studio Logo"
+             class="footer-logo"
+             width="80"
+             height="80">
+        
+        <p style="color: #d4af37; font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem;">
+            Lama Tattoo Studio
+        </p>
+        <p style="color: #888; margin-bottom: 1.5rem;">
+            İzmit'in Yeni Premium Dövme Stüdyosu
+        </p>
+        
+        <div class="contact-links" style="justify-content: center; gap: 1.5rem;">
+            <a href="https://instagram.com/lamatattooizmit" 
+               target="_blank" 
+               rel="noopener nofollow"
+               class="contact-link">
+                Instagram
+            </a>
+            <a href="https://wa.me/905313711023" 
+               target="_blank" 
+               rel="noopener nofollow"
+               class="contact-link">
+                WhatsApp
+            </a>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <p class="footer-logo" itemprop="name">Lama Tattoo Studio</p>
-                    <p class="footer-tagline" itemprop="slogan">Sanat, özen ve kalıcılık.</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p class="copyright">&copy; <span id="current-year">2024</span> Lama Tattoo Studio. Tüm hakları saklıdır.</p>
-                <p class="coming-soon">Portfolyo ve online randevu sistemi yakında aktif olacaktır.</p>
-            </div>
-        </div>
+        
+        <p class="footer-text">
+            &copy; <span id="current-year">2024</span> Lama Tattoo Studio. Tüm hakları saklıdır.<br>
+            Online randevu sistemi yakında aktif olacaktır.
+        </p>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- JAVASCRIPT -->
     <script>
-        (function() {
-            'use strict';
-            
-            document.addEventListener('DOMContentLoaded', function() {
-                // Set current year
-                const yearElement = document.getElementById('current-year');
-                if (yearElement) {
-                    yearElement.textContent = new Date().getFullYear();
-                }
-                
-                // Lazy loading for future images
-                if ('IntersectionObserver' in window) {
-                    const lazyImages = document.querySelectorAll('img[data-src]');
-                    const imageObserver = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                const img = entry.target;
-                                img.src = img.dataset.src;
-                                img.removeAttribute('data-src');
-                                imageObserver.unobserve(img);
-                            }
-                        });
-                    });
-                    lazyImages.forEach(img => imageObserver.observe(img));
-                }
-                
-                // Google Fonts loading fallback
-                if (document.fonts && document.fonts.ready) {
-                    document.fonts.ready.then(function() {
-                        document.documentElement.classList.add('fonts-loaded');
-                    });
-                }
-                
-                // Performance monitoring
-                if ('performance' in window) {
-                    window.addEventListener('load', function() {
-                        setTimeout(function() {
-                            const perfEntries = performance.getEntriesByType('navigation');
-                            if (perfEntries.length > 0) {
-                                const navTiming = perfEntries[0];
-                                console.log('Page load time:', navTiming.loadEventEnd - navTiming.startTime, 'ms');
-                            }
-                        }, 0);
-                    });
-                }
+        // Yıl otomatik güncelleme
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Logo hover efekti
+        document.querySelectorAll('.lama-logo, .footer-logo').forEach(logo => {
+            logo.addEventListener('mouseenter', function() {
+                this.style.transition = 'all 0.3s ease';
             });
+        });
+        
+        // Sayfa yükleme animasyonu
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
             
-            // Reduced motion preference
-            const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-            function handleReduceMotionChange(e) {
-                document.documentElement.style.setProperty('--transition-base', e.matches ? '0ms' : '300ms ease');
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+            
+            // Performans optimizasyonu
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.loading = 'lazy';
+            });
+        });
+        
+        // WhatsApp butonu için analytics event (isteğe bağlı)
+        document.querySelector('.btn-primary').addEventListener('click', function() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'whatsapp_click', {
+                    'event_category': 'engagement',
+                    'event_label': 'hero_section'
+                });
             }
-            handleReduceMotionChange(reduceMotionQuery);
-            reduceMotionQuery.addEventListener('change', handleReduceMotionChange);
-            
-        })();
+        });
     </script>
-    
-    <!-- Google Analytics placeholder (uncomment when needed) -->
-    <!--
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
-    -->
 </body>
 </html>
