@@ -142,6 +142,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 80px;
         }
 
         body {
@@ -150,7 +151,6 @@
             color: var(--text-primary);
             background-color: var(--bg-primary);
             overflow-x: hidden;
-            padding-top: 70px;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
@@ -274,16 +274,21 @@
 
         .nav-cta:hover,
         .nav-cta:focus {
-            background: var(--accent-color);
-            color: #000000;
+            background: var(--accent-color) !important;
+            color: #000000 !important;
             transform: scale(1.05);
             box-shadow: 0 4px 12px var(--shadow-color);
         }
         
+        [data-theme="light"] .nav-cta {
+            color: #000000;
+            border-color: #000000;
+        }
+        
         [data-theme="light"] .nav-cta:hover,
         [data-theme="light"] .nav-cta:focus {
-            background: #000000;
-            color: #FFFFFF;
+            background: #000000 !important;
+            color: #FFFFFF !important;
         }
         
         /* Dark Mode Toggle */
@@ -388,10 +393,6 @@
             .nav-links.active {
                 left: 0;
             }
-            
-            body {
-                padding-top: 70px;
-            }
         }
 
         /* ==========================================================================
@@ -407,15 +408,16 @@
            HERO BÖLÜMÜ
            ========================================================================== */
         .hero {
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 40px 20px;
+            padding: 110px 20px 40px;
             background: var(--bg-primary);
             position: relative;
+            scroll-margin-top: 0;
         }
         
         /* Scroll triggered animation */
@@ -569,16 +571,21 @@
 
         .btn-primary:hover,
         .btn-primary:focus {
-            background: var(--accent-color);
-            color: #000000;
+            background: var(--accent-color) !important;
+            color: #000000 !important;
             transform: translateY(-5px);
             box-shadow: 0 10px 20px var(--shadow-color);
         }
         
+        [data-theme="light"] .btn-primary {
+            color: #000000;
+            border-color: #000000;
+        }
+        
         [data-theme="light"] .btn-primary:hover,
         [data-theme="light"] .btn-primary:focus {
-            background: #000000;
-            color: #FFFFFF;
+            background: #000000 !important;
+            color: #FFFFFF !important;
         }
 
         .contact-info {
@@ -633,6 +640,7 @@
             padding: 80px 20px;
             background: var(--bg-secondary);
             text-align: center;
+            scroll-margin-top: 80px;
         }
 
         .section-title {
@@ -699,6 +707,7 @@
             padding: 80px 20px;
             background: var(--bg-secondary);
             text-align: center;
+            scroll-margin-top: 80px;
         }
         
         .faq-container {
@@ -774,6 +783,7 @@
             padding: 80px 20px;
             background: var(--bg-secondary);
             text-align: center;
+            scroll-margin-top: 80px;
         }
 
         .gallery-grid {
@@ -835,6 +845,7 @@
         .contact-section {
             padding: 80px 20px;
             background: var(--bg-primary);
+            scroll-margin-top: 80px;
         }
 
         .contact-container {
@@ -950,6 +961,7 @@
             padding: 80px 20px;
             background: var(--bg-primary);
             text-align: center;
+            scroll-margin-top: 80px;
         }
 
         .info-grid {
@@ -1182,8 +1194,8 @@
            ========================================================================== */
         @media (max-width: 768px) {
             .hero {
-                padding: 30px 15px;
-                min-height: auto;
+                padding: 100px 15px 30px;
+                min-height: 100vh;
             }
             
             .site-logo {
