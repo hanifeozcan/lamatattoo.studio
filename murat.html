@@ -390,77 +390,6 @@
         }
 
         /* ==========================================================================
-           2. SANATÇILAR BÖLÜMÜ (YENI)
-           ========================================================================== */
-        .artists {
-            padding: 80px 20px;
-            background: #000;
-            text-align: center;
-        }
-
-        .artist-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 50px auto 0;
-        }
-
-        .artist-card {
-            background: #111;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #333;
-            transition: all 0.4s ease;
-        }
-
-        .artist-card:hover {
-            transform: translateY(-10px);
-            border-color: #fff;
-        }
-
-        .artist-image {
-            width: 100%;
-            height: 350px;
-            overflow: hidden;
-        }
-
-        .artist-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .artist-card:hover .artist-image img {
-            transform: scale(1.05);
-        }
-
-        .artist-info {
-            padding: 30px;
-            text-align: center;
-        }
-
-        .artist-info h3 {
-            color: #fff;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-
-        .artist-expertise {
-            color: #ccc;
-            font-style: italic;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .artist-bio {
-            color: #aaa;
-            margin-bottom: 25px;
-            line-height: 1.7;
-        }
-
-        /* ==========================================================================
            3. PORTFÖY GALERİ BÖLÜMÜ (YENI)
            ========================================================================== */
         .gallery {
@@ -804,7 +733,6 @@
             }
             
             .process-steps,
-            .artist-grid,
             .gallery-grid,
             .info-grid {
                 grid-template-columns: 1fr;
@@ -816,10 +744,6 @@
             .contact-container {
                 grid-template-columns: 1fr;
                 gap: 40px;
-            }
-            
-            .artist-image {
-                height: 300px;
             }
         }
 
@@ -909,7 +833,6 @@
             <div class="nav-links">
                 <a href="#home">Ana Sayfa</a>
                 <a href="#services">Hizmetler</a>
-                <a href="#artists">Sanatçılar</a>
                 <a href="#portfolio">Portföy</a>
                 <a href="#contact">İletişim</a>
             </div>
@@ -1019,58 +942,6 @@
                     <div class="step-number">04</div>
                     <h3>Bakım Talimatları</h3>
                     <p>Dövmenizin ömrünü uzatmak için detaylı bakım bilgisi ve destek verilir.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 2. SANATÇILAR BÖLÜMÜ -->
-    <section class="artists" id="artists">
-        <div class="container">
-            <h2 class="section-title fade-in">Sanatçılarımız</h2>
-            <p class="section-subtitle fade-in delay-1">
-                Uzmanlık alanlarında deneyimli sanatçılarımızla tanışın.
-            </p>
-            
-            <div class="artist-grid">
-                <div class="artist-card fade-in delay-2">
-                    <div class="artist-image">
-                        <img src="https://via.placeholder.com/400x500/222222/CCCCCC?text=Sanat%C3%A7%C4%B1+1" 
-                             alt="Sanatçı 1 - Uzmanlık Alanı" 
-                             loading="lazy">
-                    </div>
-                    <div class="artist-info">
-                        <h3>Sanatçı Adı 1</h3>
-                        <p class="artist-expertise">Minimalist & Fine Line</p>
-                        <p class="artist-bio">10 yıllık deneyim. Özel tasarımlar ve ince işçilik konusunda uzman.</p>
-                        <a href="#" class="btn btn-primary">Portföyü Gör</a>
-                    </div>
-                </div>
-                <div class="artist-card fade-in delay-3">
-                    <div class="artist-image">
-                        <img src="https://via.placeholder.com/400x500/222222/CCCCCC?text=Sanat%C3%A7%C4%B1+2" 
-                             alt="Sanatçı 2 - Uzmanlık Alanı" 
-                             loading="lazy">
-                    </div>
-                    <div class="artist-info">
-                        <h3>Sanatçı Adı 2</h3>
-                        <p class="artist-expertise">Blackwork & Geometric</p>
-                        <p class="artist-bio">Geometrik desenler ve siyah işçilikte 8 yıllık tecrübe.</p>
-                        <a href="#" class="btn btn-primary">Portföyü Gör</a>
-                    </div>
-                </div>
-                <div class="artist-card fade-in delay-4">
-                    <div class="artist-image">
-                        <img src="https://via.placeholder.com/400x500/222222/CCCCCC?text=Sanat%C3%A7%C4%B1+3" 
-                             alt="Sanatçı 3 - Uzmanlık Alanı" 
-                             loading="lazy">
-                    </div>
-                    <div class="artist-info">
-                        <h3>Sanatçı Adı 3</h3>
-                        <p class="artist-expertise">Realism & Portre</p>
-                        <p class="artist-bio">Gerçekçi portre ve doğa temalı dövmelerde 12 yıllık sanatçı.</p>
-                        <a href="#" class="btn btn-primary">Portföyü Gör</a>
-                    </div>
                 </div>
             </div>
         </div>
