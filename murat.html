@@ -222,11 +222,6 @@
 
         .nav-logo {
             height: 40px;
-            filter: invert(1);
-        }
-        
-        [data-theme="light"] .nav-logo {
-            filter: invert(0);
         }
 
         .nav-links {
@@ -280,13 +275,14 @@
         .nav-cta:hover,
         .nav-cta:focus {
             background: var(--accent-color);
-            color: var(--bg-primary);
+            color: #000000;
             transform: scale(1.05);
             box-shadow: 0 4px 12px var(--shadow-color);
         }
         
         [data-theme="light"] .nav-cta:hover,
         [data-theme="light"] .nav-cta:focus {
+            background: #000000;
             color: #FFFFFF;
         }
         
@@ -452,10 +448,6 @@
             margin-bottom: 10px;
             transition: all 0.4s ease;
         }
-        
-        [data-theme="light"] .site-logo {
-            filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.1)) invert(1);
-        }
 
         .site-logo:hover {
             transform: scale(1.03) rotate(2deg);
@@ -578,13 +570,14 @@
         .btn-primary:hover,
         .btn-primary:focus {
             background: var(--accent-color);
-            color: var(--bg-primary);
+            color: #000000;
             transform: translateY(-5px);
             box-shadow: 0 10px 20px var(--shadow-color);
         }
         
         [data-theme="light"] .btn-primary:hover,
         [data-theme="light"] .btn-primary:focus {
+            background: #000000;
             color: #FFFFFF;
         }
 
@@ -1404,7 +1397,7 @@
 </head>
 <body>
     <!-- Skip to content link for accessibility -->
-    <a href="#main-content" class="skip-to-content">Ana içeriğe geç</a>
+    <a href="#home" class="skip-to-content">Ana içeriğe geç</a>
 
     <!-- SABIT NAVBAR -->
     <nav class="navbar fade-in" role="navigation" aria-label="Ana navigasyon">
@@ -1439,7 +1432,7 @@
     </nav>
 
     <!-- HERO BÖLÜMÜ -->
-    <main id="main-content" class="hero" role="main">
+    <main id="home" class="hero" role="main">
         <div class="container">
             <div class="logo-container fade-in">
                 <img src="./Designer.png" 
