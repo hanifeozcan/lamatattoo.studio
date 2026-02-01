@@ -53,8 +53,8 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 40.7658,
-        "longitude": 29.9408
+        "latitude": 40.77294091038368,
+        "longitude": 29.979022306279482
       },
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
@@ -76,30 +76,13 @@
     </script>
     
     <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6H2GPLP2TK"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
+      gtag('config', 'G-6H2GPLP2TK');
     </script>
-    
-    <!-- Facebook Pixel -->
-    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', 'YOUR_PIXEL_ID');
-      fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
-    /></noscript>
     
     <style>
         /* ==========================================================================
@@ -1090,34 +1073,6 @@
         }
 
         /* ==========================================================================
-           CHATBOT WIDGET (Placeholder for Tawk.to or similar)
-           ========================================================================== */
-        .chat-widget {
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px var(--shadow-color);
-            z-index: 998;
-            transition: all 0.3s ease;
-        }
-        
-        .chat-widget:hover,
-        .chat-widget:focus {
-            transform: scale(1.1);
-            border-color: var(--accent-color);
-        }
-
-        /* ==========================================================================
            RESPONSIVE DESIGN
            ========================================================================== */
         @media (max-width: 768px) {
@@ -1235,14 +1190,6 @@
                 width: 55px;
                 height: 55px;
                 font-size: 26px;
-            }
-            
-            .chat-widget {
-                bottom: 80px;
-                right: 15px;
-                width: 55px;
-                height: 55px;
-                font-size: 24px;
             }
         }
 
@@ -1675,7 +1622,7 @@
             </div>
             
             <div class="map-container scroll-reveal">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.4996921658117!2d29.97657097641596!3d40.773027433876635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cb502165926e97%3A0x2501497194052ec3!2sAlikahya%20Fatih%2C%20Horosan%20Cd.%20No%3A26%20D%3A5%2C%2041310%20%C4%B0zmit%2FKocaeli!5e0!3m2!1str!2str!4v1769974080664!5m2!1str!2str" 
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d188.84397668385952!2d29.979022306279482!3d40.77294091038368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cb502165926e97%3A0x2501497194052ec3!2sAlikahya%20Fatih%2C%20Horasan%20Cd.%20No%3A26%20D%3A5%2C%2041310%20%C4%B0zmit%2FKocaeli!5e0!3m2!1str!2str!4v1769980065122!5m2!1str!2str" 
                         width="100%" 
                         height="400" 
                         style="border:0;" 
@@ -1718,15 +1665,6 @@
        aria-label="WhatsApp ile iletişime geç">
         💬
     </a>
-
-    <!-- CHAT WIDGET PLACEHOLDER -->
-    <div class="chat-widget" 
-         role="button" 
-         tabindex="0"
-         aria-label="Canlı sohbet başlat"
-         onclick="alert('Chatbot entegrasyonu için Tawk.to veya benzeri bir servis eklenecek')">
-        💬
-    </div>
 
     <!-- JAVASCRIPT -->
     <script>
@@ -1945,10 +1883,6 @@
                     'page_location': window.location.href
                 });
             }
-            
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'PageView');
-            }
         });
         
         // ==========================================================================
@@ -1978,10 +1912,6 @@
                         'form_name': 'contact_form'
                     });
                 }
-                
-                if (typeof fbq !== 'undefined') {
-                    fbq('track', 'Lead');
-                }
             });
         }
         
@@ -1994,29 +1924,8 @@
                         'event_label': 'WhatsApp Contact'
                     });
                 }
-                
-                if (typeof fbq !== 'undefined') {
-                    fbq('track', 'Contact');
-                }
             });
         });
     </script>
-    
-    <!-- Tawk.to Chat Widget (Replace with your own property ID) -->
-    <!--
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/YOUR_WIDGET_ID';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-    -->
-    
-    <!-- Microsoft Clarity (Optional - Replace with your Project ID) -->
-    <!--
-    <script type="text/jav
+</body>
+</html>
