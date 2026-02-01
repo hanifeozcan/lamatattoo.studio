@@ -1090,78 +1090,6 @@
         }
 
         /* ==========================================================================
-           COOKIE CONSENT BANNER (GDPR)
-           ========================================================================== */
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--card-bg);
-            border-top: 1px solid var(--border-color);
-            padding: 20px;
-            z-index: 998;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-            box-shadow: 0 -4px 12px var(--shadow-color);
-        }
-        
-        .cookie-banner.show {
-            transform: translateY(0);
-        }
-        
-        .cookie-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .cookie-text {
-            flex: 1;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-        
-        .cookie-text a {
-            color: var(--accent-color);
-            text-decoration: underline;
-        }
-        
-        .cookie-buttons {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .cookie-btn {
-            padding: 10px 20px;
-            border-radius: 6px;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .cookie-accept {
-            background: var(--accent-color);
-            color: var(--bg-primary);
-        }
-        
-        .cookie-decline {
-            background: transparent;
-            color: var(--text-secondary);
-            border: 1px solid var(--border-color);
-        }
-        
-        .cookie-btn:hover,
-        .cookie-btn:focus {
-            transform: translateY(-2px);
-        }
-
-        /* ==========================================================================
            CHATBOT WIDGET (Placeholder for Tawk.to or similar)
            ========================================================================== */
         .chat-widget {
@@ -1776,8 +1704,6 @@
             
             <p class="footer-copyright">
                 &copy; <span id="current-year">2024</span> Lama Tattoo Studio. <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span><br>
-                <a href="#" style="color: var(--border-color); text-decoration: underline;" data-tr="Gizlilik Politikası" data-en="Privacy Policy">Gizlilik Politikası</a> | 
-                <a href="#" style="color: var(--border-color); text-decoration: underline;" data-tr="Çerez Politikası" data-en="Cookie Policy">Çerez Politikası</a><br>
                 <span style="font-size: 0.85rem; margin-top: 15px; display: inline-block; color: var(--text-tertiary);">
                     <span data-tr="Web tasarım:" data-en="Web design:">Web tasarım:</span> 
                     <a href="https://dbhtech.net/" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--text-secondary)'">DBH Tech</a>
@@ -1805,21 +1731,6 @@
     </div>
 
     <!-- COOKIE CONSENT BANNER (GDPR) -->
-    <div class="cookie-banner" role="dialog" aria-label="Çerez bildirimi">
-        <div class="cookie-content">
-            <p class="cookie-text">
-                <span data-tr="Bu web sitesi, deneyiminizi geliştirmek için çerezler kullanmaktadır. Siteyi kullanmaya devam ederek çerez kullanımını kabul etmiş olursunuz." data-en="This website uses cookies to improve your experience. By continuing to use the site, you accept the use of cookies.">
-                    Bu web sitesi, deneyiminizi geliştirmek için çerezler kullanmaktadır. Siteyi kullanmaya devam ederek çerez kullanımını kabul etmiş olursunuz.
-                </span>
-                <a href="#" data-tr="Daha Fazla Bilgi" data-en="Learn More">Daha Fazla Bilgi</a>
-            </p>
-            <div class="cookie-buttons">
-                <button class="cookie-btn cookie-accept" data-tr="Kabul Et" data-en="Accept">Kabul Et</button>
-                <button class="cookie-btn cookie-decline" data-tr="Reddet" data-en="Decline">Reddet</button>
-            </div>
-        </div>
-    </div>
-
     <!-- JAVASCRIPT -->
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // ==========================================================================
@@ -1997,44 +1908,6 @@
             } else {
                 navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
                 navbar.style.backdropFilter = 'none';
-            }
-        });
-        
-        // ==========================================================================
-        // COOKIE CONSENT
-        // ==========================================================================
-        const cookieBanner = document.querySelector('.cookie-banner');
-        const cookieAccept = document.querySelector('.cookie-accept');
-        const cookieDecline = document.querySelector('.cookie-decline');
-        
-        // Check if user has already made a choice
-        if (!localStorage.getItem('cookieConsent')) {
-            setTimeout(() => {
-                cookieBanner.classList.add('show');
-            }, 2000);
-        }
-        
-        cookieAccept.addEventListener('click', () => {
-            localStorage.setItem('cookieConsent', 'accepted');
-            cookieBanner.classList.remove('show');
-            
-            // Track consent
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'cookie_consent', {
-                    'consent': 'accepted'
-                });
-            }
-        });
-        
-        cookieDecline.addEventListener('click', () => {
-            localStorage.setItem('cookieConsent', 'declined');
-            cookieBanner.classList.remove('show');
-            
-            // Track consent
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'cookie_consent', {
-                    'consent': 'declined'
-                });
             }
         });
         
