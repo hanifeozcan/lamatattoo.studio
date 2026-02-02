@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider Test - Lama Tattoo Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
+            padding: 40px 20px;
+        }
+
+        .test-info {
+            background: #111;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 1px solid #333;
+        }
+
+        .test-info h1 {
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+
+        .test-info p {
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        /* SLIDER STYLES */
+        .studio-info {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            color: #aaa;
+            margin-bottom: 40px;
+        }
+
+        .info-slider-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        .slider-progress {
+            position: absolute;
+            bottom: 0;
+            left: 60px;
+            height: 3px;
+            background: #4CAF50;
+            border-radius: 2px;
+            transition: width 0.1s linear;
+            z-index: 1;
+        }
+
+        .info-slider {
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .info-slider-wrapper {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        .info-card {
+            min-width: 100%;
+            background: #111;
+            padding: 60px 40px;
+            border-radius: 12px;
+            border: 1px solid #333;
+        }
+
+        .info-card h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .info-card p {
+            color: #aaa;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #333;
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .slider-arrow:hover {
+            background: #fff;
+            color: #000;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-arrow-prev {
+            left: 0;
+        }
+
+        .slider-arrow-next {
+            right: 0;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #333;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .slider-dot:hover {
+            background: #666;
+            transform: scale(1.2);
+        }
+
+        .slider-dot.active {
+            background: #4CAF50;
+            width: 32px;
+            border-radius: 6px;
+        }
+
+        .console-output {
+            background: #111;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border: 1px solid #333;
+            font-family: monospace;
+            font-size: 0.9rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .console-output h3 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        #console-log {
+            color: #aaa;
+        }
+
+        .log-entry {
+            margin-bottom: 5px;
+            padding: 5px;
+            border-left: 2px solid #4CAF50;
+            padding-left: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .info-slider-container {
+                padding: 0 40px;
+            }
+            
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .slider-progress {
+                left: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <h1>🧪 Slider Test Sayfası</h1>
+        <p><strong>Durum:</strong> Bu sayfa slider'ın çalışıp çalışmadığını test eder.</p>
+        <p><strong>Beklenen:</strong> Otomatik 5 saniyede geçiş + Manuel kontroller (← → butonlar, dot'lar, klavye ok tuşları)</p>
+        <p><strong>Konsol:</strong> F12 basın ve Console sekmesine bakın. Slider log'ları göreceksiniz.</p>
+    </div>
+
+    <section class="studio-info">
+        <h2 class="section-title">Neden Lama Tattoo Studio?</h2>
+        <p class="section-subtitle">Slider testi devam ediyor...</p>
+        
+        <div class="info-slider-container">
+            <div class="slider-progress"></div>
+            
+            <button class="slider-arrow slider-arrow-prev" aria-label="Önceki">‹</button>
+            
+            <div class="info-slider">
+                <div class="info-slider-wrapper">
+                    <div class="info-card">
+                        <h3>Slide 1: Hijyen & Güvenlik</h3>
+                        <p>Bu ilk slayttır. 5 saniye sonra otomatik olarak bir sonrakine geçmeli.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Slide 2: Özel Tasarım</h3>
+                        <p>Bu ikinci slayttır. Ok butonları ve dot'larla da değiştirebilirsiniz.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Slide 3: Profesyonel Ekip</h3>
+                        <p>Bu üçüncü slayttır. Klavye ok tuşları da çalışır (← →)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="slider-arrow slider-arrow-next" aria-label="Sonraki">›</button>
+            
+            <div class="slider-dots">
+                <button class="slider-dot active" aria-label="1. slayt"></button>
+                <button class="slider-dot" aria-label="2. slayt"></button>
+                <button class="slider-dot" aria-label="3. slayt"></button>
+            </div>
+        </div>
+    </section>
+
+    <div class="console-output">
+        <h3>📊 Slider Log'ları (Gerçek zamanlı):</h3>
+        <div id="console-log"></div>
+    </div>
+
+    <script>
+        // Console override to show logs on page
+        const consoleLogEl = document.getElementById('console-log');
+        const originalLog = console.log;
+        const originalWarn = console.warn;
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+            logEntry.textContent = args.join(' ');
+            consoleLogEl.appendChild(logEntry);
+            consoleLogEl.scrollTop = consoleLogEl.scrollHeight;
+        };
+        
+        console.warn = function(...args) {
+            originalWarn.apply(console, args);
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+            logEntry.style.borderColor = '#ff9800';
+            logEntry.textContent = '⚠️ ' + args.join(' ');
+            consoleLogEl.appendChild(logEntry);
+            consoleLogEl.scrollTop = consoleLogEl.scrollHeight;
+        };
+
+        // SLIDER INITIALIZATION
+        function initStudioSlider() {
+            console.log('🎨 Slider initializing...');
+            
+            const slider = document.querySelector('.info-slider-wrapper');
+            const slides = document.querySelectorAll('.info-card');
+            const prevBtn = document.querySelector('.slider-arrow-prev');
+            const nextBtn = document.querySelector('.slider-arrow-next');
+            const dots = document.querySelectorAll('.slider-dot');
+            const progressBar = document.querySelector('.slider-progress');
+            
+            console.log('📊 Elements found:', {
+                slider: !!slider,
+                slides: slides.length,
+                prevBtn: !!prevBtn,
+                nextBtn: !!nextBtn,
+                dots: dots.length,
+                progressBar: !!progressBar
+            });
+            
+            if (!slider || slides.length === 0) {
+                console.warn('⚠️ Slider elements not found!');
+                return;
+            }
+            
+            console.log('✅ Slider found! Starting...');
+            
+            let currentSlide = 0;
+            let autoPlayInterval;
+            let progressInterval;
+            const autoPlayDuration = 5000;
+            const progressUpdateInterval = 50;
+            
+            function goToSlide(index) {
+                currentSlide = index;
+                slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+                console.log(`📍 Moved to slide ${currentSlide + 1}/${slides.length}`);
+                
+                dots.forEach((dot, i) => {
+                    if (i === currentSlide) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+                
+                resetProgress();
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                goToSlide(currentSlide);
+            }
+            
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                goToSlide(currentSlide);
+            }
+            
+            function resetProgress() {
+                if (progressBar) {
+                    progressBar.style.width = '0%';
+                }
+                clearInterval(progressInterval);
+                startProgress();
+            }
+            
+            function startProgress() {
+                if (!progressBar) return;
+                
+                let progress = 0;
+                const increment = (100 / (autoPlayDuration / progressUpdateInterval));
+                
+                progressInterval = setInterval(() => {
+                    progress += increment;
+                    if (progress >= 100) {
+                        progress = 100;
+                        clearInterval(progressInterval);
+                    }
+                    progressBar.style.width = progress + '%';
+                }, progressUpdateInterval);
+            }
+            
+            function startAutoPlay() {
+                stopAutoPlay();
+                autoPlayInterval = setInterval(nextSlide, autoPlayDuration);
+                startProgress();
+                console.log('▶️ Autoplay started');
+            }
+            
+            function stopAutoPlay() {
+                clearInterval(autoPlayInterval);
+                clearInterval(progressInterval);
+            }
+            
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    console.log('⬅️ Previous clicked');
+                    stopAutoPlay();
+                    prevSlide();
+                    startAutoPlay();
+                });
+            }
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    console.log('➡️ Next clicked');
+                    stopAutoPlay();
+                    nextSlide();
+                    startAutoPlay();
+                });
+            }
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    console.log(`⚪ Dot ${index + 1} clicked`);
+                    stopAutoPlay();
+                    goToSlide(index);
+                    startAutoPlay();
+                });
+            });
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    console.log('⌨️ Arrow Left');
+                    stopAutoPlay();
+                    prevSlide();
+                    startAutoPlay();
+                } else if (e.key === 'ArrowRight') {
+                    console.log('⌨️ Arrow Right');
+                    stopAutoPlay();
+                    nextSlide();
+                    startAutoPlay();
+                }
+            });
+            
+            console.log('🚀 Starting slider...');
+            goToSlide(0);
+            startAutoPlay();
+            console.log('✅ Slider initialized successfully!');
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', initStudioSlider);
+    </script>
+</body>
+</html>
