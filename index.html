@@ -640,6 +640,34 @@
             margin: 50px auto;
         }
 
+        .contact-details h3 {
+            color: var(--text-primary);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+
+        .contact-details p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .contact-details a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: var(--text-secondary);
+        }
+
+        .contact-form h3 {
+            color: var(--text-primary);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+
         .contact-form input,
         .contact-form textarea {
             width: 100%;
@@ -652,10 +680,30 @@
             font-family: inherit;
             margin-bottom: 20px;
         }
+        
+        [data-theme="light"] .contact-form input,
+        [data-theme="light"] .contact-form textarea {
+            background: rgba(0, 0, 0, 0.05);
+        }
 
         .contact-form textarea {
             min-height: 150px;
             resize: vertical;
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 50px auto 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            display: block;
+            border: none;
         }
 
         .footer {
@@ -761,6 +809,11 @@
             font-size: 1.1rem;
         }
 
+        [data-theme="light"] .campaign-btn {
+            background: #000;
+            color: #fff;
+        }
+
         @media (max-width: 768px) {
             .slider-wrapper {
                 padding-bottom: 100%;
@@ -777,6 +830,15 @@
             
             .next-btn {
                 right: 10px;
+            }
+            
+            .premium-tags {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .premium-tag::after {
+                display: none;
             }
         }
     </style>
@@ -1005,6 +1067,16 @@
                         <p>WhatsApp, telefon veya e-posta yoluyla bizimle iletişime geçebilirsiniz. Tasarım fikrinizi paylaşın, uygun tarih belirleyelim.</p>
                     </div>
                 </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Dövme sonrası bakım nasıl olmalı?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Dövme sonrası size detaylı bakım talimatları vereceğiz. Temiz tutmak, nemlendirmek ve güneşten korumak en önemli adımlardır.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1034,6 +1106,18 @@
                     </form>
                 </div>
             </div>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d188.84397668385952!2d29.979022306279482!3d40.77294091038368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cb502165926e97%3A0x2501497194052ec3!2sAlikahya%20Fatih%2C%20Horosan%20Cd.%20No%3A26%20D%3A5%2C%2041310%20%C4%B0zmit%2FKocaeli!5e0!3m2!1str!2str!4v1769980065122!5m2!1str!2str" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Lama Tattoo Studio Konumu">
+                </iframe>
+            </div>
         </div>
     </section>
 
@@ -1060,8 +1144,6 @@
     </div>
 
     <script>
-        document.getElementById('current-year') && (document.getElementById('current-year').textContent = new Date().getFullYear());
-        
         // Theme Toggle
         const themeToggle = document.querySelector('.theme-toggle');
         const themeIcon = document.querySelector('.theme-icon');
@@ -1165,19 +1247,28 @@
             startAutoPlay();
         })();
         
-        // Campaign Popup - HER AÇILIŞTA GÖSTER
+        // Campaign Popup - HER AÇILIŞTA GÖSTER VE 5 SANİYE SONRA OTOMATIK KAPAT
         (function() {
             const modal = document.getElementById('campaignModal');
             const closeBtn = document.querySelector('.campaign-close');
+            let autoCloseTimer;
             
             function showCampaign() {
                 setTimeout(() => {
                     modal.classList.add('show');
+                    
+                    // 5 saniye sonra otomatik kapat
+                    autoCloseTimer = setTimeout(() => {
+                        closeCampaign();
+                    }, 5000);
                 }, 500);
             }
             
             function closeCampaign() {
                 modal.classList.remove('show');
+                if (autoCloseTimer) {
+                    clearTimeout(autoCloseTimer);
+                }
             }
             
             closeBtn.addEventListener('click', closeCampaign);
