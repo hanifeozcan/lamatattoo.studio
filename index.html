@@ -1302,10 +1302,10 @@
                 setTimeout(() => {
                     modal.classList.add('show');
                     
-                    // 5 saniye sonra otomatik kapat
+                    // 6 saniye sonra otomatik kapat
                     autoCloseTimer = setTimeout(() => {
                         closeCampaign();
-                    }, 5000);
+                    }, 6000);
                     
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'campaign_popup_shown');
