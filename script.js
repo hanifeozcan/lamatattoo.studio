@@ -403,6 +403,8 @@ function initPageLoad() {
 // STUDIO INFO SLIDER
 // ==========================================================================
 function initStudioSlider() {
+    console.log('🎨 Slider initializing...');
+    
     const slider = document.querySelector('.info-slider-wrapper');
     const slides = document.querySelectorAll('.info-card');
     const prevBtn = document.querySelector('.slider-arrow-prev');
@@ -410,7 +412,21 @@ function initStudioSlider() {
     const dots = document.querySelectorAll('.slider-dot');
     const progressBar = document.querySelector('.slider-progress');
     
-    if (!slider || slides.length === 0) return;
+    console.log('📊 Slider elements found:', {
+        slider: !!slider,
+        slides: slides.length,
+        prevBtn: !!prevBtn,
+        nextBtn: !!nextBtn,
+        dots: dots.length,
+        progressBar: !!progressBar
+    });
+    
+    if (!slider || slides.length === 0) {
+        console.warn('⚠️ Slider elements not found! Check HTML structure.');
+        return;
+    }
+    
+    console.log('✅ Slider found! Starting initialization...');
     
     let currentSlide = 0;
     let autoPlayInterval;
@@ -421,6 +437,7 @@ function initStudioSlider() {
     function goToSlide(index) {
         currentSlide = index;
         slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        console.log(`📍 Moved to slide ${currentSlide + 1}/${slides.length}`);
         
         // Update dots
         dots.forEach((dot, i) => {
@@ -438,7 +455,7 @@ function initStudioSlider() {
         if (typeof gtag !== 'undefined') {
             gtag('event', 'slider_change', {
                 'slide_index': currentSlide,
-                'slide_title': slides[currentSlide].querySelector('h3').textContent
+                'slide_title': slides[currentSlide].querySelector('h3')?.textContent || 'Unknown'
             });
         }
     }
@@ -478,8 +495,10 @@ function initStudioSlider() {
     }
     
     function startAutoPlay() {
+        stopAutoPlay(); // Clear any existing interval
         autoPlayInterval = setInterval(nextSlide, autoPlayDuration);
         startProgress();
+        console.log('▶️ Autoplay started');
     }
     
     function stopAutoPlay() {
@@ -490,6 +509,7 @@ function initStudioSlider() {
     // Event Listeners
     if (prevBtn) {
         prevBtn.addEventListener('click', () => {
+            console.log('⬅️ Previous button clicked');
             stopAutoPlay();
             prevSlide();
             startAutoPlay();
@@ -498,6 +518,7 @@ function initStudioSlider() {
     
     if (nextBtn) {
         nextBtn.addEventListener('click', () => {
+            console.log('➡️ Next button clicked');
             stopAutoPlay();
             nextSlide();
             startAutoPlay();
@@ -506,6 +527,7 @@ function initStudioSlider() {
     
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
+            console.log(`⚪ Dot ${index + 1} clicked`);
             stopAutoPlay();
             goToSlide(index);
             startAutoPlay();
@@ -533,24 +555,37 @@ function initStudioSlider() {
         
         if (Math.abs(diff) > swipeThreshold) {
             if (diff > 0) {
+                console.log('👆 Swiped left');
                 nextSlide(); // Swipe left
             } else {
+                console.log('👆 Swiped right');
                 prevSlide(); // Swipe right
             }
         }
     }
     
     // Pause on hover
-    slider.addEventListener('mouseenter', stopAutoPlay);
-    slider.addEventListener('mouseleave', startAutoPlay);
+    const sliderContainer = document.querySelector('.info-slider');
+    if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', () => {
+            console.log('⏸️ Autoplay paused (hover)');
+            stopAutoPlay();
+        });
+        sliderContainer.addEventListener('mouseleave', () => {
+            console.log('▶️ Autoplay resumed');
+            startAutoPlay();
+        });
+    }
     
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') {
+            console.log('⌨️ Arrow Left pressed');
             stopAutoPlay();
             prevSlide();
             startAutoPlay();
         } else if (e.key === 'ArrowRight') {
+            console.log('⌨️ Arrow Right pressed');
             stopAutoPlay();
             nextSlide();
             startAutoPlay();
@@ -558,8 +593,10 @@ function initStudioSlider() {
     });
     
     // Initialize
+    console.log('🚀 Starting slider...');
     goToSlide(0);
     startAutoPlay();
+    console.log('✅ Slider initialized successfully!');
 }
 
 // ==========================================================================
