@@ -857,7 +857,6 @@
             <div class="nav-links">
                 <a href="#home" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
                 <a href="#services" data-tr="Hizmetler" data-en="Services">Hizmetler</a>
-                <a href="#portfolio" data-tr="Portföy" data-en="Portfolio">Portföy</a>
                 <a href="#faq" data-tr="S.S.S." data-en="FAQ">S.S.S.</a>
                 <a href="#contact" data-tr="İletişim" data-en="Contact">İletişim</a>
                 
@@ -945,88 +944,6 @@
                     <div class="step-number">04</div>
                     <h3 data-tr="Bakım Talimatları" data-en="Aftercare Instructions">Bakım Talimatları</h3>
                     <p data-tr="Dövmenizin ömrünü uzatmak için detaylı bakım bilgisi ve destek verilir." data-en="Detailed care information and support is provided to extend the life of your tattoo.">Dövmenizin ömrünü uzatmak için detaylı bakım bilgisi ve destek verilir.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="slider-section" id="portfolio">
-        <div class="container">
-            <h2 class="section-title" data-tr="Çalışmalarımız" data-en="Our Work">Çalışmalarımız</h2>
-            <p class="section-subtitle" data-tr="Gerçekleştirdiğimiz özel dövme tasarımları" data-en="Our special tattoo designs">Gerçekleştirdiğimiz özel dövme tasarımları</p>
-            
-            <div class="slider-container">
-                <div class="slider-wrapper">
-                    <div class="slider-track">
-                        <div class="slide active">
-                            <div class="slide-image">
-                                <img src="https://via.placeholder.com/800x600/222222/CCCCCC?text=Fine+Line+Tattoo" alt="Fine Line dövme">
-                            </div>
-                            <div class="slide-caption">
-                                <h3 data-tr="Fine Line Dövme" data-en="Fine Line Tattoo">Fine Line Dövme</h3>
-                                <p data-tr="Zarif ve detaylı çizimler" data-en="Elegant and detailed drawings">Zarif ve detaylı çizimler</p>
-                            </div>
-                        </div>
-                        
-                        <div class="slide">
-                            <div class="slide-image">
-                                <img src="https://via.placeholder.com/800x600/222222/CCCCCC?text=Minimalist+Design" alt="Minimalist">
-                            </div>
-                            <div class="slide-caption">
-                                <h3 data-tr="Minimalist Tasarım" data-en="Minimalist Design">Minimalist Tasarım</h3>
-                                <p data-tr="Sade ve anlamlı" data-en="Simple and meaningful">Sade ve anlamlı</p>
-                            </div>
-                        </div>
-                        
-                        <div class="slide">
-                            <div class="slide-image">
-                                <img src="https://via.placeholder.com/800x600/222222/CCCCCC?text=Blackwork+Art" alt="Blackwork">
-                            </div>
-                            <div class="slide-caption">
-                                <h3 data-tr="Blackwork Sanatı" data-en="Blackwork Art">Blackwork Sanatı</h3>
-                                <p data-tr="Güçlü kontrast ve etki" data-en="Strong contrast and impact">Güçlü kontrast ve etki</p>
-                            </div>
-                        </div>
-                        
-                        <div class="slide">
-                            <div class="slide-image">
-                                <img src="https://via.placeholder.com/800x600/222222/CCCCCC?text=Realism+Portrait" alt="Realism">
-                            </div>
-                            <div class="slide-caption">
-                                <h3 data-tr="Realism Portre" data-en="Realism Portrait">Realism Portre</h3>
-                                <p data-tr="Gerçekçi ve canlı" data-en="Realistic and vivid">Gerçekçi ve canlı</p>
-                            </div>
-                        </div>
-                        
-                        <div class="slide">
-                            <div class="slide-image">
-                                <img src="https://via.placeholder.com/800x600/222222/CCCCCC?text=Geometric+Pattern" alt="Geometric">
-                            </div>
-                            <div class="slide-caption">
-                                <h3 data-tr="Geometrik Desen" data-en="Geometric Pattern">Geometrik Desen</h3>
-                                <p data-tr="Modern ve simetrik" data-en="Modern and symmetrical">Modern ve simetrik</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <button class="slider-btn prev-btn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M15 18l-6-6 6-6"/>
-                    </svg>
-                </button>
-                <button class="slider-btn next-btn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 18l6-6-6-6"/>
-                    </svg>
-                </button>
-                
-                <div class="slider-dots">
-                    <button class="dot active"></button>
-                    <button class="dot"></button>
-                    <button class="dot"></button>
-                    <button class="dot"></button>
-                    <button class="dot"></button>
                 </div>
             </div>
         </div>
@@ -1239,58 +1156,6 @@
                 }
             });
         });
-        
-        // Slider
-        (function() {
-            const slides = document.querySelectorAll('.slide');
-            const dots = document.querySelectorAll('.dot');
-            const prevBtn = document.querySelector('.prev-btn');
-            const nextBtn = document.querySelector('.next-btn');
-            let currentSlide = 0;
-            let autoPlayInterval;
-            
-            function showSlide(index) {
-                if (index >= slides.length) {
-                    currentSlide = 0;
-                } else if (index < 0) {
-                    currentSlide = slides.length - 1;
-                } else {
-                    currentSlide = index;
-                }
-                
-                slides.forEach(slide => slide.classList.remove('active'));
-                dots.forEach(dot => dot.classList.remove('active'));
-                
-                slides[currentSlide].classList.add('active');
-                dots[currentSlide].classList.add('active');
-            }
-            
-            function nextSlide() {
-                showSlide(currentSlide + 1);
-            }
-            
-            function prevSlide() {
-                showSlide(currentSlide - 1);
-            }
-            
-            function startAutoPlay() {
-                autoPlayInterval = setInterval(nextSlide, 5000);
-            }
-            
-            function stopAutoPlay() {
-                clearInterval(autoPlayInterval);
-            }
-            
-            prevBtn.addEventListener('click', prevSlide);
-            nextBtn.addEventListener('click', nextSlide);
-            
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => showSlide(index));
-            });
-            
-            showSlide(0);
-            startAutoPlay();
-        })();
         
         // Campaign Popup - HER ZİYARETTE GÖSTER VE 5 SANİYE SONRA OTOMATIK KAPAT
         (function() {
