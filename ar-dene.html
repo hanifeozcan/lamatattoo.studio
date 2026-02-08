@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lama Tattoo Studio - Dövmenizi Deneyin</title>
+    <meta name="description" content="Dövmenizi yaptırmadan önce sanal olarak deneyin. Lama Tattoo Studio AR deneyimi.">
+    
+    <!-- Ücretsiz CSS Kütüphaneleri -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D4AF37;
+            --dark-color: #1a1a1a;
+            --light-color: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: var(--light-color);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--secondary-color) !important;
+            font-size: 1.5rem;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1601762603339-fd61e28a6989?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .ar-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        #cameraFeed {
+            width: 100%;
+            height: 60vh;
+            object-fit: cover;
+            background: #000;
+            display: block;
+        }
+        
+        #tattooOverlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: auto;
+            max-width: 300px;
+            filter: drop-shadow(0 0 15px rgba(0,0,0,0.7));
+            transition: all 0.3s ease;
+        }
+        
+        .controls-card {
+            background: rgba(30, 30, 30, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .tattoo-thumbnail {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .tattoo-thumbnail:hover {
+            transform: scale(1.05);
+            border-color: var(--secondary-color);
+        }
+        
+        .tattoo-thumbnail.active {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        }
+        
+        .control-btn {
+            background: linear-gradient(135deg, var(--primary-color), #6b3410);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .control-btn:hover {
+            background: linear-gradient(135deg, #6b3410, var(--primary-color));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.4);
+        }
+        
+        .control-btn:active {
+            transform: translateY(0);
+        }
+        
+        .slider-container {
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 15px;
+        }
+        
+        .value-display {
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 6px;
+            padding: 5px 10px;
+            font-weight: 600;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        .qr-container {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+        
+        .instruction-box {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+        
+        .photo-preview {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .photo-preview img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        .close-preview {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--secondary-color), #ffd700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        footer {
+            background: rgba(0,0,0,0.8);
+            padding: 30px 0;
+            margin-top: 40px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            #cameraFeed {
+                height: 50vh;
+            }
+            
+            .tattoo-thumbnail {
+                height: 100px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            #cameraFeed {
+                height: 40vh;
+            }
+            
+            .control-btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="https://lamatattoo.studio">
+                <i class="fas fa-palette"></i> <span class="logo-text">LAMA TATTOO STUDIO</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://lamatattoo.studio"><i class="fas fa-home"></i> Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="fas fa-camera"></i> AR Deneme</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://lamatattoo.studio#contact"><i class="fas fa-phone"></i> İletişim</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Dövmenizi Sanal Olarak Deneyin</h1>
+            <p class="hero-subtitle">Seçtiğiniz dövme tasarımını, yaptırmadan önce cildinizde görün</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container py-4">
+        <div class="row">
+            <!-- AR Preview Section -->
+            <div class="col-lg-8 mb-4">
+                <div class="ar-container">
+                    <video id="cameraFeed" autoplay playsinline></video>
+                    <img id="tattooOverlay" src="" alt="Dövme Önizleme" style="display: none;">
+                    
+                    <!-- Camera Controls -->
+                    <div class="position-absolute bottom-0 start-0 p-3">
+                        <button id="flipCamera" class="btn control-btn btn-sm">
+                            <i class="fas fa-sync-alt"></i> Kamera Değiştir
+                        </button>
+                    </div>
+                    
+                    <!-- Tattoo Controls -->
+                    <div class="position-absolute top-0 end-0 p-3">
+                        <button id="resetTattoo" class="btn control-btn btn-sm">
+                            <i class="fas fa-redo"></i> Sıfırla
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Instructions -->
+                <div class="instruction-box">
+                    <h5><i class="fas fa-info-circle"></i> Nasıl Kullanılır?</h5>
+                    <ol class="mb-0">
+                        <li>Kamera erişimine izin verin</li>
+                        <li>Aşağıdan bir dövme tasarımı seçin</li>
+                        <li>Dövmeyi ekranda sürükleyip bırakarak konumlandırın</li>
+                        <li>Kaydırıcılarla boyutunu ve şeffaflığını ayarlayın</li>
+                        <li>Fotoğraf çekip kaydedin veya QR kod ile paylaşın</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Controls Section -->
+            <div class="col-lg-4">
+                <!-- Tattoo Selection -->
+                <div class="controls-card mb-4">
+                    <h4 class="mb-3"><i class="fas fa-drafting-compass"></i> Dövme Tasarımları</h4>
+                    <div class="row" id="tattooGallery">
+                        <!-- Tattoo thumbnails will be loaded here -->
+                    </div>
+                </div>
+                
+                <!-- Adjustment Controls -->
+                <div class="controls-card mb-4">
+                    <h4 class="mb-3"><i class="fas fa-sliders-h"></i> Ayarlar</h4>
+                    
+                    <!-- Size Slider -->
+                    <div class="mb-3 slider-container">
+                        <div class="d-flex justify-content-between mb-2">
+                            <label class="form-label mb-0"><i class="fas fa-expand-alt"></i> Boyut</label>
+                            <span id="sizeValue" class="value-display">100%</span>
+                        </div>
+                        <input type="range" class="form-range" id="sizeSlider" min="30" max="200" value="100">
+                    </div>
+                    
+                    <!-- Opacity Slider -->
+                    <div class="mb-3 slider-container">
+                        <div class="d-flex justify-content-between mb-2">
+                            <label class="form-label mb-0"><i class="fas fa-adjust"></i> Şeffaflık</label>
+                            <span id="opacityValue" class="value-display">80%</span>
+                        </div>
+                        <input type="range" class="form-range" id="opacitySlider" min="10" max="100" value="80">
+                    </div>
+                    
+                    <!-- Rotation -->
+                    <div class="mb-3 slider-container">
+                        <div class="d-flex justify-content-between mb-2">
+                            <label class="form-label mb-0"><i class="fas fa-sync"></i> Döndürme</label>
+                            <span id="rotationValue" class="value-display">0°</span>
+                        </div>
+                        <input type="range" class="form-range" id="rotationSlider" min="-180" max="180" value="0">
+                    </div>
+                    
+                    <!-- Control Buttons -->
+                    <div class="row g-2 mt-4">
+                        <div class="col-6">
+                            <button id="takePhoto" class="btn control-btn w-100">
+                                <i class="fas fa-camera"></i> Fotoğraf Çek
+                            </button>
+                        </div>
+                        <div class="col-6">
+                            <button id="downloadBtn" class="btn control-btn w-100" disabled>
+                                <i class="fas fa-download"></i> İndir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- QR Code Section -->
+                <div class="controls-card">
+                    <h4 class="mb-3"><i class="fas fa-qrcode"></i> Paylaş</h4>
+                    <p class="text-muted mb-3">Bu sayfayı QR kod ile paylaşın</p>
+                    <div class="text-center">
+                        <div class="qr-container mb-3">
+                            <div id="qrcode"></div>
+                        </div>
+                        <button id="shareBtn" class="btn control-btn">
+                            <i class="fas fa-share-alt"></i> Paylaş
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photo Preview Modal -->
+    <div id="photoPreview" class="photo-preview">
+        <button class="close-preview"><i class="fas fa-times"></i></button>
+        <img id="previewImage" src="" alt="Fotoğraf Önizleme">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <h4 class="mb-3 logo-text">LAMA TATTOO STUDIO</h4>
+            <p class="mb-3">Profesyonel dövme hizmetleri ve sanal deneyim</p>
+            <div class="mb-3">
+                <a href="https://lamatattoo.studio" class="btn btn-outline-light btn-sm me-2"><i class="fas fa-globe"></i> Web Sitemiz</a>
+                <a href="https://lamatattoo.studio#contact" class="btn btn-outline-light btn-sm"><i class="fas fa-calendar-alt"></i> Randevu Al</a>
+            </div>
+            <p class="text-muted small mb-0">
+                <i class="fas fa-code"></i> Bu AR deneyimi tamamen web tabanlıdır. Uygulama indirmenize gerek yoktur.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Ücretsiz JS Kütüphaneleri -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    
+    <script>
+        // DOM Elements
+        const cameraFeed = document.getElementById('cameraFeed');
+        const tattooOverlay = document.getElementById('tattooOverlay');
+        const tattooGallery = document.getElementById('tattooGallery');
+        const flipCameraBtn = document.getElementById('flipCamera');
+        const resetTattooBtn = document.getElementById('resetTattoo');
+        const sizeSlider = document.getElementById('sizeSlider');
+        const sizeValue = document.getElementById('sizeValue');
+        const opacitySlider = document.getElementById('opacitySlider');
+        const opacityValue = document.getElementById('opacityValue');
+        const rotationSlider = document.getElementById('rotationSlider');
+        const rotationValue = document.getElementById('rotationValue');
+        const takePhotoBtn = document.getElementById('takePhoto');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const shareBtn = document.getElementById('shareBtn');
+        const photoPreview = document.getElementById('photoPreview');
+        const previewImage = document.getElementById('previewImage');
+        const closePreview = document.querySelector('.close-preview');
+        
+        // Variables
+        let currentStream = null;
+        let isFrontCamera = false;
+        let selectedTattoo = null;
+        let isDragging = false;
+        let startX, startY, initialX, initialY;
+        let currentScale = 1.0;
+        let currentRotation = 0;
+        let currentOpacity = 0.8;
+        let capturedPhoto = null;
+        
+        // Dövme şablonları - Kendi şablonlarınızla değiştirin
+        const tattooDesigns = [
+            { id: 1, name: "Geometrik Mandala", image: "https://images.unsplash.com/photo-1605647533135-51b5906087d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80", category: "Geometrik" },
+            { id: 2, name: "Japon Koi Balığı", image: "https://images.unsplash.com/photo-1577672887393-15d8d4ee4c02?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80", category: "Geleneksel" },
+            { id: 3, name: "Minimalist Yazı", image: "https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80", category: "Minimal" },
+            { id: 4, name: "Kartal Figürü", image: "https://images.unsplash.com/photo-1611048260932-3b1dcc7d99de?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80", category: "Hayvan" },
+            { id: 5, name: "Çiçek Deseni", image: "https://images.unsplash.com/photo-1591081658714-f576fb7ea3ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80", category: "Bitki" },
+            { id: 6, name: "Tribal Desen", image: "https://images.unsplash.com/photo-1605647533135-51b5906087d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", category: "Tribal" }
+        ];
+        
+        // Initialize the app
+        function initApp() {
+            loadTattooGallery();
+            initCamera();
+            setupEventListeners();
+            generateQRCode();
+        }
+        
+        // Load tattoo gallery
+        function loadTattooGallery() {
+            tattooDesigns.forEach(tattoo => {
+                const col = document.createElement('div');
+                col.className = 'col-6 col-md-4 mb-3';
+                col.innerHTML = `
+                    <div class="tattoo-item text-center">
+                        <img src="${tattoo.image}" 
+                             alt="${tattoo.name}" 
+                             class="tattoo-thumbnail"
+                             data-id="${tattoo.id}"
+                             data-src="${tattoo.image}">
+                        <div class="small mt-1">${tattoo.name}</div>
+                    </div>
+                `;
+                tattooGallery.appendChild(col);
+            });
+            
+            // Add click event to tattoo thumbnails
+            document.querySelectorAll('.tattoo-thumbnail').forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    selectTattoo(this.dataset.src);
+                    
+                    // Update active state
+                    document.querySelectorAll('.tattoo-thumbnail').forEach(t => {
+                        t.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+            });
+            
+            // Select first tattoo by default
+            if (tattooDesigns.length > 0) {
+                setTimeout(() => {
+                    document.querySelector('.tattoo-thumbnail').click();
+                }, 500);
+            }
+        }
+        
+        // Initialize camera
+        function initCamera() {
+            const constraints = {
+                video: {
+                    facingMode: 'environment' // Start with rear camera
+                },
+                audio: false
+            };
+            
+            navigator.mediaDevices.getUserMedia(constraints)
+                .then(stream => {
+                    currentStream = stream;
+                    cameraFeed.srcObject = stream;
+                })
+                .catch(err => {
+                    console.error("Kamera erişim hatası:", err);
+                    alert("Kameraya erişim izni vermeniz gerekiyor. Lütfen tarayıcı ayarlarınızı kontrol edin.");
+                });
+        }
+        
+        // Setup event listeners
+        function setupEventListeners() {
+            // Flip camera button
+            flipCameraBtn.addEventListener('click', flipCamera);
+            
+            // Reset tattoo button
+            resetTattooBtn.addEventListener('click', resetTattoo);
+            
+            // Slider events
+            sizeSlider.addEventListener('input', updateTattooSize);
+            opacitySlider.addEventListener('input', updateTattooOpacity);
+            rotationSlider.addEventListener('input', updateTattooRotation);
+            
+            // Photo buttons
+            takePhotoBtn.addEventListener('click', takePhoto);
+            downloadBtn.addEventListener('click', downloadPhoto);
+            shareBtn.addEventListener('click', sharePage);
+            
+            // Close preview
+            closePreview.addEventListener('click', () => {
+                photoPreview.style.display = 'none';
+            });
+            
+            // Drag and drop for tattoo
+            tattooOverlay.addEventListener('mousedown', startDrag);
+            tattooOverlay.addEventListener('touchstart', startDragTouch);
+            
+            // Handle window resize
+            window.addEventListener('resize', centerTattoo);
+        }
+        
+        // Select a tattoo
+        function selectTattoo(src) {
+            selectedTattoo = src;
+            tattooOverlay.src = src;
+            tattooOverlay.style.display = 'block';
+            centerTattoo();
+            
+            // Reset to default values
+            sizeSlider.value = 100;
+            opacitySlider.value = 80;
+            rotationSlider.value = 0;
+            
+            updateTattooSize();
+            updateTattooOpacity();
+            updateTattooRotation();
+        }
+        
+        // Center tattoo on screen
+        function centerTattoo() {
+            if (!tattooOverlay.src) return;
+            
+            const container = document.querySelector('.ar-container');
+            const containerRect = container.getBoundingClientRect();
+            
+            tattooOverlay.style.left = '50%';
+            tattooOverlay.style.top = '50%';
+            tattooOverlay.style.transform = `translate(-50%, -50%) rotate(${currentRotation}deg) scale(${currentScale})`;
+        }
+        
+        // Flip camera
+        function flipCamera() {
+            if (!currentStream) return;
+            
+            // Stop current stream
+            currentStream.getTracks().forEach(track => track.stop());
+            
+            // Toggle camera
+            isFrontCamera = !isFrontCamera;
+            
+            const constraints = {
+                video: {
+                    facingMode: isFrontCamera ? 'user' : 'environment'
+                },
+                audio: false
+            };
+            
+            navigator.mediaDevices.getUserMedia(constraints)
+                .then(stream => {
+                    currentStream = stream;
+                    cameraFeed.srcObject = stream;
+                })
+                .catch(err => {
+                    console.error("Kamera değiştirme hatası:", err);
+                });
+        }
+        
+        // Reset tattoo position and size
+        function resetTattoo() {
+            centerTattoo();
+            sizeSlider.value = 100;
+            opacitySlider.value = 80;
+            rotationSlider.value = 0;
+            
+            updateTattooSize();
+            updateTattooOpacity();
+            updateTattooRotation();
+        }
+        
+        // Update tattoo size
+        function updateTattooSize() {
+            const value = sizeSlider.value;
+            currentScale = value / 100;
+            sizeValue.textContent = `${value}%`;
+            
+            tattooOverlay.style.transform = `translate(-50%, -50%) rotate(${currentRotation}deg) scale(${currentScale})`;
+        }
+        
+        // Update tattoo opacity
+        function updateTattooOpacity() {
+            const value = opacitySlider.value;
+            currentOpacity = value / 100;
+            opacityValue.textContent = `${value}%`;
+            tattooOverlay.style.opacity = currentOpacity;
+        }
+        
+        // Update tattoo rotation
+        function updateTattooRotation() {
+            const value = rotationSlider.value;
+            currentRotation = parseInt(value);
+            rotationValue.textContent = `${value}°`;
+            
+            tattooOverlay.style.transform = `translate(-50%, -50%) rotate(${currentRotation}deg) scale(${currentScale})`;
+        }
+        
+        // Drag and drop functions
+        function startDrag(e) {
+            e.preventDefault();
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            
+            const style = window.getComputedStyle(tattooOverlay);
+            initialX = parseInt(style.left, 10);
+            initialY = parseInt(style.top, 10);
+            
+            document.addEventListener('mousemove', drag);
+            document.addEventListener('mouseup', stopDrag);
+        }
+        
+        function startDragTouch(e) {
+            e.preventDefault();
+            if (e.touches.length !== 1) return;
+            
+            isDragging = true;
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            
+            const style = window.getComputedStyle(tattooOverlay);
+            initialX = parseInt(style.left, 10);
+            initialY = parseInt(style.top, 10);
+            
+            document.addEventListener('touchmove', dragTouch);
+            document.addEventListener('touchend', stopDrag);
+        }
+        
+        function drag(e) {
+            if (!isDragging) return;
+            
+            const dx = e.clientX - startX;
+            const dy = e.clientY - startY;
+            
+            tattooOverlay.style.left = `${initialX + dx}px`;
+            tattooOverlay.style.top = `${initialY + dy}px`;
+        }
+        
+        function dragTouch(e) {
+            if (!isDragging || e.touches.length !== 1) return;
+            
+            const dx = e.touches[0].clientX - startX;
+            const dy = e.touches[0].clientY - startY;
+            
+            tattooOverlay.style.left = `${initialX + dx}px`;
+            tattooOverlay.style.top = `${initialY + dy}px`;
+        }
+        
+        function stopDrag() {
+            isDragging = false;
+            document.removeEventListener('mousemove', drag);
+            document.removeEventListener('touchmove', dragTouch);
+            document.removeEventListener('mouseup', stopDrag);
+            document.removeEventListener('touchend', stopDrag);
+        }
+        
+        // Take photo
+        function takePhoto() {
+            if (!selectedTattoo) {
+                alert("Önce bir dövme tasarımı seçin!");
+                return;
+            }
+            
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set canvas dimensions to match video feed
+            canvas.width = cameraFeed.videoWidth;
+            canvas.height = cameraFeed.videoHeight;
+            
+            // Draw video frame
+            ctx.drawImage(cameraFeed, 0, 0, canvas.width, canvas.height);
+            
+            // Draw tattoo overlay
+            const tattooImg = new Image();
+            tattooImg.crossOrigin = 'anonymous';
+            tattooImg.src = selectedTattoo;
+            
+            tattooImg.onload = function() {
+                // Calculate tattoo position and size
+                const tattooRect = tattooOverlay.getBoundingClientRect();
+                const containerRect = cameraFeed.getBoundingClientRect();
+                
+                // Convert screen coordinates to canvas coordinates
+                const scaleX = canvas.width / containerRect.width;
+                const scaleY = canvas.height / containerRect.height;
+                
+                const tattooX = (tattooRect.left - containerRect.left) * scaleX;
+                const tattooY = (tattooRect.top - containerRect.top) * scaleY;
+                const tattooWidth = tattooRect.width * scaleX;
+                const tattooHeight = tattooRect.height * scaleY;
+                
+                // Save context state
+                ctx.save();
+                
+                // Apply rotation
+                ctx.translate(tattooX + tattooWidth/2, tattooY + tattooHeight/2);
+                ctx.rotate(currentRotation * Math.PI / 180);
+                
+                // Set opacity and draw tattoo
+                ctx.globalAlpha = currentOpacity;
+                ctx.drawImage(tattooImg, -tattooWidth/2, -tattooHeight/2, tattooWidth, tattooHeight);
+                
+                // Restore context
+                ctx.restore();
+                
+                // Get image data
+                capturedPhoto = canvas.toDataURL('image/png');
+                
+                // Show preview
+                previewImage.src = capturedPhoto;
+                photoPreview.style.display = 'flex';
+                
+                // Enable download button
+                downloadBtn.disabled = false;
+                
+                // Auto-hide preview after 5 seconds
+                setTimeout(() => {
+                    if (photoPreview.style.display === 'flex') {
+                        photoPreview.style.display = 'none';
+                    }
+                }, 5000);
+            };
+            
+            tattooImg.onerror = function() {
+                alert("Dövme resmi yüklenirken bir hata oluştu. Lütfen tekrar deneyin.");
+            };
+        }
+        
+        // Download photo
+        function downloadPhoto() {
+            if (!capturedPhoto) return;
+            
+            const link = document.createElement('a');
+            link.download = `lama-tattoo-demo-${Date.now()}.png`;
+            link.href = capturedPhoto;
+            link.click();
+        }
+        
+        // Share page
+        function sharePage() {
+            const currentUrl = window.location.href;
+            const pageTitle = 'Lama Tattoo Studio - Dövme AR Deneyimi';
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: pageTitle,
+                    text: 'Dövmenizi yaptırmadan önce bu AR uygulaması ile deneyin!',
+                    url: currentUrl
+                });
+            } else {
+                // Fallback: Copy to clipboard
+                navigator.clipboard.writeText(currentUrl).then(() => {
+                    alert('Link panoya kopyalandı!');
+                });
+            }
+        }
+        
+        // Generate QR code
+        function generateQRCode() {
+            const currentUrl = window.location.href;
+            
+            // Clear previous QR code
+            document.getElementById('qrcode').innerHTML = '';
+            
+            // Generate new QR code
+            new QRCode(document.getElementById('qrcode'), {
+                text: currentUrl,
+                width: 150,
+                height: 150,
+                colorDark: '#000000',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', initApp);
+        
+        // Handle page visibility changes
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                // Stop camera when page is hidden
+                if (currentStream) {
+                    currentStream.getTracks().forEach(track => track.stop());
+                }
+            } else {
+                // Restart camera when page is visible again
+                if (!currentStream || currentStream.active === false) {
+                    initCamera();
+                }
+            }
+        });
+        
+        // Add touch event for mobile zoom prevention
+        document.addEventListener('touchmove', function(e) {
+            if (e.scale !== 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+    </script>
+</body>
+</html>
