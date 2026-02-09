@@ -2,864 +2,962 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lama Tattoo Studio - Dövmenizi Deneyin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lama Tattoo Studio — Dövmenizi Deneyin</title>
     <meta name="description" content="Dövmenizi yaptırmadan önce sanal olarak deneyin. Lama Tattoo Studio AR deneyimi.">
-    
-    <!-- Ücretsiz CSS Kütüphaneleri -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #8B4513;
-            --secondary-color: #D4AF37;
-            --dark-color: #1a1a1a;
-            --light-color: #f8f9fa;
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --gold:#C9A84C;
+            --gold-light:#E8D48B;
+            --gold-dark:#9A7B2F;
+            --ink:#0D0D0D;
+            --ink-light:#1A1A1A;
+            --ink-mid:#252525;
+            --ink-soft:#333;
+            --cream:#F5F0E8;
+            --cream-dim:#BFB9AE;
+            --red:#C0392B;
+            --green:#27AE60;
+            --radius:12px;
+            --shadow:0 8px 32px rgba(0,0,0,.45);
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+
+        html{scroll-behavior:smooth}
+        body{
+            font-family:'Outfit',sans-serif;
+            background:var(--ink);
+            color:var(--cream);
+            min-height:100vh;
+            overflow-x:hidden;
+            -webkit-tap-highlight-color:transparent;
         }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: var(--light-color);
-            min-height: 100vh;
-            overflow-x: hidden;
+
+        /* ── Utility ── */
+        .container{max-width:1200px;margin:0 auto;padding:0 20px}
+        .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+        /* ── Topbar ── */
+        .topbar{
+            position:fixed;top:0;left:0;right:0;z-index:100;
+            background:rgba(13,13,13,.85);
+            backdrop-filter:blur(20px);
+            -webkit-backdrop-filter:blur(20px);
+            border-bottom:1px solid rgba(201,168,76,.12);
+            padding:14px 0;
+            transition:transform .3s ease;
         }
-        
-        .navbar-brand {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            color: var(--secondary-color) !important;
-            font-size: 1.5rem;
+        .topbar-inner{display:flex;align-items:center;justify-content:space-between}
+        .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+        .brand-icon{
+            width:36px;height:36px;
+            border:2px solid var(--gold);
+            border-radius:8px;
+            display:grid;place-items:center;
+            color:var(--gold);font-size:14px;
+            transition:all .3s ease;
         }
-        
-        .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1601762603339-fd61e28a6989?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            padding: 60px 0 40px;
-            text-align: center;
+        .brand:hover .brand-icon{background:var(--gold);color:var(--ink)}
+        .brand-name{
+            font-family:'Playfair Display',serif;
+            font-weight:700;font-size:1.15rem;
+            color:var(--cream);letter-spacing:.5px;
         }
-        
-        .hero-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        .topbar-links{display:flex;gap:6px}
+        .topbar-links a{
+            color:var(--cream-dim);text-decoration:none;
+            font-size:.82rem;font-weight:500;
+            padding:6px 14px;border-radius:8px;
+            transition:all .25s ease;
         }
-        
-        .hero-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+        .topbar-links a:hover,.topbar-links a.active{color:var(--gold);background:rgba(201,168,76,.08)}
+
+        /* ── Hero ── */
+        .hero{
+            padding:100px 0 40px;
+            text-align:center;
+            position:relative;
         }
-        
-        .ar-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        .hero::before{
+            content:'';position:absolute;top:0;left:0;right:0;
+            height:300px;
+            background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,.06) 0%,transparent 70%);
+            pointer-events:none;
         }
-        
-        #cameraFeed {
-            width: 100%;
-            height: 60vh;
-            object-fit: cover;
-            background: #000;
-            display: block;
+        .hero-badge{
+            display:inline-flex;align-items:center;gap:6px;
+            background:rgba(201,168,76,.08);
+            border:1px solid rgba(201,168,76,.2);
+            border-radius:100px;padding:6px 16px;
+            font-size:.75rem;font-weight:600;
+            color:var(--gold);text-transform:uppercase;
+            letter-spacing:1.5px;margin-bottom:16px;
+            animation:fadeDown .6s ease both;
         }
-        
-        #tattooOverlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: auto;
-            max-width: 300px;
-            filter: drop-shadow(0 0 15px rgba(0,0,0,0.7));
-            transition: all 0.3s ease;
+        .hero-badge i{font-size:.6rem}
+        .hero h1{
+            font-family:'Playfair Display',serif;
+            font-size:clamp(1.8rem,5vw,3rem);
+            font-weight:700;line-height:1.15;
+            margin-bottom:12px;
+            animation:fadeDown .6s ease .1s both;
         }
-        
-        .controls-card {
-            background: rgba(30, 30, 30, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 20px;
-            margin-bottom: 20px;
+        .hero h1 em{font-style:italic;color:var(--gold)}
+        .hero p{
+            color:var(--cream-dim);
+            font-size:clamp(.9rem,2vw,1.05rem);
+            max-width:500px;margin:0 auto;
+            animation:fadeDown .6s ease .2s both;
         }
-        
-        .tattoo-thumbnail {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+
+        /* ── Main Layout ── */
+        .main{padding:20px 0 60px}
+        .layout{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start}
+
+        /* ── AR Canvas Area ── */
+        .ar-wrap{
+            position:relative;
+            border-radius:var(--radius);
+            overflow:hidden;
+            background:#000;
+            box-shadow:var(--shadow);
+            border:1px solid rgba(255,255,255,.06);
         }
-        
-        .tattoo-thumbnail:hover {
-            transform: scale(1.05);
-            border-color: var(--secondary-color);
+        .ar-wrap::after{
+            content:'';position:absolute;inset:0;
+            border-radius:var(--radius);
+            pointer-events:none;
+            box-shadow:inset 0 0 80px rgba(0,0,0,.3);
         }
-        
-        .tattoo-thumbnail.active {
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        #cameraFeed{
+            width:100%;height:65vh;min-height:400px;
+            object-fit:cover;display:block;
+            background:var(--ink-light);
         }
-        
-        .control-btn {
-            background: linear-gradient(135deg, var(--primary-color), #6b3410);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 10px 20px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+        .camera-placeholder{
+            position:absolute;inset:0;
+            display:flex;flex-direction:column;align-items:center;justify-content:center;
+            gap:12px;color:var(--cream-dim);
+            pointer-events:none;
+            transition:opacity .4s ease;
         }
-        
-        .control-btn:hover {
-            background: linear-gradient(135deg, #6b3410, var(--primary-color));
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.4);
+        .camera-placeholder i{font-size:2.5rem;opacity:.4}
+        .camera-placeholder span{font-size:.85rem;opacity:.6}
+        .camera-placeholder.hidden{opacity:0}
+
+        #tattooOverlay{
+            position:absolute;
+            pointer-events:auto;
+            cursor:grab;
+            will-change:transform;
+            filter:drop-shadow(0 4px 20px rgba(0,0,0,.6));
+            display:none;
+            touch-action:none;
+            user-select:none;
+            -webkit-user-select:none;
         }
-        
-        .control-btn:active {
-            transform: translateY(0);
+        #tattooOverlay:active{cursor:grabbing}
+
+        /* Floating AR controls */
+        .ar-float-controls{
+            position:absolute;bottom:16px;left:16px;right:16px;
+            display:flex;justify-content:space-between;align-items:flex-end;
+            z-index:10;pointer-events:none;
         }
-        
-        .slider-container {
-            background: rgba(0,0,0,0.3);
-            border-radius: 10px;
-            padding: 15px;
+        .ar-float-controls>*{pointer-events:auto}
+
+        .ar-btn{
+            display:inline-flex;align-items:center;gap:6px;
+            background:rgba(13,13,13,.7);
+            backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+            border:1px solid rgba(255,255,255,.1);
+            color:var(--cream);
+            padding:8px 14px;border-radius:10px;
+            font-size:.78rem;font-weight:500;
+            cursor:pointer;transition:all .25s ease;
+            font-family:inherit;
         }
-        
-        .value-display {
-            background: rgba(212, 175, 55, 0.1);
-            border-radius: 6px;
-            padding: 5px 10px;
-            font-weight: 600;
-            min-width: 60px;
-            text-align: center;
+        .ar-btn:hover{background:rgba(201,168,76,.15);border-color:rgba(201,168,76,.3)}
+        .ar-btn i{font-size:.75rem}
+
+        .ar-btn-capture{
+            width:56px;height:56px;
+            border-radius:50%;padding:0;
+            border:3px solid var(--gold);
+            background:rgba(13,13,13,.6);
+            display:grid;place-items:center;
+            font-size:1.1rem;color:var(--gold);
+            position:relative;
         }
-        
-        .qr-container {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            max-width: 200px;
-            margin: 0 auto;
+        .ar-btn-capture::after{
+            content:'';position:absolute;inset:4px;
+            border-radius:50%;border:2px solid rgba(201,168,76,.3);
+            transition:all .2s ease;
         }
-        
-        .instruction-box {
-            background: rgba(212, 175, 55, 0.1);
-            border-left: 4px solid var(--secondary-color);
-            padding: 15px;
-            border-radius: 0 8px 8px 0;
-            margin: 20px 0;
+        .ar-btn-capture:hover{background:var(--gold);color:var(--ink)}
+        .ar-btn-capture:hover::after{border-color:transparent}
+        .ar-btn-capture:active{transform:scale(.92)}
+
+        /* Status pill */
+        .status-pill{
+            position:absolute;top:16px;left:16px;z-index:10;
+            display:inline-flex;align-items:center;gap:6px;
+            background:rgba(13,13,13,.7);
+            backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+            border:1px solid rgba(255,255,255,.08);
+            border-radius:100px;padding:6px 14px;
+            font-size:.72rem;font-weight:500;
+            color:var(--cream-dim);
+            transition:all .3s ease;
         }
-        
-        .photo-preview {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 1000;
-            display: none;
-            justify-content: center;
-            align-items: center;
+        .status-dot{
+            width:6px;height:6px;border-radius:50%;
+            background:var(--red);
+            animation:pulse 2s ease infinite;
         }
-        
-        .photo-preview img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        .status-pill.live .status-dot{background:var(--green)}
+
+        /* ── Sidebar Panel ── */
+        .panel{
+            display:flex;flex-direction:column;gap:16px;
+            position:sticky;top:80px;
         }
-        
-        .close-preview {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.5rem;
+        .card{
+            background:var(--ink-light);
+            border:1px solid rgba(255,255,255,.06);
+            border-radius:var(--radius);
+            overflow:hidden;
         }
-        
-        .logo-text {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            background: linear-gradient(45deg, var(--secondary-color), #ffd700);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .card-header{
+            display:flex;align-items:center;justify-content:space-between;
+            padding:16px 18px 0;
         }
-        
-        footer {
-            background: rgba(0,0,0,0.8);
-            padding: 30px 0;
-            margin-top: 40px;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        .card-title{
+            font-size:.82rem;font-weight:600;
+            text-transform:uppercase;letter-spacing:1px;
+            color:var(--cream-dim);
+            display:flex;align-items:center;gap:8px;
         }
-        
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            #cameraFeed {
-                height: 50vh;
-            }
-            
-            .tattoo-thumbnail {
-                height: 100px;
-            }
+        .card-title i{color:var(--gold);font-size:.7rem}
+        .card-body{padding:14px 18px 18px}
+
+        /* Tattoo Grid */
+        .tattoo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+        .tattoo-thumb{
+            position:relative;
+            aspect-ratio:1;border-radius:8px;
+            overflow:hidden;cursor:pointer;
+            border:2px solid transparent;
+            transition:all .25s ease;
         }
-        
-        @media (max-width: 576px) {
-            .hero-title {
-                font-size: 1.8rem;
-            }
-            
-            #cameraFeed {
-                height: 40vh;
-            }
-            
-            .control-btn {
-                padding: 8px 15px;
-                font-size: 0.9rem;
-            }
+        .tattoo-thumb img{
+            width:100%;height:100%;object-fit:cover;
+            filter:brightness(.85);transition:all .3s ease;
+        }
+        .tattoo-thumb:hover img{filter:brightness(1);transform:scale(1.05)}
+        .tattoo-thumb:hover{border-color:rgba(201,168,76,.4)}
+        .tattoo-thumb.active{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+        .tattoo-thumb.active img{filter:brightness(1)}
+        .tattoo-thumb .thumb-label{
+            position:absolute;bottom:0;left:0;right:0;
+            padding:4px 6px;
+            background:linear-gradient(transparent,rgba(0,0,0,.8));
+            font-size:.6rem;font-weight:500;
+            text-align:center;
+            opacity:0;transition:opacity .25s ease;
+        }
+        .tattoo-thumb:hover .thumb-label,.tattoo-thumb.active .thumb-label{opacity:1}
+
+        /* Upload area */
+        .upload-area{
+            border:2px dashed rgba(201,168,76,.25);
+            border-radius:8px;padding:16px;
+            text-align:center;cursor:pointer;
+            transition:all .25s ease;
+            margin-top:8px;
+        }
+        .upload-area:hover{
+            border-color:var(--gold);
+            background:rgba(201,168,76,.04);
+        }
+        .upload-area i{color:var(--gold);font-size:1.2rem;margin-bottom:6px}
+        .upload-area p{font-size:.75rem;color:var(--cream-dim);margin:0}
+        .upload-area input{display:none}
+
+        /* Sliders */
+        .slider-group{display:flex;flex-direction:column;gap:12px}
+        .slider-row{
+            display:flex;align-items:center;gap:12px;
+        }
+        .slider-icon{
+            width:28px;height:28px;border-radius:6px;
+            background:rgba(201,168,76,.08);
+            display:grid;place-items:center;flex-shrink:0;
+            color:var(--gold);font-size:.65rem;
+        }
+        .slider-info{flex:1;display:flex;flex-direction:column;gap:4px}
+        .slider-label{
+            display:flex;justify-content:space-between;
+            font-size:.72rem;font-weight:500;color:var(--cream-dim);
+        }
+        .slider-val{
+            color:var(--gold);font-weight:600;
+            font-variant-numeric:tabular-nums;
+        }
+        input[type=range]{
+            -webkit-appearance:none;appearance:none;
+            width:100%;height:4px;
+            background:var(--ink-soft);
+            border-radius:100px;outline:none;
+            cursor:pointer;
+        }
+        input[type=range]::-webkit-slider-thumb{
+            -webkit-appearance:none;appearance:none;
+            width:16px;height:16px;border-radius:50%;
+            background:var(--gold);
+            border:2px solid var(--ink);
+            box-shadow:0 0 0 3px rgba(201,168,76,.2);
+            cursor:pointer;transition:box-shadow .2s ease;
+        }
+        input[type=range]::-webkit-slider-thumb:hover{
+            box-shadow:0 0 0 5px rgba(201,168,76,.25);
+        }
+        input[type=range]::-moz-range-thumb{
+            width:16px;height:16px;border-radius:50%;
+            background:var(--gold);
+            border:2px solid var(--ink);
+            box-shadow:0 0 0 3px rgba(201,168,76,.2);
+            cursor:pointer;
+        }
+
+        /* Action buttons row */
+        .actions{display:flex;gap:8px;margin-top:4px}
+        .act-btn{
+            flex:1;display:flex;align-items:center;justify-content:center;gap:6px;
+            padding:10px;border-radius:10px;
+            font-size:.78rem;font-weight:600;
+            cursor:pointer;border:none;
+            font-family:inherit;transition:all .25s ease;
+        }
+        .act-btn:active{transform:scale(.97)}
+        .act-primary{
+            background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+            color:var(--ink);
+        }
+        .act-primary:hover{box-shadow:0 4px 20px rgba(201,168,76,.3)}
+        .act-primary:disabled{opacity:.4;cursor:not-allowed;box-shadow:none}
+        .act-ghost{
+            background:rgba(255,255,255,.05);
+            border:1px solid rgba(255,255,255,.1);
+            color:var(--cream);
+        }
+        .act-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15)}
+
+        /* Instructions */
+        .instructions{
+            margin-top:12px;
+            padding:18px;
+            background:var(--ink-light);
+            border:1px solid rgba(255,255,255,.06);
+            border-radius:var(--radius);
+        }
+        .instructions h3{
+            font-size:.8rem;font-weight:600;
+            text-transform:uppercase;letter-spacing:1px;
+            color:var(--gold);margin-bottom:10px;
+            display:flex;align-items:center;gap:8px;
+        }
+        .steps{display:flex;flex-direction:column;gap:8px}
+        .step{
+            display:flex;align-items:flex-start;gap:10px;
+            font-size:.8rem;color:var(--cream-dim);line-height:1.5;
+        }
+        .step-num{
+            width:22px;height:22px;border-radius:50%;flex-shrink:0;
+            background:rgba(201,168,76,.1);
+            color:var(--gold);font-size:.65rem;font-weight:700;
+            display:grid;place-items:center;margin-top:1px;
+        }
+
+        /* QR section */
+        .qr-wrap{text-align:center}
+        .qr-box{
+            display:inline-block;
+            background:#fff;padding:10px;border-radius:8px;
+            margin-bottom:10px;
+        }
+        .qr-box canvas,.qr-box img{display:block;border-radius:4px}
+
+        /* Photo overlay modal */
+        .photo-modal{
+            position:fixed;inset:0;z-index:200;
+            background:rgba(0,0,0,.92);
+            backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+            display:none;align-items:center;justify-content:center;
+            flex-direction:column;gap:20px;
+            padding:20px;
+        }
+        .photo-modal.open{display:flex}
+        .photo-modal img{
+            max-width:min(90vw,700px);max-height:70vh;
+            border-radius:var(--radius);
+            box-shadow:0 20px 60px rgba(0,0,0,.6);
+            object-fit:contain;
+        }
+        .photo-modal-actions{display:flex;gap:10px}
+        .photo-modal-close{
+            position:absolute;top:20px;right:20px;
+            width:40px;height:40px;border-radius:50%;
+            background:rgba(255,255,255,.08);
+            border:1px solid rgba(255,255,255,.1);
+            color:var(--cream);font-size:1.1rem;
+            cursor:pointer;display:grid;place-items:center;
+            transition:all .25s ease;
+        }
+        .photo-modal-close:hover{background:rgba(255,255,255,.15)}
+
+        /* Toast */
+        .toast-container{
+            position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+            z-index:300;display:flex;flex-direction:column;gap:8px;
+            align-items:center;
+        }
+        .toast{
+            background:var(--ink-mid);
+            border:1px solid rgba(255,255,255,.1);
+            border-radius:10px;padding:10px 20px;
+            font-size:.82rem;font-weight:500;
+            box-shadow:0 8px 32px rgba(0,0,0,.4);
+            display:flex;align-items:center;gap:8px;
+            animation:toastIn .35s ease both;
+            white-space:nowrap;
+        }
+        .toast.out{animation:toastOut .3s ease both}
+        .toast i{color:var(--gold)}
+
+        /* Footer */
+        .footer{
+            padding:30px 0;
+            border-top:1px solid rgba(255,255,255,.05);
+            text-align:center;
+        }
+        .footer-brand{
+            font-family:'Playfair Display',serif;
+            font-size:1.1rem;font-weight:700;
+            color:var(--gold);margin-bottom:8px;
+        }
+        .footer p{font-size:.78rem;color:var(--cream-dim);margin:0}
+        .footer-links{display:flex;justify-content:center;gap:12px;margin-top:12px}
+        .footer-links a{
+            color:var(--cream-dim);text-decoration:none;
+            font-size:.75rem;padding:6px 12px;
+            border:1px solid rgba(255,255,255,.08);
+            border-radius:8px;transition:all .25s ease;
+        }
+        .footer-links a:hover{color:var(--gold);border-color:rgba(201,168,76,.3)}
+
+        /* ── Animations ── */
+        @keyframes fadeDown{
+            from{opacity:0;transform:translateY(-12px)}
+            to{opacity:1;transform:translateY(0)}
+        }
+        @keyframes pulse{
+            0%,100%{opacity:1}50%{opacity:.4}
+        }
+        @keyframes toastIn{
+            from{opacity:0;transform:translateY(16px)}
+            to{opacity:1;transform:translateY(0)}
+        }
+        @keyframes toastOut{
+            to{opacity:0;transform:translateY(16px)}
+        }
+
+        /* ── Responsive ── */
+        @media(max-width:900px){
+            .layout{grid-template-columns:1fr}
+            .panel{position:static}
+            #cameraFeed{height:55vh;min-height:320px}
+        }
+        @media(max-width:600px){
+            .topbar-links{display:none}
+            #cameraFeed{height:45vh;min-height:280px}
+            .tattoo-grid{grid-template-columns:repeat(3,1fr);gap:6px}
+            .hero{padding:80px 0 28px}
+            .hero h1{font-size:1.6rem}
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="https://lamatattoo.studio">
-                <i class="fas fa-palette"></i> <span class="logo-text">LAMA TATTOO STUDIO</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://lamatattoo.studio"><i class="fas fa-home"></i> Ana Sayfa</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#"><i class="fas fa-camera"></i> AR Deneme</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://lamatattoo.studio#contact"><i class="fas fa-phone"></i> İletişim</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <h1 class="hero-title">Dövmenizi Sanal Olarak Deneyin</h1>
-            <p class="hero-subtitle">Seçtiğiniz dövme tasarımını, yaptırmadan önce cildinizde görün</p>
+<!-- Topbar -->
+<nav class="topbar">
+    <div class="container topbar-inner">
+        <a class="brand" href="https://lamatattoo.studio">
+            <div class="brand-icon"><i class="fas fa-pen-nib"></i></div>
+            <span class="brand-name">LAMA TATTOO</span>
+        </a>
+        <div class="topbar-links">
+            <a href="https://lamatattoo.studio"><i class="fas fa-home"></i> Ana Sayfa</a>
+            <a href="#" class="active"><i class="fas fa-eye"></i> AR Deneme</a>
+            <a href="https://lamatattoo.studio#contact"><i class="fas fa-calendar-check"></i> Randevu</a>
         </div>
-    </section>
+    </div>
+</nav>
 
-    <!-- Main Content -->
-    <div class="container py-4">
-        <div class="row">
-            <!-- AR Preview Section -->
-            <div class="col-lg-8 mb-4">
-                <div class="ar-container">
-                    <video id="cameraFeed" autoplay playsinline></video>
-                    <img id="tattooOverlay" src="" alt="Dövme Önizleme" style="display: none;">
-                    
-                    <!-- Camera Controls -->
-                    <div class="position-absolute bottom-0 start-0 p-3">
-                        <button id="flipCamera" class="btn control-btn btn-sm">
-                            <i class="fas fa-sync-alt"></i> Kamera Değiştir
-                        </button>
-                    </div>
-                    
-                    <!-- Tattoo Controls -->
-                    <div class="position-absolute top-0 end-0 p-3">
-                        <button id="resetTattoo" class="btn control-btn btn-sm">
-                            <i class="fas fa-redo"></i> Sıfırla
-                        </button>
-                    </div>
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-badge"><i class="fas fa-circle"></i> AR Deneyimi</div>
+        <h1>Dövmenizi Cildinizde<br><em>Görmeden</em> Karar Vermeyin</h1>
+        <p>Kameranızı açın, bir tasarım seçin, sürükleyip konumlandırın — yaptırmadan önce nasıl görüneceğini bilin.</p>
+    </div>
+</section>
+
+<!-- Main -->
+<div class="container main">
+    <div class="layout">
+
+        <!-- Left: AR Preview -->
+        <div>
+            <div class="ar-wrap" id="arWrap">
+                <video id="cameraFeed" autoplay playsinline muted></video>
+                <div class="camera-placeholder" id="cameraPlaceholder">
+                    <i class="fas fa-video"></i>
+                    <span>Kamera yükleniyor…</span>
                 </div>
-                
-                <!-- Instructions -->
-                <div class="instruction-box">
-                    <h5><i class="fas fa-info-circle"></i> Nasıl Kullanılır?</h5>
-                    <ol class="mb-0">
-                        <li>Kamera erişimine izin verin</li>
-                        <li>Aşağıdan bir dövme tasarımı seçin</li>
-                        <li>Dövmeyi ekranda sürükleyip bırakarak konumlandırın</li>
-                        <li>Kaydırıcılarla boyutunu ve şeffaflığını ayarlayın</li>
-                        <li>Fotoğraf çekip kaydedin veya QR kod ile paylaşın</li>
-                    </ol>
+                <img id="tattooOverlay" src="" alt="Dövme">
+
+                <div class="status-pill" id="statusPill">
+                    <span class="status-dot"></span>
+                    <span id="statusText">Kamera bekleniyor</span>
+                </div>
+
+                <div class="ar-float-controls">
+                    <div style="display:flex;gap:8px">
+                        <button class="ar-btn" id="flipBtn"><i class="fas fa-sync-alt"></i> Çevir</button>
+                        <button class="ar-btn" id="resetBtn"><i class="fas fa-undo"></i> Sıfırla</button>
+                    </div>
+                    <button class="ar-btn ar-btn-capture" id="captureBtn" title="Fotoğraf Çek"><i class="fas fa-camera"></i></button>
+                    <div></div>
                 </div>
             </div>
-            
-            <!-- Controls Section -->
-            <div class="col-lg-4">
-                <!-- Tattoo Selection -->
-                <div class="controls-card mb-4">
-                    <h4 class="mb-3"><i class="fas fa-drafting-compass"></i> Dövme Tasarımları</h4>
-                    <div class="row" id="tattooGallery">
-                        <!-- Tattoo thumbnails will be loaded here -->
+
+            <div class="instructions">
+                <h3><i class="fas fa-lightbulb"></i> Nasıl Kullanılır?</h3>
+                <div class="steps">
+                    <div class="step"><span class="step-num">1</span><span>Kamera erişimine izin verin — arka kamera otomatik açılır.</span></div>
+                    <div class="step"><span class="step-num">2</span><span>Sağ panelden bir dövme tasarımı seçin veya kendi resminizi yükleyin.</span></div>
+                    <div class="step"><span class="step-num">3</span><span>Dövmeyi parmağınızla (veya fareyle) sürükleyerek cildinize konumlandırın.</span></div>
+                    <div class="step"><span class="step-num">4</span><span>Boyut, şeffaflık ve açıyı kaydırıcılarla ince ayar yapın.</span></div>
+                    <div class="step"><span class="step-num">5</span><span>Büyük çekim butonuyla fotoğraf çekip kaydedin veya paylaşın.</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Panel -->
+        <div class="panel">
+
+            <!-- Designs -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title"><i class="fas fa-palette"></i> Tasarımlar</span>
+                </div>
+                <div class="card-body">
+                    <div class="tattoo-grid" id="tattooGrid"></div>
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Kendi tasarımınızı yükleyin</p>
+                        <input type="file" id="uploadInput" accept="image/*">
                     </div>
                 </div>
-                
-                <!-- Adjustment Controls -->
-                <div class="controls-card mb-4">
-                    <h4 class="mb-3"><i class="fas fa-sliders-h"></i> Ayarlar</h4>
-                    
-                    <!-- Size Slider -->
-                    <div class="mb-3 slider-container">
-                        <div class="d-flex justify-content-between mb-2">
-                            <label class="form-label mb-0"><i class="fas fa-expand-alt"></i> Boyut</label>
-                            <span id="sizeValue" class="value-display">100%</span>
+            </div>
+
+            <!-- Controls -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title"><i class="fas fa-sliders-h"></i> Ayarlar</span>
+                </div>
+                <div class="card-body">
+                    <div class="slider-group">
+                        <div class="slider-row">
+                            <div class="slider-icon"><i class="fas fa-expand-alt"></i></div>
+                            <div class="slider-info">
+                                <div class="slider-label"><span>Boyut</span><span class="slider-val" id="sizeVal">100%</span></div>
+                                <input type="range" id="sizeRange" min="20" max="250" value="100">
+                            </div>
                         </div>
-                        <input type="range" class="form-range" id="sizeSlider" min="30" max="200" value="100">
+                        <div class="slider-row">
+                            <div class="slider-icon"><i class="fas fa-droplet"></i></div>
+                            <div class="slider-info">
+                                <div class="slider-label"><span>Şeffaflık</span><span class="slider-val" id="opacityVal">80%</span></div>
+                                <input type="range" id="opacityRange" min="10" max="100" value="80">
+                            </div>
+                        </div>
+                        <div class="slider-row">
+                            <div class="slider-icon"><i class="fas fa-rotate"></i></div>
+                            <div class="slider-info">
+                                <div class="slider-label"><span>Döndürme</span><span class="slider-val" id="rotVal">0°</span></div>
+                                <input type="range" id="rotRange" min="-180" max="180" value="0">
+                            </div>
+                        </div>
                     </div>
-                    
-                    <!-- Opacity Slider -->
-                    <div class="mb-3 slider-container">
-                        <div class="d-flex justify-content-between mb-2">
-                            <label class="form-label mb-0"><i class="fas fa-adjust"></i> Şeffaflık</label>
-                            <span id="opacityValue" class="value-display">80%</span>
-                        </div>
-                        <input type="range" class="form-range" id="opacitySlider" min="10" max="100" value="80">
-                    </div>
-                    
-                    <!-- Rotation -->
-                    <div class="mb-3 slider-container">
-                        <div class="d-flex justify-content-between mb-2">
-                            <label class="form-label mb-0"><i class="fas fa-sync"></i> Döndürme</label>
-                            <span id="rotationValue" class="value-display">0°</span>
-                        </div>
-                        <input type="range" class="form-range" id="rotationSlider" min="-180" max="180" value="0">
-                    </div>
-                    
-                    <!-- Control Buttons -->
-                    <div class="row g-2 mt-4">
-                        <div class="col-6">
-                            <button id="takePhoto" class="btn control-btn w-100">
-                                <i class="fas fa-camera"></i> Fotoğraf Çek
-                            </button>
-                        </div>
-                        <div class="col-6">
-                            <button id="downloadBtn" class="btn control-btn w-100" disabled>
-                                <i class="fas fa-download"></i> İndir
-                            </button>
-                        </div>
+                    <div class="actions">
+                        <button class="act-btn act-primary" id="downloadBtn" disabled><i class="fas fa-download"></i> İndir</button>
+                        <button class="act-btn act-ghost" id="shareBtn"><i class="fas fa-share-alt"></i> Paylaş</button>
                     </div>
                 </div>
-                
-                <!-- QR Code Section -->
-                <div class="controls-card">
-                    <h4 class="mb-3"><i class="fas fa-qrcode"></i> Paylaş</h4>
-                    <p class="text-muted mb-3">Bu sayfayı QR kod ile paylaşın</p>
-                    <div class="text-center">
-                        <div class="qr-container mb-3">
-                            <div id="qrcode"></div>
-                        </div>
-                        <button id="shareBtn" class="btn control-btn">
-                            <i class="fas fa-share-alt"></i> Paylaş
-                        </button>
-                    </div>
+            </div>
+
+            <!-- QR -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title"><i class="fas fa-qrcode"></i> QR ile Paylaş</span>
+                </div>
+                <div class="card-body qr-wrap">
+                    <div class="qr-box" id="qrcode"></div>
+                    <p style="font-size:.72rem;color:var(--cream-dim);margin:0">Telefonunuzla okutup arkadaşlarınıza gönderin</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Photo Preview Modal -->
-    <div id="photoPreview" class="photo-preview">
-        <button class="close-preview"><i class="fas fa-times"></i></button>
-        <img id="previewImage" src="" alt="Fotoğraf Önizleme">
+<!-- Photo Modal -->
+<div class="photo-modal" id="photoModal">
+    <button class="photo-modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+    <img id="modalImg" src="" alt="Çekilen fotoğraf">
+    <div class="photo-modal-actions">
+        <button class="act-btn act-primary" id="modalDownload"><i class="fas fa-download"></i> Kaydet</button>
+        <button class="act-btn act-ghost" id="modalShare"><i class="fas fa-share-alt"></i> Paylaş</button>
     </div>
+</div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <h4 class="mb-3 logo-text">LAMA TATTOO STUDIO</h4>
-            <p class="mb-3">Profesyonel dövme hizmetleri ve sanal deneyim</p>
-            <div class="mb-3">
-                <a href="https://lamatattoo.studio" class="btn btn-outline-light btn-sm me-2"><i class="fas fa-globe"></i> Web Sitemiz</a>
-                <a href="https://lamatattoo.studio#contact" class="btn btn-outline-light btn-sm"><i class="fas fa-calendar-alt"></i> Randevu Al</a>
-            </div>
-            <p class="text-muted small mb-0">
-                <i class="fas fa-code"></i> Bu AR deneyimi tamamen web tabanlıdır. Uygulama indirmenize gerek yoktur.
-            </p>
+<!-- Toast Container -->
+<div class="toast-container" id="toasts"></div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-brand">LAMA TATTOO STUDIO</div>
+        <p>Profesyonel dövme hizmetleri · Uygulama indirmenize gerek yok</p>
+        <div class="footer-links">
+            <a href="https://lamatattoo.studio"><i class="fas fa-globe"></i> Web Sitemiz</a>
+            <a href="https://lamatattoo.studio#contact"><i class="fas fa-calendar-alt"></i> Randevu Al</a>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <!-- Ücretsiz JS Kütüphaneleri -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
-    
-    <script>
-        // DOM Elements
-        const cameraFeed = document.getElementById('cameraFeed');
-        const tattooOverlay = document.getElementById('tattooOverlay');
-        const tattooGallery = document.getElementById('tattooGallery');
-        const flipCameraBtn = document.getElementById('flipCamera');
-        const resetTattooBtn = document.getElementById('resetTattoo');
-        const sizeSlider = document.getElementById('sizeSlider');
-        const sizeValue = document.getElementById('sizeValue');
-        const opacitySlider = document.getElementById('opacitySlider');
-        const opacityValue = document.getElementById('opacityValue');
-        const rotationSlider = document.getElementById('rotationSlider');
-        const rotationValue = document.getElementById('rotationValue');
-        const takePhotoBtn = document.getElementById('takePhoto');
-        const downloadBtn = document.getElementById('downloadBtn');
-        const shareBtn = document.getElementById('shareBtn');
-        const photoPreview = document.getElementById('photoPreview');
-        const previewImage = document.getElementById('previewImage');
-        const closePreview = document.querySelector('.close-preview');
-        
-        // Variables
-        let currentStream = null;
-        let isFrontCamera = false;
-        let selectedTattoo = null;
-        let isDragging = false;
-        let startX, startY, initialX, initialY;
-        let currentScale = 1.0;
-        let currentRotation = 0;
-        let currentOpacity = 0.8;
-        let capturedPhoto = null;
-        
-        // Dövme şablonları - Kendi şablonlarınızla değiştirin
-        const tattooDesigns = [
-            { id: 1, name: "Geometrik Mandala", image: "https://images.unsplash.com/photo-1605647533135-51b5906087d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80", category: "Geometrik" },
-            { id: 2, name: "Japon Koi Balığı", image: "https://images.unsplash.com/photo-1577672887393-15d8d4ee4c02?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80", category: "Geleneksel" },
-            { id: 3, name: "Minimalist Yazı", image: "https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80", category: "Minimal" },
-            { id: 4, name: "Kartal Figürü", image: "https://images.unsplash.com/photo-1611048260932-3b1dcc7d99de?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80", category: "Hayvan" },
-            { id: 5, name: "Çiçek Deseni", image: "https://images.unsplash.com/photo-1591081658714-f576fb7ea3ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80", category: "Bitki" },
-            { id: 6, name: "Tribal Desen", image: "https://images.unsplash.com/photo-1605647533135-51b5906087d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", category: "Tribal" }
-        ];
-        
-        // Initialize the app
-        function initApp() {
-            loadTattooGallery();
-            initCamera();
-            setupEventListeners();
-            generateQRCode();
-        }
-        
-        // Load tattoo gallery
-        function loadTattooGallery() {
-            tattooDesigns.forEach(tattoo => {
-                const col = document.createElement('div');
-                col.className = 'col-6 col-md-4 mb-3';
-                col.innerHTML = `
-                    <div class="tattoo-item text-center">
-                        <img src="${tattoo.image}" 
-                             alt="${tattoo.name}" 
-                             class="tattoo-thumbnail"
-                             data-id="${tattoo.id}"
-                             data-src="${tattoo.image}">
-                        <div class="small mt-1">${tattoo.name}</div>
-                    </div>
-                `;
-                tattooGallery.appendChild(col);
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script>
+(function(){
+    "use strict";
+
+    /* ── Elements ── */
+    const $ = s => document.querySelector(s);
+    const video       = $('#cameraFeed');
+    const overlay     = $('#tattooOverlay');
+    const arWrap      = $('#arWrap');
+    const placeholder = $('#cameraPlaceholder');
+    const statusPill  = $('#statusPill');
+    const statusText  = $('#statusText');
+    const grid        = $('#tattooGrid');
+    const uploadArea  = $('#uploadArea');
+    const uploadInput = $('#uploadInput');
+    const flipBtn     = $('#flipBtn');
+    const resetBtn    = $('#resetBtn');
+    const captureBtn  = $('#captureBtn');
+    const sizeRange   = $('#sizeRange');
+    const opacityRange= $('#opacityRange');
+    const rotRange    = $('#rotRange');
+    const sizeVal     = $('#sizeVal');
+    const opacityVal  = $('#opacityVal');
+    const rotVal      = $('#rotVal');
+    const downloadBtn = $('#downloadBtn');
+    const shareBtn    = $('#shareBtn');
+    const photoModal  = $('#photoModal');
+    const modalImg    = $('#modalImg');
+    const modalClose  = $('#modalClose');
+    const modalDl     = $('#modalDownload');
+    const modalShare  = $('#modalShare');
+    const toasts      = $('#toasts');
+
+    /* ── State ── */
+    let stream      = null;
+    let useFront    = false;
+    let selectedSrc = null;
+    let scale       = 1;
+    let opacity     = 0.8;
+    let rotation    = 0;
+    let posX        = 0;    // percentage within container
+    let posY        = 0;
+    let dragging    = false;
+    let dragStartX, dragStartY, dragInitX, dragInitY;
+    let capturedData = null;
+
+    /* ── Tattoo Designs ── */
+    const designs = [
+        { name:"Geometrik Mandala",  src:"https://images.unsplash.com/photo-1605647533135-51b5906087d0?w=400&q=80" },
+        { name:"Koi Balığı",         src:"https://images.unsplash.com/photo-1577672887393-15d8d4ee4c02?w=400&q=80" },
+        { name:"Minimalist",         src:"https://images.unsplash.com/photo-1579546929662-711aa81148cf?w=400&q=80" },
+        { name:"Kartal",             src:"https://images.unsplash.com/photo-1611048260932-3b1dcc7d99de?w=400&q=80" },
+        { name:"Çiçek Deseni",       src:"https://images.unsplash.com/photo-1591081658714-f576fb7ea3ed?w=400&q=80" },
+        { name:"Tribal",             src:"https://images.unsplash.com/photo-1605647533135-51b5906087d0?w=400&q=60" },
+    ];
+
+    /* ── Init ── */
+    function init(){
+        buildGallery();
+        startCamera();
+        bindEvents();
+        buildQR();
+    }
+
+    /* ── Gallery ── */
+    function buildGallery(){
+        designs.forEach((d,i)=>{
+            const el = document.createElement('div');
+            el.className = 'tattoo-thumb';
+            el.dataset.src = d.src;
+            el.innerHTML = `<img src="${d.src}" alt="${d.name}" loading="lazy"><span class="thumb-label">${d.name}</span>`;
+            el.addEventListener('click', ()=> pickDesign(d.src, el));
+            grid.appendChild(el);
+        });
+    }
+
+    function pickDesign(src, thumbEl){
+        document.querySelectorAll('.tattoo-thumb').forEach(t=>t.classList.remove('active'));
+        if(thumbEl) thumbEl.classList.add('active');
+        selectedSrc = src;
+        overlay.src = src;
+        overlay.style.display = 'block';
+        resetOverlay();
+        toast('Tasarım seçildi — sürükleyerek konumlandırın');
+    }
+
+    /* ── Upload ── */
+    uploadArea.addEventListener('click', ()=> uploadInput.click());
+    uploadInput.addEventListener('change', e=>{
+        const file = e.target.files[0];
+        if(!file) return;
+        const url = URL.createObjectURL(file);
+        pickDesign(url, null);
+        toast('Kendi tasarımınız yüklendi');
+    });
+
+    /* ── Camera ── */
+    function startCamera(){
+        if(stream) stream.getTracks().forEach(t=>t.stop());
+        const constraints = { video:{ facingMode: useFront?'user':'environment' }, audio:false };
+        navigator.mediaDevices.getUserMedia(constraints)
+            .then(s=>{
+                stream = s;
+                video.srcObject = s;
+                placeholder.classList.add('hidden');
+                statusPill.classList.add('live');
+                statusText.textContent = useFront ? 'Ön kamera' : 'Arka kamera';
+            })
+            .catch(err=>{
+                console.error(err);
+                statusText.textContent = 'Kamera erişimi reddedildi';
+                toast('Kameraya erişim izni vermeniz gerekiyor','warning');
             });
-            
-            // Add click event to tattoo thumbnails
-            document.querySelectorAll('.tattoo-thumbnail').forEach(thumb => {
-                thumb.addEventListener('click', function() {
-                    selectTattoo(this.dataset.src);
-                    
-                    // Update active state
-                    document.querySelectorAll('.tattoo-thumbnail').forEach(t => {
-                        t.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                });
+    }
+
+    /* ── Events ── */
+    function bindEvents(){
+        flipBtn.addEventListener('click', ()=>{ useFront=!useFront; startCamera(); });
+        resetBtn.addEventListener('click', resetOverlay);
+        captureBtn.addEventListener('click', capture);
+
+        sizeRange.addEventListener('input', ()=>{
+            scale = sizeRange.value/100;
+            sizeVal.textContent = sizeRange.value+'%';
+            applyTransform();
+        });
+        opacityRange.addEventListener('input', ()=>{
+            opacity = opacityRange.value/100;
+            opacityVal.textContent = opacityRange.value+'%';
+            overlay.style.opacity = opacity;
+        });
+        rotRange.addEventListener('input', ()=>{
+            rotation = +rotRange.value;
+            rotVal.textContent = rotRange.value+'°';
+            applyTransform();
+        });
+
+        downloadBtn.addEventListener('click', downloadCaptured);
+        shareBtn.addEventListener('click', sharePage);
+        modalClose.addEventListener('click', ()=> photoModal.classList.remove('open'));
+        modalDl.addEventListener('click', downloadCaptured);
+        modalShare.addEventListener('click', sharePhoto);
+
+        // Drag — pointer events (works for mouse + touch)
+        overlay.addEventListener('pointerdown', onPointerDown);
+        document.addEventListener('pointermove', onPointerMove);
+        document.addEventListener('pointerup', onPointerUp);
+
+        // Prevent page scroll when dragging overlay
+        overlay.addEventListener('touchstart', e=>{ if(dragging||e.target===overlay) e.preventDefault(); },{ passive:false });
+
+        // Visibility
+        document.addEventListener('visibilitychange', ()=>{
+            if(document.hidden){ if(stream) stream.getTracks().forEach(t=>t.stop()); }
+            else if(!stream||!stream.active) startCamera();
+        });
+    }
+
+    /* ── Transform ── */
+    function applyTransform(){
+        overlay.style.transform = `translate(-50%,-50%) rotate(${rotation}deg) scale(${scale})`;
+    }
+    function resetOverlay(){
+        const rect = arWrap.getBoundingClientRect();
+        posX = rect.width/2;
+        posY = rect.height/2;
+        scale = 1; opacity = 0.8; rotation = 0;
+        sizeRange.value = 100; opacityRange.value = 80; rotRange.value = 0;
+        sizeVal.textContent = '100%'; opacityVal.textContent = '80%'; rotVal.textContent = '0°';
+        overlay.style.left = posX+'px';
+        overlay.style.top  = posY+'px';
+        overlay.style.opacity = opacity;
+        overlay.style.maxWidth = '220px';
+        applyTransform();
+    }
+
+    /* ── Drag ── */
+    function onPointerDown(e){
+        if(e.target !== overlay) return;
+        dragging = true;
+        overlay.setPointerCapture(e.pointerId);
+        dragStartX = e.clientX;
+        dragStartY = e.clientY;
+        const cs = getComputedStyle(overlay);
+        dragInitX = parseInt(cs.left,10)||0;
+        dragInitY = parseInt(cs.top,10)||0;
+        overlay.style.cursor = 'grabbing';
+    }
+    function onPointerMove(e){
+        if(!dragging) return;
+        const dx = e.clientX - dragStartX;
+        const dy = e.clientY - dragStartY;
+        overlay.style.left = (dragInitX+dx)+'px';
+        overlay.style.top  = (dragInitY+dy)+'px';
+        overlay.style.transform = `translate(-50%,-50%) rotate(${rotation}deg) scale(${scale})`;
+    }
+    function onPointerUp(){
+        if(!dragging) return;
+        dragging = false;
+        overlay.style.cursor = 'grab';
+    }
+
+    /* ── Capture ── */
+    function capture(){
+        if(!selectedSrc){ toast('Önce bir dövme tasarımı seçin'); return; }
+
+        const canvas = document.createElement('canvas');
+        const ctx    = canvas.getContext('2d');
+        canvas.width = video.videoWidth  || 1280;
+        canvas.height= video.videoHeight || 720;
+
+        // draw camera frame
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        // draw tattoo
+        const tattooImg = new Image();
+        tattooImg.crossOrigin = 'anonymous';
+        tattooImg.src = selectedSrc;
+
+        tattooImg.onload = ()=>{
+            const cRect = arWrap.getBoundingClientRect();
+            const tRect = overlay.getBoundingClientRect();
+            const sx = canvas.width  / cRect.width;
+            const sy = canvas.height / cRect.height;
+
+            const cx = (tRect.left + tRect.width/2  - cRect.left)*sx;
+            const cy = (tRect.top  + tRect.height/2 - cRect.top )*sy;
+            const tw = tRect.width  * sx;
+            const th = tRect.height * sy;
+
+            ctx.save();
+            ctx.translate(cx, cy);
+            ctx.rotate(rotation * Math.PI/180);
+            ctx.globalAlpha = opacity;
+            ctx.drawImage(tattooImg, -tw/2, -th/2, tw, th);
+            ctx.restore();
+
+            capturedData = canvas.toDataURL('image/png');
+            modalImg.src = capturedData;
+            photoModal.classList.add('open');
+            downloadBtn.disabled = false;
+            toast('Fotoğraf çekildi!');
+
+            // Capture animation
+            arWrap.style.outline = '3px solid var(--gold)';
+            setTimeout(()=> arWrap.style.outline='none', 300);
+        };
+        tattooImg.onerror = ()=> toast('Dövme resmi yüklenemedi','warning');
+    }
+
+    /* ── Download / Share ── */
+    function downloadCaptured(){
+        if(!capturedData) return;
+        const a = document.createElement('a');
+        a.download = 'lama-tattoo-'+Date.now()+'.png';
+        a.href = capturedData;
+        a.click();
+        toast('Fotoğraf indirildi');
+    }
+    function sharePhoto(){
+        if(!capturedData) return;
+        if(navigator.share){
+            fetch(capturedData).then(r=>r.blob()).then(blob=>{
+                const file = new File([blob],'lama-tattoo.png',{type:'image/png'});
+                navigator.share({ files:[file], title:'Lama Tattoo AR' }).catch(()=>{});
             });
-            
-            // Select first tattoo by default
-            if (tattooDesigns.length > 0) {
-                setTimeout(() => {
-                    document.querySelector('.tattoo-thumbnail').click();
-                }, 500);
-            }
+        } else {
+            sharePage();
         }
-        
-        // Initialize camera
-        function initCamera() {
-            const constraints = {
-                video: {
-                    facingMode: 'environment' // Start with rear camera
-                },
-                audio: false
-            };
-            
-            navigator.mediaDevices.getUserMedia(constraints)
-                .then(stream => {
-                    currentStream = stream;
-                    cameraFeed.srcObject = stream;
-                })
-                .catch(err => {
-                    console.error("Kamera erişim hatası:", err);
-                    alert("Kameraya erişim izni vermeniz gerekiyor. Lütfen tarayıcı ayarlarınızı kontrol edin.");
-                });
+    }
+    function sharePage(){
+        const url = location.href;
+        if(navigator.share){
+            navigator.share({ title:'Lama Tattoo — AR Deneyimi', text:'Dövmenizi sanal olarak deneyin!', url });
+        } else {
+            navigator.clipboard.writeText(url).then(()=> toast('Link kopyalandı'));
         }
-        
-        // Setup event listeners
-        function setupEventListeners() {
-            // Flip camera button
-            flipCameraBtn.addEventListener('click', flipCamera);
-            
-            // Reset tattoo button
-            resetTattooBtn.addEventListener('click', resetTattoo);
-            
-            // Slider events
-            sizeSlider.addEventListener('input', updateTattooSize);
-            opacitySlider.addEventListener('input', updateTattooOpacity);
-            rotationSlider.addEventListener('input', updateTattooRotation);
-            
-            // Photo buttons
-            takePhotoBtn.addEventListener('click', takePhoto);
-            downloadBtn.addEventListener('click', downloadPhoto);
-            shareBtn.addEventListener('click', sharePage);
-            
-            // Close preview
-            closePreview.addEventListener('click', () => {
-                photoPreview.style.display = 'none';
-            });
-            
-            // Drag and drop for tattoo
-            tattooOverlay.addEventListener('mousedown', startDrag);
-            tattooOverlay.addEventListener('touchstart', startDragTouch);
-            
-            // Handle window resize
-            window.addEventListener('resize', centerTattoo);
-        }
-        
-        // Select a tattoo
-        function selectTattoo(src) {
-            selectedTattoo = src;
-            tattooOverlay.src = src;
-            tattooOverlay.style.display = 'block';
-            centerTattoo();
-            
-            // Reset to default values
-            sizeSlider.value = 100;
-            opacitySlider.value = 80;
-            rotationSlider.value = 0;
-            
-            updateTattooSize();
-            updateTattooOpacity();
-            updateTattooRotation();
-        }
-        
-        // Center tattoo on screen
-        function centerTattoo() {
-            if (!tattooOverlay.src) return;
-            
-            const container = document.querySelector('.ar-container');
-            const containerRect = container.getBoundingClientRect();
-            
-            tattooOverlay.style.left = '50%';
-            tattooOverlay.style.top = '50%';
-            tattooOverlay.style.transform = `translate(-50%, -50%) rotate(${currentRotation}deg) scale(${currentScale})`;
-        }
-        
-        // Flip camera
-        function flipCamera() {
-            if (!currentStream) return;
-            
-            // Stop current stream
-            currentStream.getTracks().forEach(track => track.stop());
-            
-            // Toggle camera
-            isFrontCamera = !isFrontCamera;
-            
-            const constraints = {
-                video: {
-                    facingMode: isFrontCamera ? 'user' : 'environment'
-                },
-                audio: false
-            };
-            
-            navigator.mediaDevices.getUserMedia(constraints)
-                .then(stream => {
-                    currentStream = stream;
-                    cameraFeed.srcObject = stream;
-                })
-                .catch(err => {
-                    console.error("Kamera değiştirme hatası:", err);
-                });
-        }
-        
-        // Reset tattoo position and size
-        function resetTattoo() {
-            centerTattoo();
-            sizeSlider.value = 100;
-            opacitySlider.value = 80;
-            rotationSlider.value = 0;
-            
-            updateTattooSize();
-            updateTattooOpacity();
-            updateTattooRotation();
-        }
-        
-        // Update tattoo size
-        function updateTattooSize() {
-            const value = sizeSlider.value;
-            currentScale = value / 100;
-            sizeValue.textContent = `${value}%`;
-            
-            tattooOverlay.style.transform = `translate(-50%, -50%) rotate(${currentRotation}deg) scale(${currentScale})`;
-        }
-        
-        // Update tattoo opacity
-        function updateTattooOpacity() {
-            const value = opacitySlider.value;
-            currentOpacity = value / 100;
-            opacityValue.textContent = `${value}%`;
-            tattooOverlay.style.opacity = currentOpacity;
-        }
-        
-        // Update tattoo rotation
-        function updateTattooRotation() {
-            const value = rotationSlider.value;
-            currentRotation = parseInt(value);
-            rotationValue.textContent = `${value}°`;
-            
-            tattooOverlay.style.transform = `translate(-50%, -50%) rotate(${currentRotation}deg) scale(${currentScale})`;
-        }
-        
-        // Drag and drop functions
-        function startDrag(e) {
-            e.preventDefault();
-            isDragging = true;
-            startX = e.clientX;
-            startY = e.clientY;
-            
-            const style = window.getComputedStyle(tattooOverlay);
-            initialX = parseInt(style.left, 10);
-            initialY = parseInt(style.top, 10);
-            
-            document.addEventListener('mousemove', drag);
-            document.addEventListener('mouseup', stopDrag);
-        }
-        
-        function startDragTouch(e) {
-            e.preventDefault();
-            if (e.touches.length !== 1) return;
-            
-            isDragging = true;
-            startX = e.touches[0].clientX;
-            startY = e.touches[0].clientY;
-            
-            const style = window.getComputedStyle(tattooOverlay);
-            initialX = parseInt(style.left, 10);
-            initialY = parseInt(style.top, 10);
-            
-            document.addEventListener('touchmove', dragTouch);
-            document.addEventListener('touchend', stopDrag);
-        }
-        
-        function drag(e) {
-            if (!isDragging) return;
-            
-            const dx = e.clientX - startX;
-            const dy = e.clientY - startY;
-            
-            tattooOverlay.style.left = `${initialX + dx}px`;
-            tattooOverlay.style.top = `${initialY + dy}px`;
-        }
-        
-        function dragTouch(e) {
-            if (!isDragging || e.touches.length !== 1) return;
-            
-            const dx = e.touches[0].clientX - startX;
-            const dy = e.touches[0].clientY - startY;
-            
-            tattooOverlay.style.left = `${initialX + dx}px`;
-            tattooOverlay.style.top = `${initialY + dy}px`;
-        }
-        
-        function stopDrag() {
-            isDragging = false;
-            document.removeEventListener('mousemove', drag);
-            document.removeEventListener('touchmove', dragTouch);
-            document.removeEventListener('mouseup', stopDrag);
-            document.removeEventListener('touchend', stopDrag);
-        }
-        
-        // Take photo
-        function takePhoto() {
-            if (!selectedTattoo) {
-                alert("Önce bir dövme tasarımı seçin!");
-                return;
-            }
-            
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            
-            // Set canvas dimensions to match video feed
-            canvas.width = cameraFeed.videoWidth;
-            canvas.height = cameraFeed.videoHeight;
-            
-            // Draw video frame
-            ctx.drawImage(cameraFeed, 0, 0, canvas.width, canvas.height);
-            
-            // Draw tattoo overlay
-            const tattooImg = new Image();
-            tattooImg.crossOrigin = 'anonymous';
-            tattooImg.src = selectedTattoo;
-            
-            tattooImg.onload = function() {
-                // Calculate tattoo position and size
-                const tattooRect = tattooOverlay.getBoundingClientRect();
-                const containerRect = cameraFeed.getBoundingClientRect();
-                
-                // Convert screen coordinates to canvas coordinates
-                const scaleX = canvas.width / containerRect.width;
-                const scaleY = canvas.height / containerRect.height;
-                
-                const tattooX = (tattooRect.left - containerRect.left) * scaleX;
-                const tattooY = (tattooRect.top - containerRect.top) * scaleY;
-                const tattooWidth = tattooRect.width * scaleX;
-                const tattooHeight = tattooRect.height * scaleY;
-                
-                // Save context state
-                ctx.save();
-                
-                // Apply rotation
-                ctx.translate(tattooX + tattooWidth/2, tattooY + tattooHeight/2);
-                ctx.rotate(currentRotation * Math.PI / 180);
-                
-                // Set opacity and draw tattoo
-                ctx.globalAlpha = currentOpacity;
-                ctx.drawImage(tattooImg, -tattooWidth/2, -tattooHeight/2, tattooWidth, tattooHeight);
-                
-                // Restore context
-                ctx.restore();
-                
-                // Get image data
-                capturedPhoto = canvas.toDataURL('image/png');
-                
-                // Show preview
-                previewImage.src = capturedPhoto;
-                photoPreview.style.display = 'flex';
-                
-                // Enable download button
-                downloadBtn.disabled = false;
-                
-                // Auto-hide preview after 5 seconds
-                setTimeout(() => {
-                    if (photoPreview.style.display === 'flex') {
-                        photoPreview.style.display = 'none';
-                    }
-                }, 5000);
-            };
-            
-            tattooImg.onerror = function() {
-                alert("Dövme resmi yüklenirken bir hata oluştu. Lütfen tekrar deneyin.");
-            };
-        }
-        
-        // Download photo
-        function downloadPhoto() {
-            if (!capturedPhoto) return;
-            
-            const link = document.createElement('a');
-            link.download = `lama-tattoo-demo-${Date.now()}.png`;
-            link.href = capturedPhoto;
-            link.click();
-        }
-        
-        // Share page
-        function sharePage() {
-            const currentUrl = window.location.href;
-            const pageTitle = 'Lama Tattoo Studio - Dövme AR Deneyimi';
-            
-            if (navigator.share) {
-                navigator.share({
-                    title: pageTitle,
-                    text: 'Dövmenizi yaptırmadan önce bu AR uygulaması ile deneyin!',
-                    url: currentUrl
-                });
-            } else {
-                // Fallback: Copy to clipboard
-                navigator.clipboard.writeText(currentUrl).then(() => {
-                    alert('Link panoya kopyalandı!');
-                });
-            }
-        }
-        
-        // Generate QR code
-        function generateQRCode() {
-            const currentUrl = window.location.href;
-            
-            // Clear previous QR code
-            document.getElementById('qrcode').innerHTML = '';
-            
-            // Generate new QR code
-            new QRCode(document.getElementById('qrcode'), {
-                text: currentUrl,
-                width: 150,
-                height: 150,
-                colorDark: '#000000',
-                colorLight: '#ffffff',
+    }
+
+    /* ── QR ── */
+    function buildQR(){
+        try{
+            new QRCode($('#qrcode'),{
+                text: location.href,
+                width:120, height:120,
+                colorDark:'#1a1a1a', colorLight:'#ffffff',
                 correctLevel: QRCode.CorrectLevel.H
             });
-        }
-        
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', initApp);
-        
-        // Handle page visibility changes
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                // Stop camera when page is hidden
-                if (currentStream) {
-                    currentStream.getTracks().forEach(track => track.stop());
-                }
-            } else {
-                // Restart camera when page is visible again
-                if (!currentStream || currentStream.active === false) {
-                    initCamera();
-                }
-            }
-        });
-        
-        // Add touch event for mobile zoom prevention
-        document.addEventListener('touchmove', function(e) {
-            if (e.scale !== 1) {
-                e.preventDefault();
-            }
-        }, { passive: false });
-    </script>
+        }catch(e){ console.warn('QR code generation failed',e); }
+    }
+
+    /* ── Toast ── */
+    function toast(msg, type){
+        const el = document.createElement('div');
+        el.className = 'toast';
+        el.innerHTML = `<i class="fas fa-${type==='warning'?'exclamation-triangle':'check-circle'}"></i> ${msg}`;
+        toasts.appendChild(el);
+        setTimeout(()=>{
+            el.classList.add('out');
+            setTimeout(()=>el.remove(), 350);
+        }, 2600);
+    }
+
+    /* ── Boot ── */
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
+    else init();
+})();
+</script>
 </body>
 </html>
